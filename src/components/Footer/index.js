@@ -1,9 +1,13 @@
 import React from 'react';
 
+import logo from 'src/assets/logo.png';
+
+import './footer.scss';
+
 const Footer = () => (
   <footer className="footer">
     <img
-      src=""
+      src={logo}
       alt="logo"
       className="logo-footer"
     />

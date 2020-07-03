@@ -1,15 +1,21 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import logo from 'src/assets/logo.png';
 
 import Input from './Input';
-// import ButtonMenu from './ButtonMenu';
+import ButtonMenu from './ButtonMenu';
 import Menu from './Menu';
 
-const Header = () => (
+import './header.scss';
+
+const Header = ({ openMenu, menuBool }) => (
   <header className="header">
-    <Input />
-    <Menu />
+    <div className="header-top">
+      <Input />
+      <Menu />
+      <ButtonMenu openMenu={openMenu} menuBool={menuBool} />
+    </div>
     <img
       src={logo}
       alt="logocalm"
@@ -17,5 +23,10 @@ const Header = () => (
     />
   </header>
 );
+
+Header.propTypes = {
+  openMenu: PropTypes.func.isRequired,
+  menuBool: PropTypes.bool.isRequired,
+};
 
 export default Header;

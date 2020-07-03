@@ -8,7 +8,7 @@ const Input = () => (
       className="search-home"
       placeholder="Rechercher un media"
     />
-    <Search />
+    <Search className="search" />
   </div>
 );
 
