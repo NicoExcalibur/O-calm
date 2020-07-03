@@ -4,7 +4,51 @@
 
   .slide-media {
     width: 90%;
-    margin: auto;
+    margin: 1rem auto;
+    
+    
+    .category {
+      margin-left: 1rem;
+      font-size: 1.5rem;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: row;
+      overflow: scroll;
+      height: 10rem;
+      text-align: center;
+      
+      .media {
+        width: 70%;
+        margin: 1rem;
+
+        .miniature {
+          background-color: grey;
+          width: 8rem;
+          height: 5rem;
+          
+        }
+
+        h3{
+          margin-top: 0.5rem;
+    
+        }
+
+        h4{
+          margin-top: 0.2rem;
+
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width:600px) {
+
+  .slide-media {
+    width: 90%;
+    margin: 1rem auto;
     
     
     .category {
