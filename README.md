@@ -66,17 +66,12 @@ Il peut ajouter/modifier/supprimer un média
 
 ## Technos :
 
-### WORDPRESS: 
-* npm
-* composer
-* plugins en tous genres (acf)
-* post type
-
-### REACT:
-* router
-* redux
-* sass
-* axios
+ | WORDPRESS:| REACT:|
+ |-------------:|----------:|
+| * npm          | * router |
+| * composer     | * redux |
+| * plugins en tous genres (acf) | * sass |
+| * post type | * axios |
 
 ## Cible du projet (qui que ça concerne) :
 
@@ -109,11 +104,11 @@ TOUT LE MONDE en recherche de relaxation et de bien-être intérieur. RENTRER DA
 * pouvoir accéder aux pistes/vidéos écoutées récemment sur la page d’accueil
 
 ## RÔLES : 
-product owner => *Fidia*
-scrum master => *Manon*
-lead dev back => *Vincent*
-lead dev front => *Axel*
-git master => *Nicolas*
+* product owner => *Fidia*
+* scrum master => *Manon*
+* lead dev back => *Vincent*
+* lead dev front => *Axel*
+* git master => *Nicolas*
 
 Lien du Trello : 
 https://trello.com/invite/b/Wrl0LSUB/86fb800c046a4442d53062a495a860bb/ocalm   
