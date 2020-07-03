@@ -68,10 +68,10 @@ Il peut ajouter/modifier/supprimer un média
 
  | WORDPRESS:| REACT:|
  |-------------:|----------:|
-| * npm          | * router |
-| * composer     | * redux |
-| * plugins en tous genres (acf) | * sass |
-| * post type | * axios |
+|  npm          |  router |
+|  composer     |  redux |
+|  plugins en tous genres (acf) |  sass |
+|  post type |  axios |
 
 ## Cible du projet (qui que ça concerne) :
 
