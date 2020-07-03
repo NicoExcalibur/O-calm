@@ -18,6 +18,8 @@ const App = () => {
     <div className="app">
       <Header openMenu={openMenu} menuBool={menuBool} />
       <SlideMedia />
+      <SlideMedia />
+      <SlideMedia />
       <Footer />
     </div>
   );
