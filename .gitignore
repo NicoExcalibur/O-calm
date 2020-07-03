@@ -6,4 +6,5 @@ content/upgrade
 content/uploads
 content/plugins/*
 !content/plugins/ocalm-settings
+!content/plugins/contact-form-7
 content/themes/*
