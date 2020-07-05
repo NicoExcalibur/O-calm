@@ -4,5 +4,6 @@ wp-config.php
 content/languages
 content/upgrade
 content/uploads
-
+content/plugins/*
+!content/plugins/ocalm-settings
 content/themes/*
