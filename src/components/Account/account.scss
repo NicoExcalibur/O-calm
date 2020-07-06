@@ -1,0 +1,93 @@
+@import 'src/styles/vars';
+
+.account {
+  text-align: center;
+
+  .account-title {
+    margin: 2rem auto;
+    font-weight: 500;
+    font-size: 1.5rem;
+  }
+
+  .avatar-editor {
+    width: 20%;
+    margin: auto;
+    
+    .avatar {
+      width: 100%;
+      position: relative;
+      z-index: -5;
+    }
+
+    .edit {
+      position: absolute;
+      left: 0rem;
+      z-index: -1;   
+    }
+  }
+
+  .edit-info {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    margin: auto;
+
+    input {
+      margin: 1rem;
+      padding: 0.5rem;
+      border: $darkBlue 1px solid;
+      border-radius: 20px;
+      
+    }
+
+    .submit {
+      background-color: $hoverColor;
+      border-style: none;
+      padding: 1rem;
+      border-radius: 10em;
+      color: white;
+      font-family: $quicksand;
+      font-size: 1rem;
+      font-weight: bold;
+      box-shadow: 0.1em 0.3em $darkBlue;
+
+      &:active {
+        box-shadow: inset 0.1em 0.3em $darkBlue;
+
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .account {
+    .avatar-editor {
+      position: relative;
+      width: 10%;
+      margin: auto;
+
+      .edit {
+        position: absolute;
+        right: 0rem;
+        top: 0rem;
+      }
+
+      .avatar {
+        width: 100%;
+
+      }
+
+    }
+    
+    .edit-info {
+      width: 20%;
+  
+      input {
+        margin: 1rem;
+        padding: 0.5rem;
+        border: $darkBlue 1px solid;
+        border-radius: 20px;
+      }
+    }
+  }
+}
