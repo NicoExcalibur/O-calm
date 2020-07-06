@@ -5,6 +5,8 @@ import Home from '../Home';
 import Research from '../Research';
 import Favorites from '../Favorites';
 import Account from '../Account';
+import LegalMentions from '../LegalMentions';
+import About from '../About';
 
 const Page = () => (
   <div className="page">
@@ -31,6 +33,18 @@ const Page = () => (
       exact
     >
       <Account />
+    </Route>
+    <Route
+      path="/legal"
+      exact
+    >
+      <LegalMentions />
+    </Route>
+    <Route
+      path="/about"
+      exact
+    >
+      <About />
     </Route>
   </div>
 );

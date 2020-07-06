@@ -35,7 +35,7 @@ const Menu = () => (
     >
       Profil
     </NavLink>
-    <a href="#" className="logout">Se déconnecter</a>
+    <a href="#" className="logout">Déconnexion</a>
   </nav>
 );
 

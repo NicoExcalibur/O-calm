@@ -1,5 +1,6 @@
 import React from 'react';
 import { Menu } from 'react-feather';
+import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 const ButtonMenu = ({ openMenu, menuBool }) => (
@@ -11,11 +12,39 @@ const ButtonMenu = ({ openMenu, menuBool }) => (
     />
     {menuBool && (
       <nav className="menu-burger">
-        <a>Accueil</a>
-        <a>Parcourir</a>
-        <a>Favoris</a>
-        <a>Profil</a>
-        <a>Se déconnecter</a>
+        <NavLink
+          className="nav"
+          to="/"
+          exact
+          activeClassName="nav-active"
+        >
+          Accueil
+        </NavLink>
+        <NavLink
+          className="nav"
+          to="/research"
+          exact
+          activeClassName="nav-active"
+        >
+          Parcourir
+        </NavLink>
+        <NavLink
+          className="nav"
+          to="/favorites"
+          exact
+          activeClassName="nav-active"
+        >
+          Favoris
+        </NavLink>
+        <NavLink
+          className="nav"
+          to="/account"
+          exact
+          activeClassName="nav-active"
+        >
+          Profil
+        </NavLink>
+        <a href="#" className="logout">Déconnexion</a>
       </nav>
     )}
   </div>

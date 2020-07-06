@@ -1,67 +1,66 @@
 @import 'src/styles/vars';
 
-@media screen and (max-width:600px) {
+.slide-media {
+  width: 90%;
+  margin: 1rem auto;
+  
+  
+  .category {
+    margin-left: 3rem;
+    font-size: 1.5rem;
+    color: $mainColor;
+    text-transform: uppercase;
 
-  .slide-media {
-    width: 90%;
-    margin: 1rem auto;
+  }
+
+  .container {
+    display: flex;
+    flex-direction: row;
+    overflow: scroll;
+    height: 10rem;
+    text-align: center;
     
     
-    .category {
-      margin-left: 1rem;
-      font-size: 1.5rem;
-    }
-
-    .container {
-      display: flex;
-      flex-direction: row;
-      overflow: scroll;
-      height: 10rem;
-      text-align: center;
+    .media {
+      width: 70%;
+      margin: 1rem;
+      color: $altColor;
       
-      
-      .media {
-        width: 70%;
-        margin: 1rem;
+      h3 {
+        color: $mainColor;
+        font-weight: bold;
 
-        .miniature {
-          background-color: grey;
-          width: 8rem;
-          height: 5rem;
-          
-        }
+      }
 
-        h3{
-          margin-top: 0.5rem;
-    
-        }
+      .miniature {
+        background-color: grey;
+        width: 8rem;
+        height: 5rem;
+        
+      }
 
-        h4{
-          margin-top: 0.2rem;
+      h3{
+        margin-top: 0.5rem;
+  
+      }
 
-        }
+      h4{
+        margin-top: 0.2rem;
+
       }
     }
   }
 }
 
+
 @media screen and (min-width:600px) {
 
-  .slide-media {
-    width: 90%;
-    margin: 1rem auto;
-    
-    
-    .category {
-      margin-left: 1rem;
-      font-size: 1.5rem;
-    }
-
+  .slide-media {   
     .container {
       display: flex;
       flex-direction: row;
       overflow: scroll;
-      height: 12rem;
+      height: 15%;
       text-align: center;
       overflow-y: hidden;
 
@@ -71,20 +70,8 @@
         text-align: center;
 
         .miniature {
-          background-color: grey;
-          width: 8rem;
-          height: 5rem;
-          margin: auto;
-          
-        }
-
-        h3{
-          margin-top: 0.5rem;
-    
-        }
-
-        h4{
-          margin-top: 0.2rem;
+          width: 12rem;
+          height: 7rem;
 
         }
       }

@@ -1,125 +1,129 @@
 @import 'src/styles/vars';
-
-@media screen and (max-width: 600px) {
   
-  .header {
-    text-align: center;
-    
-    .header-top {
+.header {
+  text-align: center;
+  
+  .header-top {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+
+    .input {
       display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      margin-top: 1rem;
-      margin-bottom: 1rem;
-
-      .input {
-        display: flex;
-        height: 3em;
-        border: 1px solid black;
-        border-radius: 5px;
-        padding-left: 1rem;
-        position: relative;
+      height: 3em;
+      border: 1px solid $hoverColor;
+      border-radius: 5px;
+      padding-left: 1rem;
+      position: relative;
+      width: 75%;
+      margin-left: 1rem;
+      
+      .search-home {
+        border-style: none;
         width: 75%;
-        margin-left: 1rem;
-        
-        .search-home {
-          border-style: none;
-          width: 75%;
-        }
-
-        .search {
-          position: absolute;
-          right: 0.5rem;
-          top: 0.5rem;
-          width: 15%;
-        }
-
       }
 
-      .menu { 
-        display: none;  
+      .search {
+        position: absolute;
+        right: 0.5rem;
+        top: 0.5rem;
+        width: 15%;
+        color: $darkBlue;
+        
       }
 
-      .menu-button {
-        margin: auto;
-        
-        .burger{
-          position: fixed;
-          top: 1rem;
-          right: 0.5rem;
-          z-index: 10;
+    }
+
+    .menu { 
+      display: none;  
+
+    }
+
+
+    .menu-button {
+      margin: auto;
+      
+      .burger{
+        position: fixed;
+        top: 1rem;
+        right: 0.5rem;
+        z-index: 10;
+        color: $darkBlue;
+      }
+
+      .menu-burger{
+        display: flex;
+        flex-direction: column;
+        font-size: 50px;
+        background-color: rgb(214, 235, 234, 0.75);
+        position: fixed;
+        right: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        font-size: 2.5rem;
+        padding-top: 2rem;
+        font-family: $quicksand;
+        color: black;
+
+        .logout {
+          font-size: 1.5rem;
+          margin-top: 7rem;
         }
 
-        .menu-burger{
-          display: flex;
-          flex-direction: column;
-          font-size: 50px;
-          background-color: rgb(0, 0, 0, 0.3);
-          position: fixed;
-          right: 0;
-          top: 0;
-          width: 100%;
-          height: 100%;
-          
-          a{
-            margin-top: 1.5em;
+        a{
+          margin-top: 1.5em;
+
+          &.nav-active {
+            color: $darkBlue;
           }
         }
       }
     }
+  }
 
-    .logo-header {
-      margin: auto;
-      width: 30%;
-    }
-
+  .logo-header {
+    margin: auto;
+    width: 30%;
   }
 }
 
+
 @media screen and (min-width: 600px) {
-  .header {
-    text-align: center;
-    
+  .header {   
     .header-top {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-around;
-      margin-top: 1rem;
-      margin-bottom: 1rem;
-
+      background-color: $backHeader;
       .input {
-        display: flex;
-        height: 3em;
-        border: 1px solid black;
-        border-radius: 5px;
-        padding-left: 1rem;
-        position: relative;
         width: 20%;
-        margin-left: 1rem;
-        
-        .search-home {
-          border-style: none;
-          width: 75%;
-        }
-
-        .search {
-          position: absolute;
-          right: 0.5rem;
-          top: 0.5rem;
-          width: 15%;
-        }
-
+        background-color: white;
+        border: none;
       }
 
       .menu { 
+        display: block;
+        margin: auto;
         
-        a {
-          margin: 2rem;
+        .nav {
+          margin-right: 10%;
           font-size: 1.2rem;
-        } 
+          
+          &:hover {
+            color: $darkBlue;
+          }
+
+          &.nav-active {
+            color: $darkBlue;
+          }
+        }
 
         .logout {
           font-size: 0.8rem;
+
+          &:hover {
+            color: $darkBlue;
+          }
         }
       }
 
