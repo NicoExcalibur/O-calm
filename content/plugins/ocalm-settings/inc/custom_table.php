@@ -4,7 +4,7 @@
 function ocalm_custom_table_install () {
     global $wpdb;
 
-    $favourite = $wpdb->wp_;
+    $favourite = $wpdb->wp_ . "favourite";
 
     $charset_collate = $wpdb->get_charset_collate();
 
