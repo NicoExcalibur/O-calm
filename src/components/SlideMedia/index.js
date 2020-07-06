@@ -14,6 +14,12 @@ const SlideMedia = () => (
       <Media />
       <Media />
       <Media />
+      <Media />
+      <Media />
+      <Media />
+      <Media />
+      <Media />
+      <Media />
     </div>
   </div>
 );

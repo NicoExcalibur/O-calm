@@ -83,7 +83,7 @@
     .header-top {
       display: flex;
       flex-direction: row;
-      justify-content: space-between;
+      justify-content: space-around;
       margin-top: 1rem;
       margin-bottom: 1rem;
 
@@ -94,7 +94,7 @@
         border-radius: 5px;
         padding-left: 1rem;
         position: relative;
-        width: 75%;
+        width: 20%;
         margin-left: 1rem;
         
         .search-home {
@@ -112,9 +112,15 @@
       }
 
       .menu { 
+        
         a {
-          margin: 1rem;
+          margin: 2rem;
+          font-size: 1.2rem;
         } 
+
+        .logout {
+          font-size: 0.8rem;
+        }
       }
 
       .menu-button {
@@ -124,7 +130,7 @@
 
     .logo-header {
       margin: auto;
-      width: 30%;
+      width: 15%;
     }
 
   }

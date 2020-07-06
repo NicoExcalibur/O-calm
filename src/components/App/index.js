@@ -2,8 +2,8 @@
 import React, { useState } from 'react';
 
 import Header from '../Header';
-import SlideMedia from '../SlideMedia';
 import Footer from '../Footer';
+import Page from '../Page';
 import './styles.scss';
 
 // == Composant
@@ -17,9 +17,7 @@ const App = () => {
   return (
     <div className="app">
       <Header openMenu={openMenu} menuBool={menuBool} />
-      <SlideMedia />
-      <SlideMedia />
-      <SlideMedia />
+      <Page />
       <Footer />
     </div>
   );

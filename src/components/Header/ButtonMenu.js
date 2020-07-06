@@ -15,6 +15,7 @@ const ButtonMenu = ({ openMenu, menuBool }) => (
         <a>Parcourir</a>
         <a>Favoris</a>
         <a>Profil</a>
+        <a>Se déconnecter</a>
       </nav>
     )}
   </div>
