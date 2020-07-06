@@ -3,26 +3,32 @@
 .account {
   text-align: center;
 
-  .account-title {
+  .account-name {
     margin: 2rem auto;
     font-weight: 500;
     font-size: 1.5rem;
+
   }
 
   .avatar-editor {
-    width: 20%;
+    text-align: center;
+    width: 50%;
     margin: auto;
     
     .avatar {
-      width: 100%;
       position: relative;
+      width: 50%;
+      border-radius: 50%;
       z-index: -5;
     }
 
     .edit {
+      margin-left: 20%;
+      margin-top: 2%;
       position: absolute;
-      left: 0rem;
-      z-index: -1;   
+      z-index: -1;
+      color: $mainColor;
+
     }
   }
 
@@ -32,8 +38,18 @@
     width: 60%;
     margin: auto;
 
+    .edit-title {
+      margin-top: 1rem;
+      margin-bottom: 1.5rem;
+      font-weight: bold;
+      color: $mainColor;
+    }
+
+    .edit-form {
+
     input {
-      margin: 1rem;
+      margin: auto;
+      margin-top: 1rem;
       padding: 0.5rem;
       border: $darkBlue 1px solid;
       border-radius: 20px;
@@ -41,6 +57,7 @@
     }
 
     .submit {
+      margin-top: 1rem;
       background-color: $hoverColor;
       border-style: none;
       padding: 1rem;
@@ -56,20 +73,44 @@
 
       }
     }
+    }
+
+    .delete {
+      color: $delete;
+      margin-top: 20%;
+      font-weight: bold;
+      text-decoration: underline $delete;
+      font-size: 0.8rem;
+    }
   }
 }
 
 @media screen and (min-width: 600px) {
   .account {
+    margin-top: 5%;
+    display: flex;
+
+    .desktop {
+      width: 50%;
+
+    .account-name {
+      font-size: 3rem;
+      margin-top: -0.5%;
+      margin-left: -0.1rem;
+  
+    }
+    
     .avatar-editor {
       position: relative;
-      width: 10%;
-      margin: auto;
+      width: 20%;
+      margin-top: 10%;
 
       .edit {
+        margin-left: 80%;
+        margin-top: 10%;
         position: absolute;
-        right: 0rem;
-        top: 0rem;
+        color: $mainColor;
+       
       }
 
       .avatar {
@@ -78,15 +119,42 @@
       }
 
     }
+  }
     
     .edit-info {
-      width: 20%;
+      border-left: 2px solid $darkBlue;
+      width: 50%;
   
-      input {
-        margin: 1rem;
-        padding: 0.5rem;
-        border: $darkBlue 1px solid;
-        border-radius: 20px;
+      .edit-form {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+
+        input {
+          margin: auto;
+          margin-top: 1rem;
+          margin-bottom: 1rem;
+          width: 60%;
+          padding: 0.5rem;
+          border: $darkBlue 1px solid;
+          border-radius: 20px;
+
+        }
+
+        .submit {
+          width: 30%;
+          margin: auto;
+
+        }
+      }
+
+      .delete {
+        margin-top: 10%;
+        font-size: 0.8rem;
+        color: $delete;
+        text-decoration: underline $delete;
+        font-weight: bold;
+        
       }
     }
   }
