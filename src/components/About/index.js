@@ -1,5 +1,8 @@
 import React from 'react';
 
+import vincent from 'src/assets/vct.jpg';
+import manon from 'src/assets/mnn.jpg';
+
 import './about.scss';
 
 const About = () => (
@@ -23,7 +26,7 @@ const About = () => (
     <h2 className="about-title">La team du zen</h2>
     <div className="us">
       <div className="id-card">
-        <div className="avatar" />
+        <img src={manon} alt="Manon" className="avatar" />
         <div className="infos">
           <h2 className="name">Manon Gerray</h2>
           <h3 className="role">Scrum master</h3>
@@ -47,7 +50,7 @@ const About = () => (
         </div>
       </div>
       <div className="id-card">
-        <div className="avatar" />
+        <img src={vincent} alt="Vincent" className="avatar" />
         <div className="infos">
           <h2 className="name">Vincent Zepharren</h2>
           <h3 className="role">Lead dev Back</h3>

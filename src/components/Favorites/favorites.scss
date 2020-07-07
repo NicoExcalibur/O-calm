@@ -11,6 +11,16 @@
     
   }
 
+  .counter {
+    font-style: italic;
+
+    .number {
+      color: $mainBlue;
+      font-style: normal;
+
+    }
+  }
+
   .media-container {
     display: flex;
     flex-wrap: wrap;
