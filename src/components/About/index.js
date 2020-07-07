@@ -7,12 +7,16 @@ const About = () => (
     <div className="project">
       <h1 className="about-title">Pourquoi O'Calm ?</h1>
       <p>
-        Les crottes de fromage, bien sqouick sqouick dans yeule, c'est ça le bonheur. Arrête de faire la
+        Les crottes de fromage, bien sqouick sqouick dans yeule, c'est ça le bonheur.
+        Arrête de faire la
         baboune tabaslack, a va fondre la slutch.
-        Il m'a même pas redonné mon ptit change, ya essayé de me crosser le câlice. Sa blonde m'en a sacré
+        Il m'a même pas redonné mon ptit change, ya essayé de me crosser le câlice.
+        Sa blonde m'en a sacré
         toute une au parcheesi, mais elle a été mardeuse.
-        Baptême de crisse de cibole de viande à chien, j'en ai plein mon casse d'être toute décalissé de la
-        vie, avec le windshier de mon char toute déviargé par l'autre esti de cave. Des patates pilées, du
+        Baptême de crisse de cibole de viande à chien, j'en ai plein mon casse d'être
+        toute décalissé de la
+        vie, avec le windshier de mon char toute déviargé par l'autre esti de cave.
+        Des patates pilées, du
         steak haché, du maïs en crème, pis kin toé, du pâté chinois.
       </p>
     </div>
