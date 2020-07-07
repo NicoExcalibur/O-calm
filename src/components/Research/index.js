@@ -7,7 +7,9 @@ import './research.scss';
 const Research = () => (
   <div className="research">
     <div className="input-research">
+      <h2 className="research-title">Vous voulez rechercher par nom?</h2>
       <input type="search" placeholder="Rechercher..." />
+      <h2 className="research-title">Ou vous voulez rechercher par catégorie et durée?</h2>
       <form className="filters">
         <select className="categories">
           <option value="">
@@ -44,12 +46,17 @@ const Research = () => (
     </div>
     <div className="result-container">
       <h2 className="results">
-        22 000 résultats trouvés
+        <em className="number">69</em> résultats trouvés
       </h2>
-      <Media />
-      <Media />
-      <Media />
-      <Media />
+      <div className="medias-results">
+        <Media />
+        <Media />
+        <Media />
+        <Media />
+        <Media />
+        <Media />
+        <Media />
+      </div>
     </div>
   </div>
 );
