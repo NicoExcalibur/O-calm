@@ -26,3 +26,4 @@ register_deactivation_hook(__FILE__, [$video_cpt, 'deactivation']);
 $custom_table = new Custom_table();
 
 register_activation_hook( __FILE__,[$custom_table, 'activation']);
+register_deactivation_hook( __FILE__,[$custom_table, 'deactivation']);
