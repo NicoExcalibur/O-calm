@@ -4,11 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-<<<<<<< HEAD
-    "content-hash": "25ca22affc82ea49baf1fe097915a39a",
-=======
-    "content-hash": "6d9166a278119e0158eb909fd9ad6c11",
->>>>>>> b0fe9082c649512d5e90436a80a92d3e2265d991
+    "content-hash": "7c19d337905acda00518983e6f93677d",
     "packages": [
         {
             "name": "composer/installers",
@@ -286,43 +282,6 @@
             "homepage": "https://wordpress.org/plugins/advanced-custom-fields/"
         },
         {
-            "name": "wpackagist-plugin/akismet",
-            "version": "4.1.6",
-            "source": {
-                "type": "svn",
-                "url": "https://plugins.svn.wordpress.org/akismet/",
-                "reference": "tags/4.1.6"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/akismet.4.1.6.zip"
-            },
-            "require": {
-                "composer/installers": "~1.0"
-            },
-            "type": "wordpress-plugin",
-            "homepage": "https://wordpress.org/plugins/akismet/"
-        },
-        {
-            "name": "wpackagist-plugin/contact-form-7",
-            "version": "5.2",
-            "source": {
-                "type": "svn",
-                "url": "https://plugins.svn.wordpress.org/contact-form-7/",
-                "reference": "tags/5.2"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/contact-form-7.5.2.zip"
-            },
-            "require": {
-                "composer/installers": "~1.0"
-            },
-            "type": "wordpress-plugin",
-            "homepage": "https://wordpress.org/plugins/contact-form-7/"
-        },
-        {
-<<<<<<< HEAD
             "name": "wpackagist-plugin/jwt-authentication-for-wp-rest-api",
             "version": "1.2.6",
             "source": {
@@ -341,8 +300,6 @@
             "homepage": "https://wordpress.org/plugins/jwt-authentication-for-wp-rest-api/"
         },
         {
-=======
->>>>>>> b0fe9082c649512d5e90436a80a92d3e2265d991
             "name": "wpackagist-plugin/query-monitor",
             "version": "3.6.0",
             "source": {
