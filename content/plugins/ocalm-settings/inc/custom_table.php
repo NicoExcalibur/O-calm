@@ -1,18 +1,22 @@
 <?php
 
-// function that create a custom table in the DB 
-function ocalm_custom_table_install () {
-    global $wpdb;
-
-    $favorites = $wpdb->wp_ . "favorites";
-
-    $charset_collate = $wpdb->get_charset_collate();
-
-    $sql = "CREATE TABLE $favorites (
-    id int NOT NULL AUTO_INCREMENT,
-    PRIMARY KEY (id)
-    ) $charset_collate;";
-
-    dbDelta( $sql );    
+if (!defined('WPINC')) {
+    die;
 }
 
+class Custom_table{
+    // function that create a custom table in the DB 
+    function custom_table () {
+        global $wpdb;
+
+        $this->wpdb = $wpdb;
+        $this->table = $wpdb->prefix . 'favorites';
+
+        $sql = "CREATE TABLE {$this->table} (
+        `id` INT NOT NULL AUTO_INCREMENT,
+        PRIMARY KEY (id)
+        );";
+
+        $this->wpdb->query($sql);      
+    }
+}
