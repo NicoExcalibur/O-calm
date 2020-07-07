@@ -79,6 +79,7 @@
 
     .delete {
       color: $delete;
+      margin: auto;
       margin-top: 20%;
       font-weight: bold;
       text-decoration: underline $delete;
@@ -98,8 +99,7 @@
     .account-name {
       font-size: 3rem;
       margin-top: -0.5%;
-      margin-left: -0.1rem;
-  
+      margin-left: -0.1rem;  
     }
     
     .avatar-editor {

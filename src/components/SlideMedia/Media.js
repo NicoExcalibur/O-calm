@@ -1,5 +1,7 @@
 import React from 'react';
 
+import './slideMedia.scss';
+
 const Media = () => (
   <div className="media">
     <div className="miniature" />

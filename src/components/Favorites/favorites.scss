@@ -1,0 +1,77 @@
+@import 'src/styles/vars';
+
+.favorites {
+  text-align: center;
+  
+  h1 {
+    font-weight: bold;
+    margin: 1rem;
+    font-size: 1.5rem;
+    color: $darkBlue;
+    
+  }
+
+  .media-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    
+    .media {
+      margin: 1rem;
+      
+      .miniature {
+        background-color: grey;
+        width: 12rem;
+        height: 8rem;
+        
+      }
+
+      h3 {
+        color: $mainColor;
+        font-weight: bold;
+        margin-top: 0.5rem;
+
+      }
+
+      h4 {
+        color: $altColor;
+        margin-top: 0.2rem;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .favorites {
+  
+    .media-container {
+
+      .media {      
+
+        .miniature {
+          width: 8rem;
+          height: 6rem;
+
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .favorites {
+  
+    .media-container {
+
+      .media {      
+        text-align: center;
+        
+        .miniature {
+          width: 16rem;
+          height: 10rem;
+
+        }
+      }
+    }
+  }
+}
