@@ -1,0 +1,1 @@
+/var/www/html/o-calm/content/plugins/query-monitor/wp-content/db.php

@@ -37,7 +37,7 @@ class Video_cpt
         'labels' => $labels,
         'public' => true,
         'hierarchical' => false,
-        'show_in_rest' => false,
+        'show_in_rest' => true,
         'menu_position' => 4,
         'menu_icon' => 'dashicons-video-alt3',
         'supports' => [
@@ -128,6 +128,40 @@ class Video_cpt
         ];
 
         register_taxonomy('auteur', 'video', $args);
+
+        $labels = [
+          'name'                       => 'Durées',
+          'singular_name'              => 'Durée',
+          'menu_name'                  => 'Durées',
+          'all_items'                  => 'Tous les durées',
+          'new_item_name'              => 'Nouvelle durée',
+          'add_new_item'               => 'Ajouter une durée',
+          'update_item'                => 'Mettre à jour une durée',
+          'edit_item'                  => 'Editer une durée',
+          'view_item'                  => 'Voir toutes les durées',
+          'separate_items_with_commas' => 'Séparer les durées avec une virgule',
+          'add_or_remove_items'        => 'Ajouter ou supprimer une durée',
+          'choose_from_most_used'      => 'Choisir parmis les durées les plus utilisés',
+          'popular_items'              => 'Durées populaires',
+          'search_items'               => 'Rechercher une durée',
+          'not_found'                  => 'Aucune durée trouvée',
+          'items_list'                 => 'Lister les durées',
+          'items_list_navigation'      => 'Lister les durées',
+      ];
+
+      $args = [
+          'labels'            => $labels,
+          'hierarchical'      => false,
+          'public'            => true,
+          // 'capabilities'      => [
+          //     'manage_terms'  => 'edit_videos',
+          //     'edit_terms'    => 'edit_videos',
+          //     'delete_terms'  => 'delete_videos',
+          //     'assign_terms'  => 'edit_videos',
+          // ]
+      ];
+
+      register_taxonomy('duree', 'video', $args);
     }
 
     public function activation()
