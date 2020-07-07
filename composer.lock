@@ -4,7 +4,11 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
+<<<<<<< HEAD
     "content-hash": "25ca22affc82ea49baf1fe097915a39a",
+=======
+    "content-hash": "7c19d337905acda00518983e6f93677d",
+>>>>>>> 9b1e21afa0692c16275335bcc6d95ce1a39876f1
     "packages": [
         {
             "name": "composer/installers",
@@ -282,6 +286,7 @@
             "homepage": "https://wordpress.org/plugins/advanced-custom-fields/"
         },
         {
+<<<<<<< HEAD
             "name": "wpackagist-plugin/akismet",
             "version": "4.1.6",
             "source": {
@@ -318,6 +323,8 @@
             "homepage": "https://wordpress.org/plugins/contact-form-7/"
         },
         {
+=======
+>>>>>>> 9b1e21afa0692c16275335bcc6d95ce1a39876f1
             "name": "wpackagist-plugin/jwt-authentication-for-wp-rest-api",
             "version": "1.2.6",
             "source": {

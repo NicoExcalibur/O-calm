@@ -132,9 +132,11 @@ if (defined('ENVIRONMENT')) { // Je vérifie que la constante ENVIRONMENT existe
 define('DISALLOW_FILE_EDIT', true); // Désactivation de l'éditeur embarqué de thèmes et plugins
 define('AUTOMATIC_UPDATER_DISABLED', true); // Désactivation des mises à jour automatiques de WordPress
 define('WP_AUTO_UPDATE_CORE', false); // Désactivation des mises à jour du cœur de WordPress
+
 // JWT Res API
 define('JWT_AUTH_SECRET_KEY', 'put_unique_key_here');
 define('JWT_AUTH_CORS_ENABLE', true);
+
 /* That's all, stop editing! Happy publishing. */
 
 /** Absolute path to the WordPress directory. */
