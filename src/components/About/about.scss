@@ -1,0 +1,101 @@
+@import 'src/styles/vars';
+
+.about {
+    text-align: center;
+
+  .about-title {
+    font-size: 1.2rem;
+    color: $darkBlue;
+    margin: 1rem auto;
+    font-weight: bold;
+  }
+
+  .project {
+    width: 60%;
+    margin: auto;
+
+    p {
+      margin-bottom: 1rem;
+    }
+  }
+
+  .us {
+    width: 100%;
+    margin: auto;
+    text-align: right;
+     
+    .id-card {
+      display: flex;
+      justify-content: space-evenly;
+         
+      .avatar {
+        width: 5rem;
+        height: 5rem;
+        border-radius: 50%;
+        background-color: $backHeader;
+        margin: 1rem;
+     
+      }
+
+      .infos {
+        margin-top: 5%;        
+
+        .name {
+          color: $darkBlue;
+          font-weight: bold;
+          
+        }
+
+        .role {
+          color: $mainColor;
+
+        }
+
+        .spe {
+          color: $altColor;
+          font-style: italic;
+        }
+
+        .description {
+          font-size: 0.8rem;
+          
+
+        }
+    }
+  }
+  }
+}
+
+@media screen and (min-width: 600px) {
+
+ .about {
+
+  .us {
+    width: 100%;
+    margin: auto;
+    text-align: left;
+    display: flex;
+    justify-content: space-evenly;
+     
+    .id-card {
+      display: flex;
+      flex-direction: column;
+      margin: auto;
+         
+      .avatar {
+        width: 10rem;
+        height: 10rem;
+        border-radius: 50%;
+        margin: 1rem;
+     
+      }
+
+      .infos {
+        margin: auto;
+        text-align: center;
+
+    }
+  }
+  }
+}
+}
