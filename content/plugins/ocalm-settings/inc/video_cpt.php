@@ -37,7 +37,7 @@ class Video_cpt
         'labels' => $labels,
         'public' => true,
         'hierarchical' => false,
-        'show_in_rest' => transliterator_create_from_rules,
+        'show_in_rest' => true,
         'menu_position' => 4,
         'menu_icon' => 'dashicons-video-alt3',
         'supports' => [
