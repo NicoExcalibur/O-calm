@@ -7,8 +7,7 @@ import Footer from '../Footer';
 import Page from '../Page';
 // import Login from '../Login';
 import './styles.scss';
-// http://ec2-100-25-192-123.compute-1.amazonaws.com/o-calm/wp-json/wp/v2/video
-// url for videos
+
 const App = ({ fetchVideos }) => {
   useEffect(() => {
     fetchVideos();

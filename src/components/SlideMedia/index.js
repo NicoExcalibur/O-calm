@@ -1,27 +1,27 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import Media from './Media';
 
 import './slideMedia.scss';
 
-const SlideMedia = () => (
+const SlideMedia = ({ videos }) => (
   <div className="slide-media">
     <h1 className="category">Catégorie</h1>
     <div className="container">
-      <Media />
-      <Media />
-      <Media />
-      <Media />
-      <Media />
-      <Media />
-      <Media />
-      <Media />
-      <Media />
-      <Media />
-      <Media />
-      <Media />
+      {videos.map((video) => (
+        <Media key={video.id} {...video} />
+      ))}
     </div>
   </div>
 );
+
+SlideMedia.propTypes = {
+  videos: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+    }).isRequired,
+  ).isRequired,
+};
 
 export default SlideMedia;
