@@ -5,6 +5,9 @@ import './slideMedia.scss';
 
 const Media = ({ video }) => (
   <div className="media">
+    {/* eslint-disable-next-line prefer-template */}
+    {console.log(video)}
+    {console.log(video.title)}
     <div className="miniature">
       {video.content}
     </div>
@@ -14,23 +17,17 @@ const Media = ({ video }) => (
 );
 
 Media.propTypes = {
-  video: PropTypes.objectOf(
+  video: PropTypes.arrayOf(
     PropTypes.shape({
-      title: PropTypes.objectOf(
-        PropTypes.shape({
-          rendered: PropTypes.string.isRequired,
-        }).isRequired,
-      ).isRequired,
-      content: PropTypes.objectOf(
-        PropTypes.shape({
-          rendered: PropTypes.string.isRequired,
-        }).isRequired,
-      ).isRequired,
-      excerpt: PropTypes.objectOf(
-        PropTypes.shape({
-          rendered: PropTypes.string.isRequired,
-        }).isRequired,
-      ).isRequired,
+      title: PropTypes.shape({
+        rendered: PropTypes.string.isRequired,
+      }),
+      content: PropTypes.shape({
+        rendered: PropTypes.string.isRequired,
+      }),
+      excerpt: PropTypes.shape({
+        rendered: PropTypes.string.isRequired,
+      }),
     }).isRequired,
   ).isRequired,
 };

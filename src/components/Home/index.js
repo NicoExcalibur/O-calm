@@ -1,12 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import SlideMedia from '../SlideMedia';
+import SlideMedia from 'src/containers/SlideMedia';
 
 const Home = ({ videos }) => (
   <div className="home">
-    {console.log(videos)}
-    <SlideMedia key={videos.id} {...videos} />
+    {/* eslint-disable-next-line prefer-template */}
+    {console.log('consolelog de ' + videos.type + ' dans Home')}
+    <SlideMedia key={videos.id} videos={videos} />
   </div>
 );
 
