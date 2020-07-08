@@ -7,7 +7,7 @@ const Login = () => (
   <div className="login">
     <img className="logo" src={logo} alt="Logo O'Calm" />
     <div className="right-login">
-    <h1>Connectez vous pour entrer dans le zen</h1>
+      <h1>Connectez vous pour entrer dans le zen</h1>
       <form>
         <input type="mail" className="input-login" placeholder="E-mail" />
         <input type="password" className="input-login" placeholder="Mot de passe" />

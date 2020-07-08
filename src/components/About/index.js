@@ -4,6 +4,8 @@ import vincent from 'src/assets/vct.jpg';
 import manon from 'src/assets/mnn.jpg';
 import axel from 'src/assets/axl.jpg';
 import nico from 'src/assets/ncl.jpg';
+import fidia from 'src/assets/fid.jpg';
+import headphone from 'src/assets/headphone.png';
 
 import './about.scss';
 
@@ -28,7 +30,10 @@ const About = () => (
     <h2 className="about-title">La team du zen</h2>
     <div className="us">
       <div className="id-card">
-        <img src={manon} alt="Manon" className="avatar" />
+        <div className="picture">
+          <img src={headphone} alt="headphones" className="headphones" />
+          <img src={manon} alt="Manon" className="avatar" />
+        </div>
         <div className="infos">
           <h2 className="name">Manon Gerray</h2>
           <h3 className="role">Scrum master</h3>
@@ -36,7 +41,10 @@ const About = () => (
         </div>
       </div>
       <div className="id-card">
-        <img src={axel} alt="Axel" className="avatar" />
+        <div className="picture">
+          <img src={headphone} alt="headphones" className="headphones" />
+          <img src={axel} alt="Axel" className="avatar" />
+        </div>
         <div className="infos">
           <h2 className="name">Axel Cannit</h2>
           <h3 className="role">Lead dev Front</h3>
@@ -44,7 +52,10 @@ const About = () => (
         </div>
       </div>
       <div className="id-card">
-        <div className="avatar" />
+        <div className="picture">
+          <img src={headphone} alt="headphones" className="headphones" />
+          <img src={fidia} alt="Fidia" className="avatar" />
+        </div>
         <div className="infos">
           <h2 className="name">Fidia El Bouanani</h2>
           <h3 className="role">Product Owner</h3>
@@ -52,7 +63,10 @@ const About = () => (
         </div>
       </div>
       <div className="id-card">
-        <img src={vincent} alt="Vincent" className="avatar" />
+        <div className="picture">
+          <img src={headphone} alt="headphones" className="headphones" />
+          <img src={vincent} alt="Vincent" className="avatar" />
+        </div>
         <div className="infos">
           <h2 className="name">Vincent Zepharren</h2>
           <h3 className="role">Lead dev Back</h3>
@@ -60,7 +74,10 @@ const About = () => (
         </div>
       </div>
       <div className="id-card">
-        <img src={nico} alt="Nicolas" className="avatar" />
+        <div className="picture">
+          <img src={headphone} alt="headphones" className="headphones" />
+          <img src={nico} alt="Nicolas" className="avatar" />
+        </div>
         <div className="infos">
           <h2 className="name">Nicolas Delisle</h2>
           <h3 className="role">Git master</h3>

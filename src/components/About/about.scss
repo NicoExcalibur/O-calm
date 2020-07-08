@@ -22,23 +22,40 @@
   .us {
     width: 100%;
     margin: auto;
-    text-align: right;
+    text-align: left;
      
     .id-card {
       display: flex;
       justify-content: space-evenly;
-         
-      .avatar {
+      margin: 1rem;
+
+      .picture {
         width: 5rem;
         height: 5rem;
-        border-radius: 50%;
-        background-color: $backHeader;
-        margin: 1rem;
-     
+        margin: auto;
+        
+
+        .headphones {
+          width: 8rem;
+          height: 8rem;
+          position: absolute;
+          z-index: -5;
+          margin-left: -0.5rem;
+
+        }
+
+        .avatar {
+          width: 100%;
+          border-radius: 50%;
+          background-color: $backHeader;
+          margin: 1rem;
+       
+        }
       }
 
       .infos {
-        margin-top: 5%;        
+        margin-top: 5%;
+        width: 40%;       
 
         .name {
           color: $darkBlue;
@@ -73,7 +90,7 @@
   .us {
     width: 100%;
     margin: auto;
-    text-align: left;
+    text-align: center;
     display: flex;
     justify-content: space-evenly;
      
@@ -81,18 +98,33 @@
       display: flex;
       flex-direction: column;
       margin: auto;
+      text-align: center;
          
-      .avatar {
-        width: 10rem;
-        height: 10rem;
-        border-radius: 50%;
-        margin: 1rem;
-     
+      .picture {
+        .headphones{
+          width: 15rem;
+          height: 15rem;
+          margin-left: -5rem;
+          margin-top: -0.6rem;
+          position: absolute;
+          z-index: 1;
+
+        }
+
+        .avatar {
+          width: 10rem;
+          height: 10rem;
+          border-radius: 50%;
+          margin-left: -2.5rem;
+
+        }
       }
+      
 
       .infos {
-        margin: auto;
-        text-align: center;
+        width: 100%;
+        margin: 7rem auto;
+        
 
     }
   }

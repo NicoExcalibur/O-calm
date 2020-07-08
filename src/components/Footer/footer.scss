@@ -10,11 +10,25 @@
     width: 10%;
   }
 
-  .links{
-    
+  .links {
+
     a{
       margin: 0.5rem;
       font-size: 0.5rem;
+    }
+
+    .legal-mentions {
+      
+      &.footer-active {
+        color: $darkBlue;
+      }      
+      
+    }
+
+    .about {
+      &.footer-active {
+        color: $darkBlue;
+      }
     }
   }
 }
@@ -31,10 +45,6 @@
       .legal-mentions {
         margin-left: -2.5em;
         font-size: 0.8rem;
-
-        &.footer-active {
-          color: $darkBlue;
-        }
 
         &:hover {
           color: $darkBlue;

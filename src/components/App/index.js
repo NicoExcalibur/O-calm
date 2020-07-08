@@ -1,5 +1,6 @@
 // == Import npm
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 
 import Header from '../Header';
 import Footer from '../Footer';
@@ -8,7 +9,11 @@ import Page from '../Page';
 import './styles.scss';
 // http://ec2-100-25-192-123.compute-1.amazonaws.com/o-calm/wp-json/wp/v2/video
 // url for videos
-const App = () => {
+const App = ({ fetchVideos }) => {
+  useEffect(() => {
+    fetchVideos();
+  }, []);
+
   const [menuBool, setMenuBool] = useState(false);
 
   const openMenu = () => {
@@ -23,6 +28,10 @@ const App = () => {
       <Footer />
     </div>
   );
+};
+
+App.propTypes = {
+  fetchVideos: PropTypes.func.isRequired,
 };
 
 // == Export
