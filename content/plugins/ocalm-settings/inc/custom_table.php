@@ -42,7 +42,7 @@ class Custom_table
         $this->wpdb->query($sql);
     }
 
-
+    // callbacks
     public function activation()
     {
         $this->custom_table();
