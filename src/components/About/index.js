@@ -2,6 +2,8 @@ import React from 'react';
 
 import vincent from 'src/assets/vct.jpg';
 import manon from 'src/assets/mnn.jpg';
+import axel from 'src/assets/axl.jpg';
+import nico from 'src/assets/ncl.jpg';
 
 import './about.scss';
 
@@ -34,7 +36,7 @@ const About = () => (
         </div>
       </div>
       <div className="id-card">
-        <div className="avatar" />
+        <img src={axel} alt="Axel" className="avatar" />
         <div className="infos">
           <h2 className="name">Axel Cannit</h2>
           <h3 className="role">Lead dev Front</h3>
@@ -58,7 +60,7 @@ const About = () => (
         </div>
       </div>
       <div className="id-card">
-        <div className="avatar" />
+        <img src={nico} alt="Nicolas" className="avatar" />
         <div className="infos">
           <h2 className="name">Nicolas Delisle</h2>
           <h3 className="role">Git master</h3>

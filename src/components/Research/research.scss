@@ -38,7 +38,9 @@
         }
 
         .submit-filters {
-            background-color: $backHeader;
+            background-color: $hoverColor;
+            font-weight: bold;
+            color: white;
             padding: 0.3rem;
             width: 50%;
             margin-left: 25%;
@@ -70,7 +72,6 @@
           color: $mainBlue;
           
         }
-        
       }
       .medias-results {
         width: 100%;
@@ -156,25 +157,6 @@
         .filters {
             width: 50%;
             margin: auto;
-            
-          
-    
-            .submit-filters {
-                background-color: $backHeader;
-                padding: 0.3rem;
-                width: 50%;
-                margin-left: 25%;
-                border-style: none;
-                margin-bottom: 10%;
-                border-radius: 5rem;
-                font-family: $quicksand;
-                box-shadow: 0.1em 0.3em $darkBlue;
-    
-                  &:active {
-                  box-shadow: inset 0.1em 0.3em $darkBlue;
-    
-                }
-            }
     
         }
       }
@@ -230,8 +212,35 @@
     }
 }
 
+@media screen and (min-width: 600px) {
+  .research {
+    .input-research {
+      .filters {
+          width: 60%;
+          .submit-filters {
+            width: 70%;
+            margin: auto;
+          }
+      }       
+    }
+  }
+}
+
 @media screen and (min-width: 1000px) {
   .research {
+    .input-research {
+      input {
+        width: 40%;
+      }
+      .filters {
+          width: 40%;
+  
+          .submit-filters {
+            width: 70%;
+            margin: auto;
+          }
+      }       
+    }
     .result-container{
       .medias-results {
         .media{
@@ -260,6 +269,14 @@
 
 @media screen and (min-width: 1600px) {
   .research {
+    .input-research {
+      .filters {
+          .submit-filters {
+            width: 50%;
+            margin: auto;
+          }
+      }       
+    }
     .result-container{
       .medias-results {
         .media{
