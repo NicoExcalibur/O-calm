@@ -42,7 +42,7 @@ class Video_cpt
         'menu_icon' => 'dashicons-video-alt3',
         'supports' => [
           'title',
-          'catégorie',
+          'categories',
           'editor',
           'excerpt',
           'thumbnail',
@@ -85,6 +85,7 @@ class Video_cpt
             'labels'        => $labels,
             'hierarchical'  => true,
             'public'        => true,
+            'show_in_rest'  => true,
           //   'capabilities'      => [
           //     'manage_terms'  => 'edit_videos',
           //     'edit_terms'    => 'edit_videos',
@@ -119,6 +120,7 @@ class Video_cpt
             'labels'            => $labels,
             'hierarchical'      => false,
             'public'            => true,
+            'show_in_rest'  => true,
             // 'capabilities'      => [
             //     'manage_terms'  => 'edit_videos',
             //     'edit_terms'    => 'edit_videos',
@@ -153,6 +155,7 @@ class Video_cpt
           'labels'            => $labels,
           'hierarchical'      => false,
           'public'            => true,
+          'show_in_rest'  => true,
           // 'capabilities'      => [
           //     'manage_terms'  => 'edit_videos',
           //     'edit_terms'    => 'edit_videos',
