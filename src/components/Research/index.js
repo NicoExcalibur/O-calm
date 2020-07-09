@@ -1,10 +1,11 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import Media from '../SlideMedia/Media';
 
 import './research.scss';
 
-const Research = () => (
+const Research = ({ videos }) => (
   <div className="research">
     <div className="input-research">
       <h2 className="research-title">Vous voulez rechercher par nom?</h2>
@@ -49,16 +50,20 @@ const Research = () => (
         <em className="number">69</em> résultats trouvés
       </h2>
       <div className="medias-results">
-        <Media />
-        <Media />
-        <Media />
-        <Media />
-        <Media />
-        <Media />
-        <Media />
+        {videos.map((video) => (
+          <Media key={video.id} video={video} />
+        ))}
       </div>
     </div>
   </div>
 );
+
+Research.propTypes = {
+  videos: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.object.isRequired,
+    }).isRequired,
+  ).isRequired,
+};
 
 export default Research;

@@ -78,15 +78,11 @@
 
         .media {
           text-align: center;
-          width: 90%;
+          width: 200px;
           margin: auto;
         
-        .miniature {
-          margin: auto;
-          background-color: grey;
-          width: 90%;
-          height: 9em; 
-                          
+        .react-player {
+
         }
 
         h3 {
@@ -185,15 +181,7 @@
 
             .media {
               text-align: center;
-              width: 50%;
-
-            
-            .miniature {
-              margin: auto;
-              background-color: grey;
-              width: 90%;
-              height: 8rem;     
-            }
+              width: 200px;
     
             h3 {
               color: $mainColor;
