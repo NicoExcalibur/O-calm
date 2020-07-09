@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import Media from 'src/components/SlideMedia/Media';
 import './favorites.scss';
@@ -15,4 +16,7 @@ const Favorites = ({ videos }) => (
   </div>
 );
 
+Favorites.propTypes = {
+  videos: PropTypes.array.isRequired,
+};
 export default Favorites;

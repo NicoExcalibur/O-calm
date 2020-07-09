@@ -1,7 +1,8 @@
-import { SAVE_VIDEOS } from 'src/actions/videos';
+import { SAVE_VIDEOS, SAVE_SEARCH } from 'src/actions/videos';
 
 const initialState = {
   videos: [],
+  searchValue: '',
 };
 
 const videos = (state = initialState, action = {}) => {
@@ -11,6 +12,13 @@ const videos = (state = initialState, action = {}) => {
         ...state,
         videos: action.videos,
       };
+
+    case SAVE_SEARCH:
+      return {
+        ...state,
+        searchValue: action.value,
+      };
+
     default: return state;
   }
 };

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import logo from 'src/assets/logo.png';
 
-import Input from './Input';
+import Input from 'src/containers/Header/Input';
 import ButtonMenu from './ButtonMenu';
 import Menu from './Menu';
 
