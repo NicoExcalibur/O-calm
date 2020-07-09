@@ -5,6 +5,7 @@ import SlideMedia from 'src/containers/SlideMedia';
 
 const Home = ({ videos }) => (
   <div className="home">
+    {console.log(videos)}
     <SlideMedia {...videos} />
   </div>
 );

@@ -5,6 +5,7 @@ import { saveSearch } from 'src/actions/videos';
 
 const mapStateToProps = (state) => ({
   searchValue: state.videos.searchValue,
+  videos: state.videos.videos,
 });
 
 const mapDispatchToProps = (dispatch) => ({

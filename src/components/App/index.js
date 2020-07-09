@@ -8,9 +8,18 @@ import Page from '../Page';
 // import Login from '../Login';
 import './styles.scss';
 
-const App = ({ fetchVideos }) => {
+const App = ({
+  fetchVideos,
+  fetchCategories,
+  fetchAuthors,
+  fetchDurations,
+}) => {
   useEffect(() => {
     fetchVideos();
+    fetchVideos();
+    fetchCategories();
+    fetchAuthors();
+    fetchDurations();
   }, []);
 
   const [menuBool, setMenuBool] = useState(false);
@@ -31,6 +40,9 @@ const App = ({ fetchVideos }) => {
 
 App.propTypes = {
   fetchVideos: PropTypes.func.isRequired,
+  fetchCategories: PropTypes.func.isRequired,
+  fetchAuthors: PropTypes.func.isRequired,
+  fetchDurations: PropTypes.func.isRequired,
 };
 
 // == Export

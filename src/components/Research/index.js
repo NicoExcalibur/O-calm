@@ -5,7 +5,7 @@ import Media from '../SlideMedia/Media';
 
 import './research.scss';
 
-const Research = ({ videos }) => (
+const Research = ({ videos, categories, durations, authors }) => (
   <div className="research">
     <div className="input-research">
       <h2 className="research-title">Vous voulez rechercher par nom?</h2>
@@ -16,29 +16,32 @@ const Research = ({ videos }) => (
           <option value="">
             Choisissez une catégorie
           </option>
-          <option value="meditation">
-            Méditation
-          </option>
-          <option value="yoga">
-            Yoga
-          </option>
-          <option value="nature-sounds">
-            Sons de la nature
-          </option>
+          {categories.map((category) => (
+            <option value={category.id}>
+              {category.name}
+            </option>
+          ))}
         </select>
+        {console.log(durations)}
         <select className="duration">
           <option value="">
             Choisissez la durée de votre séance
           </option>
-          <option value="short">
-            Courte
+          {durations.map((duration) => (
+            <option value={duration.id}>
+              {duration.name}
+            </option>
+          ))}
+        </select>
+        <select className="author">
+          <option value="">
+            Choisissez l'auteur de votre choix
           </option>
-          <option value="medium">
-            Moyenne
-          </option>
-          <option value="long">
-            Longue
-          </option>
+          {authors.map((author) => (
+            <option value={author.id}>
+              {author.name}
+            </option>
+          ))}
         </select>
         <button type="submit" className="submit-filters">
           Filtrer ma recherche
@@ -62,6 +65,24 @@ Research.propTypes = {
   videos: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number.isRequired,
+    }).isRequired,
+  ).isRequired,
+  authors: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      name: PropTypes.string.isRequired,
+    }).isRequired,
+  ).isRequired,
+  categories: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      name: PropTypes.string.isRequired,
+    }).isRequired,
+  ).isRequired,
+  durations: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      name: PropTypes.string.isRequired,
     }).isRequired,
   ).isRequired,
 };
