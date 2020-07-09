@@ -61,7 +61,7 @@ const Research = ({ videos }) => (
 Research.propTypes = {
   videos: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.object.isRequired,
+      id: PropTypes.number.isRequired,
     }).isRequired,
   ).isRequired,
 };

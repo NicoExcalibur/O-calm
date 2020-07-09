@@ -6,9 +6,6 @@ import './slideMedia.scss';
 
 const Media = ({ video }) => (
   <div className="media">
-    {/* eslint-disable-next-line prefer-template */}
-    {console.log(video)}
-    {console.log(video.title.rendered)}
     <ReactPlayer
       className="react-player"
       url={video.content.rendered}
@@ -22,13 +19,13 @@ const Media = ({ video }) => (
 Media.propTypes = {
   video: PropTypes.shape({
     title: PropTypes.shape({
-      rendered: PropTypes.object.isRequired,
+      rendered: PropTypes.string.isRequired,
     }),
     content: PropTypes.shape({
-      rendered: PropTypes.object.isRequired,
+      rendered: PropTypes.string.isRequired,
     }),
     excerpt: PropTypes.shape({
-      rendered: PropTypes.object.isRequired,
+      rendered: PropTypes.string.isRequired,
     }),
   }).isRequired,
 };

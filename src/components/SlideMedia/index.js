@@ -7,8 +7,6 @@ import './slideMedia.scss';
 
 const SlideMedia = ({ videos }) => (
   <div className="slide-media">
-    {/* eslint-disable-next-line prefer-template */}
-    {console.log(videos)}
     <h1 className="category">Catégorie</h1>
     <div className="container">
       {videos.map((video) => (
@@ -21,7 +19,7 @@ const SlideMedia = ({ videos }) => (
 SlideMedia.propTypes = {
   videos: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.object.isRequired,
+      id: PropTypes.number.isRequired,
     }).isRequired,
   ).isRequired,
 };
