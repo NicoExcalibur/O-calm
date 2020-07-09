@@ -124,6 +124,9 @@ class Video_cpt
             'hierarchical'      => false,
             'public'            => true,
             'show_in_rest'  => true,
+            'rewrite' => array( 'slug' => 'video_auteur' ),
+            'rest_base'          => 'video_auteur',
+            'rest_controller_class' => 'WP_REST_Terms_Controller',
             // 'capabilities'      => [
             //     'manage_terms'  => 'edit_videos',
             //     'edit_terms'    => 'edit_videos',
@@ -159,6 +162,9 @@ class Video_cpt
           'hierarchical'      => false,
           'public'            => true,
           'show_in_rest'  => true,
+          'rewrite' => array( 'slug' => 'video_duree' ),
+          'rest_base'          => 'video_duree',
+          'rest_controller_class' => 'WP_REST_Terms_Controller',
           // 'capabilities'      => [
           //     'manage_terms'  => 'edit_videos',
           //     'edit_terms'    => 'edit_videos',
