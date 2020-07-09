@@ -27,3 +27,7 @@ $custom_table = new Custom_table();
 
 register_activation_hook( __FILE__,[$custom_table, 'activation']);
 register_deactivation_hook( __FILE__,[$custom_table, 'deactivation']); 
+
+// Api rest
+
+$calm_rest_api = new OcalmRestApi();
