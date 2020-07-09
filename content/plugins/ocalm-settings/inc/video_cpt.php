@@ -86,6 +86,9 @@ class Video_cpt
             'hierarchical'  => true,
             'public'        => true,
             'show_in_rest'  => true,
+            'rewrite' => array( 'slug' => 'video_categorie' ),
+            'rest_base'          => 'video_categorie',
+            'rest_controller_class' => 'WP_REST_Terms_Controller',
           //   'capabilities'      => [
           //     'manage_terms'  => 'edit_videos',
           //     'edit_terms'    => 'edit_videos',
