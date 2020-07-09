@@ -22,7 +22,6 @@ const Research = ({ videos, categories, durations, authors }) => (
             </option>
           ))}
         </select>
-        {console.log(durations)}
         <select className="duration">
           <option value="">
             Choisissez la durée de votre séance

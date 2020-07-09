@@ -9,7 +9,7 @@ import Menu from './Menu';
 
 import './header.scss';
 
-const Header = ({ openMenu, menuBool, videos }) => (
+const Header = ({ openMenu, menuBool }) => (
   <header className="header">
     <div className="header-top">
       <Input />

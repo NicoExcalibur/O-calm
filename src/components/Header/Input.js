@@ -9,8 +9,7 @@ const Input = ({ searchValue, saveSearch, videos }) => (
     className="input"
     onSubmit={(event) => {
       event.preventDefault();
-      console.log(videos.id);
-      console.log(setSearch(searchValue, videos.title.rendered));
+      console.log(setSearch(searchValue, videos));
     }}
   >
     <input
@@ -20,6 +19,7 @@ const Input = ({ searchValue, saveSearch, videos }) => (
       value={searchValue}
       onChange={(event) => {
         saveSearch(event.currentTarget.value);
+        console.log(videos.video);
       }}
     />
     <Search className="search" />
@@ -31,10 +31,13 @@ Input.propTypes = {
   saveSearch: PropTypes.func.isRequired,
   videos: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.number.isRequired,
-      title: PropTypes.shape({
-        rendered: PropTypes.string.isRequired,
-      }).isRequired,
+      video: PropTypes.arrayOf(
+        PropTypes.shape({
+          title: PropTypes.shape({
+            rendered: PropTypes.string.isRequired,
+          }).isRequired,
+        }).isRequired,
+      ).isRequired,
     }).isRequired,
   ).isRequired,
 };
