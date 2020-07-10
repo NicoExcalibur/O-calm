@@ -11,6 +11,7 @@ if (!defined('WPINC')) {die();}
 
 // Inclusion des différentes classes necessaire au plugin
 require plugin_dir_path(__FILE__) . 'inc/video_cpt.php';
+require plugin_dir_path(__FILE__) . 'inc/add_favorite.php';
 require plugin_dir_path(__FILE__) . 'inc/custom_table.php';
 require plugin_dir_path(__FILE__) . 'inc/roles.php';
 require plugin_dir_path(__FILE__) . 'inc/rest_api.php';
@@ -39,4 +40,10 @@ $ocalm_role = new Ocalm_role();
 
 register_activation_hook(__FILE__, [$ocalm_role, 'activation']);
 register_deactivation_hook(__FILE__, [$ocalm_role, 'deactivation']);
+
+// Favorites
+$add_favorite = new Add_favorite();
+
+register_activation_hook(__FILE__, [$add_favorite, 'activation']);
+register_deactivation_hook(__FILE__, [$add_favorite, 'deactivation']);
 
