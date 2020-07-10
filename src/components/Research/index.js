@@ -1,17 +1,52 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Search } from 'react-feather';
 
+import { returnResults, setSearch } from 'src/utils';
 import Media from '../SlideMedia/Media';
 
 import './research.scss';
 
-const Research = ({ videos, categories, durations, authors }) => (
+const Research = ({
+  categories,
+  durations,
+  authors,
+  compare,
+  searchValue,
+  saveSearch,
+  videos,
+  saveCompare,
+}) => (
   <div className="research">
     <div className="input-research">
       <h2 className="research-title">Vous voulez rechercher par nom?</h2>
-      <input type="search" placeholder="Rechercher..." />
-      <h2 className="research-title">Ou vous voulez rechercher par catégorie et durée?</h2>
-      <form className="filters">
+      <form
+        className="input"
+        onSubmit={(event) => {
+          event.preventDefault();
+          saveCompare(setSearch(searchValue, videos));
+        }}
+      >
+        <input
+          type="search"
+          className="search-home"
+          placeholder="Rechercher un media"
+          value={searchValue}
+          onChange={(event) => {
+            saveSearch(event.currentTarget.value);
+          }}
+        />
+        <button type="submit" className="submit-search">
+          <Search />
+        </button>
+      </form>
+      <h2 className="research-title">Ou par catégorie, durée ou auteur?</h2>
+      <form
+        className="filters"
+        onSubmit={(event) => {
+          event.preventDefault();
+        }}
+      >
         <select className="categories">
           <option value="">
             Choisissez une catégorie
@@ -49,10 +84,14 @@ const Research = ({ videos, categories, durations, authors }) => (
     </div>
     <div className="result-container">
       <h2 className="results">
-        <em className="number">69</em> résultats trouvés
+        <em className="number">
+          {returnResults(compare)}
+        </em>
+        <br />
+        résultats trouvés
       </h2>
       <div className="medias-results">
-        {videos.map((video) => (
+        {compare.map((video) => (
           <Media key={video.id} video={video} />
         ))}
       </div>
@@ -61,7 +100,11 @@ const Research = ({ videos, categories, durations, authors }) => (
 );
 
 Research.propTypes = {
-  videos: PropTypes.arrayOf(
+  searchValue: PropTypes.string.isRequired,
+  saveSearch: PropTypes.func.isRequired,
+  videos: PropTypes.array.isRequired,
+  saveCompare: PropTypes.func.isRequired,
+  compare: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number.isRequired,
     }).isRequired,

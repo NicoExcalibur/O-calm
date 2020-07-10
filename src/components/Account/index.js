@@ -16,7 +16,7 @@ const Account = () => (
     <div className="edit-info">
       <h1 className="edit-title">Modifier les informations de mon compte</h1>
       <form className="edit-form">
-        <input type="mail" className="mail" placeholder="E-mail" value="fabiolefabigeon@oclock.io" />
+        <input type="mail" className="mail" placeholder="E-mail" value="fabiolabaguette@oclock.io" />
         <input type="text" className="pseudo" placeholder="Pseudo" value="Fabio" />
         <input type="password" className="password" placeholder="Password" value="lalala" />
         <button type="submit" className="submit">Enregistrer</button>

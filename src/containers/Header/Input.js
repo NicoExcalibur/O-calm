@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 
 import Input from 'src/components/Header/Input';
-import { saveSearch } from 'src/actions/videos';
+import { saveSearch, saveCompare } from 'src/actions/videos';
 
 const mapStateToProps = (state) => ({
   searchValue: state.videos.searchValue,
@@ -11,6 +11,9 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   saveSearch: (value) => {
     dispatch(saveSearch(value));
+  },
+  saveCompare: (compare) => {
+    dispatch(saveCompare(compare));
   },
 });
 

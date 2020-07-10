@@ -1,34 +1,44 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Search } from 'react-feather';
+import { useHistory } from 'react-router-dom';
 
 import { setSearch } from 'src/utils';
 
-const Input = ({ searchValue, saveSearch, videos }) => (
-  <form
-    className="input"
-    onSubmit={(event) => {
-      event.preventDefault();
-      console.log(setSearch(searchValue, videos));
-    }}
-  >
-    <input
-      type="search"
-      className="search-home"
-      placeholder="Rechercher un media"
-      value={searchValue}
-      onChange={(event) => {
-        saveSearch(event.currentTarget.value);
-        console.log(videos.video);
+const Input = ({
+  searchValue,
+  saveSearch,
+  videos,
+  saveCompare,
+}) => {
+  const history = useHistory();
+  return (
+    <form
+      className="input"
+      onSubmit={(event) => {
+        event.preventDefault();
+        saveCompare(setSearch(searchValue, videos));
+        history.push('/research');
       }}
-    />
-    <Search className="search" />
-  </form>
-);
+    >
+      <input
+        type="search"
+        className="search-home"
+        placeholder="Rechercher un media"
+        value={searchValue}
+        onChange={(event) => {
+          saveSearch(event.currentTarget.value);
+        }}
+      />
+      <Search className="search" />
+    </form>
+  );
+};
 
 Input.propTypes = {
   searchValue: PropTypes.string.isRequired,
   saveSearch: PropTypes.func.isRequired,
+  saveCompare: PropTypes.func.isRequired,
   videos: PropTypes.arrayOf(
     PropTypes.shape({
       video: PropTypes.arrayOf(

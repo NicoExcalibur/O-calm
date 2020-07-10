@@ -53,7 +53,7 @@ const videosMiddleware = (store) => (next) => (action) => {
     }
 
     case FETCH_DURATIONS: {
-      axios.get('http://ec2-100-25-192-123.compute-1.amazonaws.com/o-calm/wp-json/wp/v2/video_duree')
+      axios.get('http://ec2-100-25-192-123.compute-1.amazonaws.com/o-calm/wp-json/wp/v2/video_duree?orderby=id')
         .then((response) => {
           store.dispatch(saveDurations(response.data));
         })

@@ -6,13 +6,34 @@
     width: 70%;
     margin: auto;
 
-    input {
-        width: 100%;
+    .input {
+      display: flex;
+      justify-content: space-evenly;
+
+      input {
         margin-bottom: 1rem;
         padding: 0.5rem;
         border: 1px solid $darkBlue;
-    }
 
+      }
+
+      .submit-search {
+        margin-top: -0.5rem;
+        background-color: $hoverColor;
+        border-radius: 50%;
+        color: white;
+        border-style: none;
+        box-shadow: 0.1em 0.2em $darkBlue;
+        width: 3rem;
+        height: 3rem;
+
+          &:active {
+            box-shadow: inset 0.1em 0.2em $darkBlue;
+
+          }
+        
+      }
+  }
     .research-title {
         margin: 1rem auto;
         color: $darkBlue;
@@ -203,6 +224,16 @@
 @media screen and (min-width: 600px) {
   .research {
     .input-research {
+      
+      .input {
+        margin-left: 1.4rem;
+        justify-content: center;
+        width: 100%;
+
+        .submit-research {
+          
+        }
+      }
       .filters {
           width: 60%;
           .submit-filters {

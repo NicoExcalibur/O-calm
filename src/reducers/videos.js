@@ -4,6 +4,7 @@ import {
   SAVE_CATEGORIES,
   SAVE_AUTHORS,
   SAVE_DURATIONS,
+  SAVE_COMPARE,
 } from 'src/actions/videos';
 
 const initialState = {
@@ -12,6 +13,7 @@ const initialState = {
   durations: [],
   authors: [],
   searchValue: '',
+  compare: [],
 };
 
 const videos = (state = initialState, action = {}) => {
@@ -44,6 +46,12 @@ const videos = (state = initialState, action = {}) => {
       return {
         ...state,
         durations: action.durations,
+      };
+
+    case SAVE_COMPARE:
+      return {
+        ...state,
+        compare: action.compare,
       };
 
     default: return state;
