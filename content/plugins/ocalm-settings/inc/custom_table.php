@@ -21,12 +21,8 @@ class Custom_table
         `post_id` INT NOT NULL, 
         PRIMARY KEY (id)
         );";
-
-        //if ($this->table) {
-        # code...
+            
         $this->wpdb->query($sql);
-        //}
-
     }
 
     // function that drop the custom_table

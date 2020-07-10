@@ -34,7 +34,7 @@ register_deactivation_hook( __FILE__,[$custom_table, 'deactivation']);
 
 $calm_rest_api = new OcalmRestApi();
 
-// ROLES
+// Roles
 $ocalm_role = new Ocalm_role();
 
 register_activation_hook(__FILE__, [$ocalm_role, 'activation']);
