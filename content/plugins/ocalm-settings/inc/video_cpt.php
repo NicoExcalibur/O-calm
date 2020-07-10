@@ -1,19 +1,22 @@
 <?php
 
+// security to make sure we are in a WP environnement
 if (!defined('WPINC')) {
   die;
 }
 
+// creation of a POO class in order to create our custom post type
 class Video_cpt 
 {
 
+  // construct fonction that will be instencied 
     public function __construct()
     {
       add_action('init', [$this, 'create_cpt']);
       add_action('init', [$this, 'create_taxo']);
     }
   
-
+  // declaration of the CPT
     public function create_cpt()
     {
       $labels = [
@@ -55,11 +58,11 @@ class Video_cpt
         ]
   
       ];
-      // https://developer.wordpress.org/reference/functions/register_post_type/
+      // registration of the CPT
       register_post_type('video', $args);
     }
 
-
+    // declaration of the category taxonomy
     public function create_taxo()
     {
         $labels = [
@@ -89,16 +92,12 @@ class Video_cpt
             'rewrite' => array( 'slug' => 'video_categorie' ),
             'rest_base'          => 'video_categorie',
             'rest_controller_class' => 'WP_REST_Terms_Controller',
-          //   'capabilities'      => [
-          //     'manage_terms'  => 'edit_videos',
-          //     'edit_terms'    => 'edit_videos',
-          //     'delete_terms'  => 'delete_videos',
-          //     'assign_terms'  => 'edit_videos',
-          // ]
         ];
-
+        // registration of the taxo
         register_taxonomy('categorie', 'video', $args);
 
+
+        // declaration of the author taxonomy
         $labels = [
             'name'                       => 'Auteurs',
             'singular_name'              => 'Auteur',
@@ -127,16 +126,12 @@ class Video_cpt
             'rewrite' => array( 'slug' => 'video_auteur' ),
             'rest_base'          => 'video_auteur',
             'rest_controller_class' => 'WP_REST_Terms_Controller',
-            // 'capabilities'      => [
-            //     'manage_terms'  => 'edit_videos',
-            //     'edit_terms'    => 'edit_videos',
-            //     'delete_terms'  => 'delete_videos',
-            //     'assign_terms'  => 'edit_videos',
-            // ]
         ];
-
+        // registration of the taxo
         register_taxonomy('auteur', 'video', $args);
 
+
+        // declaration of the time taxonomy
         $labels = [
           'name'                       => 'Durées',
           'singular_name'              => 'Durée',
@@ -165,17 +160,12 @@ class Video_cpt
           'rewrite' => array( 'slug' => 'video_duree' ),
           'rest_base'          => 'video_duree',
           'rest_controller_class' => 'WP_REST_Terms_Controller',
-          // 'capabilities'      => [
-          //     'manage_terms'  => 'edit_videos',
-          //     'edit_terms'    => 'edit_videos',
-          //     'delete_terms'  => 'delete_videos',
-          //     'assign_terms'  => 'edit_videos',
-          // ]
       ];
-
+      // registration of the taxo
       register_taxonomy('duree', 'video', $args);
     }
 
+    // for each activation and deactivation, we rewrite the url rules
     public function activation()
     {
         $this->create_cpt();
