@@ -7,6 +7,7 @@ import Favorites from 'src/containers/Favorites';
 import Account from '../Account';
 import LegalMentions from '../LegalMentions';
 import About from '../About';
+import SinglePage from '../SinglePage';
 
 const Page = () => (
   <div className="page">
@@ -45,6 +46,12 @@ const Page = () => (
       exact
     >
       <About />
+    </Route>
+    <Route
+      path="/player"
+      exact
+    >
+      <SinglePage />
     </Route>
   </div>
 );
