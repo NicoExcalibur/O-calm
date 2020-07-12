@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import ReactPlayer from 'react-player';
+import { Play } from 'react-feather';
+import { NavLink } from 'react-router-dom';
 
 import './slideMedia.scss';
 
@@ -13,6 +15,16 @@ const Media = ({ video }) => (
       height={120}
     />
     <h3>{video.title.rendered}</h3>
+    <NavLink
+      className="play"
+      to="/player"
+      exact
+    >
+      <Play className="button" />
+      <div className="readme">
+        Lire la vidéo
+      </div>
+    </NavLink>
   </div>
 );
 
