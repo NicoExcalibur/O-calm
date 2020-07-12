@@ -38,6 +38,7 @@ const SinglePage = () => (
         patate, enwoye, tu rentres la gogosse dans la slot pis ça va le faire.
       </p>
     </div>
+    <button type="button" className="fav">Ajouter à mes favoris</button>
   </div>
 );
 
