@@ -1,20 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import ReactPlayer from 'react-player';
-import { Play } from 'react-feather';
+// import { PlayCircle } from 'react-feather';
 import { NavLink } from 'react-router-dom';
 
 import './media.scss';
 
 const Media = ({ video }) => (
   <div className="media">
-    <ReactPlayer
-      className="react-player"
-      url={video.content.rendered}
-      width={200}
-      height={120}
-    />
-    <h3>{video.title.rendered}</h3>
     <NavLink
       className="play"
       to="/player"
@@ -24,10 +17,13 @@ const Media = ({ video }) => (
       excerpt={video.excerpt}
       exact
     >
-      <Play className="button" />
-      <div className="readme">
-        Lire la vidéo
-      </div>
+      <ReactPlayer
+        className="react-player"
+        url={video.content.rendered}
+        width={200}
+        height={120}
+      />
+      <h3>{video.title.rendered}</h3>
     </NavLink>
   </div>
 );
