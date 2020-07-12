@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import SingleMedia from './SingleMedia';
 import './singlePage.scss';
@@ -8,7 +9,7 @@ const SinglePage = () => (
     <SingleMedia />
     <div className="media-infos">
       <h1 className="title">
-        Titre de la vidéo
+        titre de tes morts
       </h1>
       <div className="categories">
         <h3 className="category">
@@ -41,5 +42,22 @@ const SinglePage = () => (
     <button type="button" className="fav">Ajouter à mes favoris</button>
   </div>
 );
+
+SinglePage.propTypes = {
+  video: PropTypes.shape({
+    title: PropTypes.shape({
+      rendered: PropTypes.string.isRequired,
+    }),
+    video_category: PropTypes.shape({
+      id: PropTypes.string.isRequired,
+    }),
+    content: PropTypes.shape({
+      rendered: PropTypes.string.isRequired,
+    }),
+    excerpt: PropTypes.shape({
+      rendered: PropTypes.string.isRequired,
+    }),
+  }).isRequired,
+};
 
 export default SinglePage;

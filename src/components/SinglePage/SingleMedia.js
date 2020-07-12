@@ -1,8 +1,9 @@
 import React from 'react';
 import ReactPlayer from 'react-player';
+import PropTypes from 'prop-types';
 import { useMediaQuery } from '@material-ui/core';
 
-const SingleMedia = () => {
+const SingleMedia = ({ source }) => {
   const matchesMobile = useMediaQuery('(max-width:600px)');
   const matchesMiddle = useMediaQuery('(max-width:800px');
 
@@ -11,7 +12,7 @@ const SingleMedia = () => {
       <div className="single-media">
         <ReactPlayer
           className="player"
-          url="https://www.youtube.com/watch?v=HlBYdiXdUa8"
+          url={source}
           width={300}
           height={200}
         />
@@ -22,7 +23,7 @@ const SingleMedia = () => {
       <div className="single-media">
         <ReactPlayer
           className="player"
-          url="https://www.youtube.com/watch?v=HlBYdiXdUa8"
+          url={source}
           width={600}
           height={400}
         />
@@ -33,7 +34,7 @@ const SingleMedia = () => {
     <div className="single-media">
       <ReactPlayer
         className="player"
-        url="https://www.youtube.com/watch?v=HlBYdiXdUa8"
+        url={source}
         width={800}
         height={550}
       />
@@ -41,5 +42,8 @@ const SingleMedia = () => {
   );
 };
 
-export default SingleMedia;
+SingleMedia.propTypes = {
+  source: PropTypes.string.isRequired,
+};
 
+export default SingleMedia;

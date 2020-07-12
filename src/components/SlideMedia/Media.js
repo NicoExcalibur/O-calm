@@ -18,6 +18,10 @@ const Media = ({ video }) => (
     <NavLink
       className="play"
       to="/player"
+      video={video}
+      title={video.title}
+      content={video.content}
+      excerpt={video.excerpt}
       exact
     >
       <Play className="button" />

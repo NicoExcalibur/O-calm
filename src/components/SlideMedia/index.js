@@ -16,7 +16,7 @@ const SlideMedia = ({ videos, title, categoryId }) => {
     });
   };
   goodArray(videos);
-  console.log(videoArray);
+  // console.log(videoArray);
 
   return (
     <div className="slide-media">
