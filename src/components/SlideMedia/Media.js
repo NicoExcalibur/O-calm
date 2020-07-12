@@ -4,7 +4,7 @@ import ReactPlayer from 'react-player';
 import { Play } from 'react-feather';
 import { NavLink } from 'react-router-dom';
 
-import './slideMedia.scss';
+import './media.scss';
 
 const Media = ({ video }) => (
   <div className="media">
