@@ -1,4 +1,4 @@
-import React, { version } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import Media from './Media';
 
@@ -16,7 +16,6 @@ const SlideMedia = ({ videos, title, categoryId }) => {
     });
   };
   goodArray(videos);
-  console.log(videoArray);
 
   return (
     <div className="slide-media">
