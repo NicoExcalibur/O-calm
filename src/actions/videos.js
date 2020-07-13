@@ -8,6 +8,7 @@ export const SAVE_CATEGORIES = 'SAVE_CATEGORIES';
 export const FETCH_DURATIONS = 'FETCH_DURATIONS';
 export const SAVE_DURATIONS = 'SAVE_DURATIONS';
 export const SAVE_COMPARE = 'SAVE_COMPARE';
+export const SAVE_SELECT = 'SAVE_SELECT';
 
 export const fetchVideos = () => ({
   type: FETCH_VIDEOS,
@@ -53,4 +54,9 @@ export const saveDurations = (durations) => ({
 export const saveCompare = (compare) => ({
   type: SAVE_COMPARE,
   compare,
+});
+
+export const saveSelect = (value) => ({
+  type: SAVE_SELECT,
+  value,
 });

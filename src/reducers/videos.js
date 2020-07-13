@@ -5,6 +5,7 @@ import {
   SAVE_AUTHORS,
   SAVE_DURATIONS,
   SAVE_COMPARE,
+  SAVE_SELECT,
 } from 'src/actions/videos';
 
 const initialState = {
@@ -14,6 +15,7 @@ const initialState = {
   authors: [],
   searchValue: '',
   compare: [],
+  select: [],
 };
 
 const videos = (state = initialState, action = {}) => {
@@ -53,6 +55,12 @@ const videos = (state = initialState, action = {}) => {
         ...state,
         compare: action.compare,
       };
+    
+    case SAVE_SELECT:
+      return {
+        ...state,
+        select: action.value,
+      }
 
     default: return state;
   }

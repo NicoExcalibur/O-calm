@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 
 import Research from 'src/components/Research';
-import { saveSearch, saveCompare } from 'src/actions/videos';
+import { saveSearch, saveCompare, saveSelect } from 'src/actions/videos';
 
 const mapStateToProps = (state) => ({
   videos: state.videos.videos,
@@ -10,6 +10,7 @@ const mapStateToProps = (state) => ({
   authors: state.videos.authors,
   compare: state.videos.compare,
   searchValue: state.videos.searchValue,
+  select: state.videos.select,
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -18,6 +19,9 @@ const mapDispatchToProps = (dispatch) => ({
   },
   saveCompare: (compare) => {
     dispatch(saveCompare(compare));
+  },
+  saveSelect: (value) => {
+    dispatch(saveSelect(value));
   },
 });
 

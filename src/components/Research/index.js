@@ -16,31 +16,36 @@ const Research = ({
   saveSearch,
   videos,
   saveCompare,
+  saveSelect,
+  select,
 }) => {
   let categoryId = '';
   let authorId = '';
   let durationId = '';
-  const arrayVideo = [];
+  const provArray = [];
   const startResearch = () => {
     videos.map((video) => {
+      
       video.video_categorie.forEach((element) => {
         if (categoryId == element) {
-          arrayVideo.push(video);
+          provArray.push(video);
         }
       });
       video.video_auteur.forEach((element) => {
         if (authorId == element) {
-          arrayVideo.push(video);
+          provArray.push(video);
         }
       });
       video.video_duree.forEach((element) => {
         if (durationId == element) {
-          arrayVideo.push(video);
+          provArray.push(video);
         }
       });
     });
+    saveSelect(provArray);
   };
-  let videoDsplay = researchVideoDisplay(compare, arrayVideo);
+
+  let videoDisplay = researchVideoDisplay(compare, select);
   return (
     <div className="research">
       <div className="input-research">
@@ -50,6 +55,7 @@ const Research = ({
           onSubmit={(event) => {
             event.preventDefault();
             saveCompare(setSearch(searchValue, videos));
+            let videoDisplay = compare;
           }}
         >
           <input
@@ -71,7 +77,8 @@ const Research = ({
           onSubmit={(event) => {
             event.preventDefault();
             startResearch();
-            console.log(arrayVideo);
+            let videoDisplay = select;
+            console.log(select);
           }}
         >
           <select
@@ -127,13 +134,13 @@ const Research = ({
       <div className="result-container">
         <h2 className="results">
           <em className="number">
-            {returnResults(videoDsplay)}
+            {returnResults(videoDisplay)}
           </em>
           <br />
           résultats trouvés
         </h2>
         <div className="medias-results">
-          {videoDsplay.map((video) => (
+          {videoDisplay.map((video) => (
             <Media key={video.id} video={video} />
           ))}
         </div>
@@ -147,6 +154,12 @@ Research.propTypes = {
   saveSearch: PropTypes.func.isRequired,
   videos: PropTypes.array.isRequired,
   saveCompare: PropTypes.func.isRequired,
+  saveSelect: PropTypes.func.isRequired,
+  select: PropTypes.objectOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+    }).isRequired,
+  ).isRequired,
   compare: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number.isRequired,
