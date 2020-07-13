@@ -35,8 +35,8 @@ const SingleMedia = ({ source }) => {
       <ReactPlayer
         className="player"
         url={source}
-        width={800}
-        height={550}
+        width={700}
+        height={500}
       />
     </div>
   );
