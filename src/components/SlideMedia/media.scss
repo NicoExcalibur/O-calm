@@ -1,0 +1,35 @@
+@import 'src/styles/vars';
+
+.media {
+  height: 13rem;
+
+  &:hover {
+    background-color: $backMedia;
+
+  }
+
+  .play {
+    margin: 1rem;
+    color: $altColor;
+    text-align: center;
+    display: block;
+    width: 200px;
+  
+    .react-player {
+      margin-left: -1rem;
+
+    }
+
+    h3 {
+      color: $mainColor;
+      font-weight: bold;
+      margin-right: 2rem;
+
+      &:hover {
+        color: white;
+        
+      }
+
+    }    
+  }
+}

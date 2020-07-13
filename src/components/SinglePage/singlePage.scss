@@ -1,0 +1,95 @@
+@import 'src/styles/vars';
+
+.single-page {
+
+  .single-media {
+    
+    .player {
+      margin: auto;
+
+    }
+
+  }
+
+  .media-infos {
+    text-align: center;
+    margin-top: 0.5rem;
+
+    .title {
+      font-size: 1.5rem;
+      color: $mainBlue;
+      font-weight: bold;
+
+    }
+
+    .categories {
+      margin-top: 0.5rem;
+      display: flex;
+      justify-content: space-evenly;
+
+      .category {
+        background-color: $backHeader;
+        padding: 0.2rem;
+        border-radius: 1rem;
+        color: $mainColor;
+
+      }
+    }
+
+    .author {
+      margin-top: 0.5rem;
+      color: $mainColor;
+      font-weight: bold;
+
+    }
+
+    .description {
+      margin-top: 1rem;
+      color: $mainColor;
+      text-align: justify;
+      margin: 1rem;
+      
+    }
+  }
+
+  .fav {
+    background-color: $fav;
+    border-style: none;
+    font-family: $quicksand;
+    color: white;
+    padding: 0.5rem;
+    display: block;
+    margin: auto;
+    border-radius: 1rem;
+
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .single-page {
+    display: flex;
+
+    .single-media {
+
+      .player {
+        margin: 1rem;
+      }
+    }
+
+    .media-infos {
+
+      .description {
+        text-align: right;
+
+      }
+    }
+
+    .fav {
+      position: absolute;
+      right: 0;
+      margin-top: 30rem;
+      margin-right: 1rem;
+
+    }
+  }
+}
