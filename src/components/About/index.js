@@ -5,7 +5,7 @@ import manon from 'src/assets/images/mnn.png';
 import axel from 'src/assets/images/axl.png';
 import nico from 'src/assets/images/ncl.png';
 import fidia from 'src/assets/images/fid.png';
-import headphone from 'src/assets/images/headphone.png';
+// import headphone from 'src/assets/images/headphone.png';
 
 import './about.scss';
 
@@ -31,7 +31,7 @@ const About = () => (
     <div className="us">
       <div className="id-card">
         <div className="picture">
-          <img src={headphone} alt="headphones" className="headphones" />
+          <img src={require('src/assets/images/headphone.png')} alt="headphones" className="headphones" />
           <img src={manon} alt="Manon" className="avatar" />
         </div>
         <div className="infos">
@@ -42,7 +42,7 @@ const About = () => (
       </div>
       <div className="id-card">
         <div className="picture">
-          <img src={headphone} alt="headphones" className="headphones" />
+          <img src={require('src/assets/images/headphone.png')} alt="headphones" className="headphones" />
           <img src={axel} alt="Axel" className="avatar" />
         </div>
         <div className="infos">
@@ -53,7 +53,7 @@ const About = () => (
       </div>
       <div className="id-card">
         <div className="picture">
-          <img src={headphone} alt="headphones" className="headphones" />
+          <img src={require('src/assets/images/headphone.png')} alt="headphones" className="headphones" />
           <img src={fidia} alt="Fidia" className="avatar" />
         </div>
         <div className="infos">
@@ -64,7 +64,7 @@ const About = () => (
       </div>
       <div className="id-card">
         <div className="picture">
-          <img src={headphone} alt="headphones" className="headphones" />
+          <img src={require('src/assets/images/headphone.png')} alt="headphones" className="headphones" />
           <img src={vincent} alt="Vincent" className="avatar" />
         </div>
         <div className="infos">
@@ -75,7 +75,7 @@ const About = () => (
       </div>
       <div className="id-card">
         <div className="picture">
-          <img src={headphone} alt="headphones" className="headphones" />
+          <img src={require('src/assets/images/headphone.png')} alt="headphones" className="headphones" />
           <img src={nico} alt="Nicolas" className="avatar" />
         </div>
         <div className="infos">
