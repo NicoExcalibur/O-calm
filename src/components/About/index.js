@@ -1,11 +1,11 @@
 import React from 'react';
 
-import vincent from './vct.jpg';
-import manon from './mnn.jpg';
-import axel from './axl.jpg';
-import nico from './ncl.jpg';
-import fidia from './fid.jpg';
-import headphone from './headphone.png';
+import vincent from 'o-calm/dist/images/vct.jpg';
+import manon from 'o-calm/dist/images/mnn.jpg';
+import axel from 'o-calm/dist/images/axl.jpg';
+import nico from 'o-calm/dist/images/ncl.jpg';
+import fidia from 'o-calm/dist/images/fid.jpg';
+import headphone from 'o-calm/dist/images/headphone.png';
 
 import './about.scss';
 
