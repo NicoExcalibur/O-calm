@@ -12,14 +12,13 @@ const SinglePage = ({ videos }) => {
   let videoContent;
   let videoExcerpt;
   let videoAuthor;
-  let videoDuration;
+  // let videoDuration;
   videos.map((value) => {
     if (slug === value.slug) {
       videoTitle = value.title.rendered;
       videoExcerpt = convertHTML(value.excerpt.rendered);
-      // videoExcerpt = value.excerpt.rendered.html();
       videoAuthor = value.auteur;
-      videoDuration = value.duree;
+      // videoDuration = value.duree;
       videoContent = value.content.rendered;
     }
   });
