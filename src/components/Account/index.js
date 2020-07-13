@@ -1,7 +1,7 @@
 import React from 'react';
 import { Edit } from 'react-feather';
 
-import avatar from 'o-calm/dist/fabio.jpg';
+import avatar from 'src/assets/images/fabio.png';
 import './account.scss';
 
 const Account = () => (

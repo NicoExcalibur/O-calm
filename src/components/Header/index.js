@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import logo from 'src/assets/logo.png';
+import logo from 'src/assets/images/logo.png';
 
 import Input from 'src/containers/Header/Input';
 import ButtonMenu from './ButtonMenu';

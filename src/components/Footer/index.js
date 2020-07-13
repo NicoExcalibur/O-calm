@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-import logo from 'src/assets/logo-footer.png';
+import logo from 'src/assets/images/logo-footer.png';
 
 import './footer.scss';
 
