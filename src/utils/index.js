@@ -1,4 +1,3 @@
-/* eslint-disable import/prefer-default-export */
 export const setSearch = (searchValue, data) => {
   const inputValue = searchValue.toLowerCase();
 
@@ -16,11 +15,11 @@ export const returnResults = (value) => {
   return resultsLength;
 };
 
-/* Fonction qui compare l'id de la catégorie avec celui de l'id de video.video_categorie
-*/
-export const idCompare = (value, comparedArray) => {
-  const comparedValue = comparedArray.video_categorie;
-  if (comparedValue === value) {
-    return comparedArray;
+export const researchVideoDisplay = (firstArray, secondArray) => {
+  if (firstArray.length > 0) {
+    return firstArray;
+  } if (secondArray.length > 0) {
+    return secondArray;
   }
+  return [];
 };
