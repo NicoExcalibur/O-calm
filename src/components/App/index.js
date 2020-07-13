@@ -13,10 +13,11 @@ const App = ({
   fetchCategories,
   fetchAuthors,
   fetchDurations,
+  fetchUsers,
 }) => {
   useEffect(() => {
     fetchVideos();
-    fetchVideos();
+    fetchUsers();
     fetchCategories();
     fetchAuthors();
     fetchDurations();
@@ -43,6 +44,7 @@ App.propTypes = {
   fetchCategories: PropTypes.func.isRequired,
   fetchAuthors: PropTypes.func.isRequired,
   fetchDurations: PropTypes.func.isRequired,
+  fetchUsers: PropTypes.func.isRequired,
 };
 
 // == Export

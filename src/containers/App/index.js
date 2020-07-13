@@ -7,6 +7,8 @@ import {
   fetchDurations,
 } from 'src/actions/videos';
 
+import { fetchUsers } from 'src/actions/users';
+
 import App from 'src/components/App';
 
 const mapStateToProps = () => ({
@@ -24,6 +26,9 @@ const mapDispatchToProps = (dispatch) => ({
   },
   fetchDurations: () => {
     dispatch(fetchDurations());
+  },
+  fetchUsers: () => {
+    dispatch(fetchUsers());
   },
 });
 
