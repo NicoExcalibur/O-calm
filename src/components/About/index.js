@@ -1,11 +1,11 @@
 import React from 'react';
 
-import vincent from 'src/assets/vct.jpg';
-import manon from 'src/assets/mnn.jpg';
-import axel from 'src/assets/axl.jpg';
-import nico from 'src/assets/ncl.jpg';
-import fidia from 'src/assets/fid.jpg';
-import headphone from 'src/assets/headphone.png';
+import vincent from './vct.jpg';
+import manon from './mnn.jpg';
+import axel from './axl.jpg';
+import nico from './ncl.jpg';
+import fidia from './fid.jpg';
+import headphone from './headphone.png';
 
 import './about.scss';
 
