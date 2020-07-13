@@ -10,11 +10,7 @@ const Media = ({ video }) => (
   <div className="media">
     <NavLink
       className="play"
-      to="/player"
-      video={video}
-      title={video.title}
-      content={video.content}
-      excerpt={video.excerpt}
+      to={`/player/${video.slug}`}
       exact
     >
       <ReactPlayer
@@ -22,6 +18,7 @@ const Media = ({ video }) => (
         url={video.content.rendered}
         width={200}
         height={120}
+        {...video}
       />
       <h3>{video.title.rendered}</h3>
     </NavLink>
@@ -30,6 +27,7 @@ const Media = ({ video }) => (
 
 Media.propTypes = {
   video: PropTypes.shape({
+    slug: PropTypes.string.isRequired,
     title: PropTypes.shape({
       rendered: PropTypes.string.isRequired,
     }),

@@ -24,3 +24,7 @@ export const idCompare = (value, comparedArray) => {
     return comparedArray;
   }
 };
+
+export const getVideoBySlug = (videos, slug) => {
+  videos.find((video) => video.slug === slug);
+};

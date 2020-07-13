@@ -7,7 +7,7 @@ import Favorites from 'src/containers/Favorites';
 import Account from '../Account';
 import LegalMentions from '../LegalMentions';
 import About from '../About';
-import SinglePage from '../SinglePage';
+import SinglePage from 'src/containers/SinglePage';
 
 const Page = () => (
   <div className="page">
@@ -48,7 +48,7 @@ const Page = () => (
       <About />
     </Route>
     <Route
-      path="/player"
+      path="/player/:slug"
       exact
     >
       <SinglePage />
