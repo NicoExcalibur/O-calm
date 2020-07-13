@@ -25,7 +25,6 @@ const Research = ({
   const provArray = [];
   const startResearch = () => {
     videos.map((video) => {
-      
       video.video_categorie.forEach((element) => {
         if (categoryId == element) {
           provArray.push(video);
