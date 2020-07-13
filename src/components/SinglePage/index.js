@@ -4,10 +4,10 @@ import { useParams } from 'react-router-dom';
 
 import SingleMedia from './SingleMedia';
 import './singlePage.scss';
+import { convertHTML } from '../../utils';
 
 const SinglePage = ({ videos }) => {
   const { slug } = useParams();
-  let video;
   let videoTitle;
   let videoContent;
   let videoExcerpt;
@@ -15,12 +15,12 @@ const SinglePage = ({ videos }) => {
   let videoDuration;
   videos.map((value) => {
     if (slug === value.slug) {
-      video = value;
-      videoTitle = video.title.rendered;
-      videoExcerpt = video.excerpt.rendered;
-      videoAuthor = video.auteur;
-      videoDuration = video.duree;
-      videoContent = video.content.rendered;
+      videoTitle = value.title.rendered;
+      videoExcerpt = convertHTML(value.excerpt.rendered);
+      // videoExcerpt = value.excerpt.rendered.html();
+      videoAuthor = value.auteur;
+      videoDuration = value.duree;
+      videoContent = value.content.rendered;
     }
   });
 

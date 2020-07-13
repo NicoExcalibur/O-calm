@@ -14,7 +14,7 @@ import {
 const videosMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
     case FETCH_VIDEOS: {
-      axios.get('http://ec2-100-25-192-123.compute-1.amazonaws.com/o-calm/wp-json/wp/v2/video')
+      axios.get('http://ec2-100-25-192-123.compute-1.amazonaws.com/o-calm/wp-json/wp/v2/video?per_page=100')
         .then((response) => {
           store.dispatch(saveVideos(response.data));
         })

@@ -28,3 +28,8 @@ export const idCompare = (value, comparedArray) => {
 export const getVideoBySlug = (videos, slug) => {
   videos.find((video) => video.slug === slug);
 };
+
+export const convertHTML = (htmlString) => {
+  const string = htmlString.replace('<p>', '').replace('</p>', '').replace(/&rsquo;/g, "'");
+  return string;
+};
