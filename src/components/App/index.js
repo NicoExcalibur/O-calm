@@ -1,11 +1,12 @@
 // == Import npm
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import { Route } from 'react-router-dom';
 
+import Login from 'src/containers/Login';
 import Header from '../Header';
 import Footer from '../Footer';
 import Page from '../Page';
-import Login from '../Login';
 import Subscribe from '../Subscribe';
 import './styles.scss';
 
@@ -32,7 +33,18 @@ const App = ({
 
   return (
     <div className="app">
-      <Subscribe />
+      <Route
+        path="/"
+        exact
+      >
+        <Login />
+      </Route>
+      <Route
+        path="/subscribe"
+        exact
+      >
+        <Subscribe />
+      </Route>
       {/* <Header openMenu={openMenu} menuBool={menuBool} />
       <Page />
       <Footer /> */}

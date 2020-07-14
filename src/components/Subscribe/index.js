@@ -6,7 +6,7 @@ import './subscribe.scss';
 const Subscribe = () => (
   <div className="subscribe">
     <div className="left-subscribe">
-      <h1>Inscrivez-vous pour entrer dans le zen</h1>
+      <h1>créez votre petit coin o'calm !</h1>
       <form>
         <label className="choose-file">Choisissez une photo de profil
           <input type="file" className="avatar" accept="image/png, image/jpeg" />
