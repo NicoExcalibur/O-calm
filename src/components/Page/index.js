@@ -4,10 +4,10 @@ import { Route } from 'react-router-dom';
 import Home from 'src/containers/Home';
 import Research from 'src/containers/Research';
 import Favorites from 'src/containers/Favorites';
+import SinglePage from 'src/containers/SinglePage';
 import Account from '../Account';
 import LegalMentions from '../LegalMentions';
 import About from '../About';
-import SinglePage from 'src/containers/SinglePage';
 
 const Page = () => (
   <div className="page">

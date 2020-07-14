@@ -1,0 +1,219 @@
+@import 'src/styles/vars';
+
+.subscribe {
+  display: flex;
+  flex-direction: column-reverse;
+  text-align: center;
+
+  .left-subscribe {
+    width: 80%;
+    margin: auto;
+    
+    h1 {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: $darkBlue;
+
+    }
+    input{
+      width:95%;
+    }
+
+    form {
+      background-color: $backHeader;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      margin: 2rem auto;
+      padding-left: 2rem;
+      padding-right: 2rem;
+      border-radius: 2rem;
+      
+      label {
+        color: $darkBlue;
+        font-size: 0.9rem;
+        font-weight: bold;
+        text-align: left;
+        margin-top: 0.5rem;
+
+      }
+
+      .choose-file {
+        background-color: white;
+        border-radius: 2rem;
+        color: $mainBlue;
+        padding: 0.3rem;
+        padding-left: 0.5rem;
+        margin-bottom: 0.5rem;
+        margin-right: 20%;
+
+        &:hover {
+          background-color: $backMedia;
+          color: white;
+
+        }
+
+      }
+
+        .avatar {
+          margin-top: 0.5rem;
+          margin-bottom: 0.5rem;
+          display: none;
+          
+        }
+
+      .input-login {
+        font-family: $quicksand;
+        margin-top: 1rem;
+        padding: 0.5rem;
+        border-style: none;
+        
+        &::placeholder {
+          color: $mainBlue;
+
+        }
+
+        &:focus {
+          outline: 0;
+          border: 2px solid $backMedia;
+          border-radius: 3rem;
+          color: $mainColor;
+        }
+
+      }
+
+      .submit {
+        font-family: $quicksand;
+        margin: 1rem auto;
+        padding: 0.5rem;
+        width: 60%;
+        border-style: none;
+        background-color: white;
+        border-radius: 2rem;
+        color: $mainBlue;
+        font-size: 1rem;
+        font-weight: bold;
+
+        &:hover {
+          background-color: $backMedia;
+          color: white;
+
+        }
+        
+      }
+    }    
+  }
+  
+  img {
+    width: 70%;
+    margin: auto;
+
+  }
+}
+
+@media screen and (min-width: 600px){
+  .subscribe {
+
+    .left-subscribe {
+      width: 70%;
+    }
+
+    img {
+      width: 60%;
+
+    }
+  }
+}
+
+@media screen and (min-width: 700px){
+  .subscribe {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+
+    .left-subscribe {
+      margin: 2rem;
+
+    }
+
+    img {
+      width: 45%;
+
+    }
+  }
+}
+
+@media screen and (min-width: 800px){
+  .subscribe {
+
+    .left-subscribe {
+      
+      form {
+        width: 90%;
+
+      }
+    }
+
+    img{
+      width: 40%;
+      margin-right: 2rem;
+
+    }
+  }
+}
+
+@media screen and (min-width: 1000px){
+  .subscribe {
+
+    .left-subscribe {
+      border-right: 2px solid $mainBlue;
+
+      form {
+        width: 80%;
+
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1200px){
+  .subscribe {
+
+    .left-subscribe {
+      margin-left: 1rem;
+
+      form {
+        width: 70%;
+
+      }
+    }
+
+    img{
+      width: 40%;
+
+    }
+  }
+}
+
+
+@media screen and (min-width: 1600px){
+  .subscribe {
+    margin-top: 5rem;
+
+    .left-subscribe {
+      width: 50%;
+
+      form {
+        width: 40%;
+
+      }
+    }
+
+    img {
+      margin: auto;
+      width: 30%;
+      
+    }
+
+  }
+}

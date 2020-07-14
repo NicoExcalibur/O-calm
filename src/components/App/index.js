@@ -5,7 +5,8 @@ import PropTypes from 'prop-types';
 import Header from '../Header';
 import Footer from '../Footer';
 import Page from '../Page';
-// import Login from '../Login';
+import Login from '../Login';
+import Subscribe from '../Subscribe';
 import './styles.scss';
 
 const App = ({
@@ -31,10 +32,10 @@ const App = ({
 
   return (
     <div className="app">
-      {/* <Login /> */}
-      <Header openMenu={openMenu} menuBool={menuBool} />
+      <Subscribe />
+      {/* <Header openMenu={openMenu} menuBool={menuBool} />
       <Page />
-      <Footer />
+      <Footer /> */}
     </div>
   );
 };
