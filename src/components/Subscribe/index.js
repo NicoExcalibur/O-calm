@@ -1,6 +1,6 @@
 import React from 'react';
 
-import logo from 'src/assets/logo.png';
+import logo from 'src/assets/images/logo.png';
 import './subscribe.scss';
 
 const Subscribe = () => (

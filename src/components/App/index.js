@@ -34,7 +34,7 @@ const App = ({
 
   return (
     <div className="app">
-      {!isLogged && (
+      {/* {!isLogged && (
       <Route
         path="/"
         exact
@@ -48,13 +48,13 @@ const App = ({
       >
         <Subscribe />
       </Route>
-      {isLogged && (
+      {isLogged && ( */}
       <div className="app">
         <Header openMenu={openMenu} menuBool={menuBool} />
         <Page />
         <Footer />
       </div>
-      )}
+      {/* )} */}
     </div>
   );
 };

@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import './login.scss';
-import logo from 'src/assets/logo.png';
+import logo from 'src/assets/images/logo.png';
 
 const Login = ({ saveLogin, verifLogin, token }) => {
   const loginFormValue = [];
