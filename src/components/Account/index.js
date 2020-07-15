@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Edit } from 'react-feather';
 
-import avatar from 'src/assets/fabio.jpg';
+import avatar from 'src/assets/images/fabio.png';
 import './account.scss';
 
 const Account = ({ token }) => (
