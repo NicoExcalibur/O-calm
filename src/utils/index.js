@@ -38,9 +38,5 @@ export const compareUserArray = (users, token) => {
     const filterData = user.find(token);
     console.log(filterData);
     return filterData;
-    // if (user.name == token.user_nicename) {
-    //   console.log(user);
-    //   return user;
-    // }
   });
 };

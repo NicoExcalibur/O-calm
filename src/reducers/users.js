@@ -2,6 +2,7 @@ import {
   SAVE_USERS,
   SAVE_LOGIN,
   SAVE_TOKEN,
+  SET_USER,
 } from 'src/actions/users';
 
 const initialState = {
@@ -9,6 +10,7 @@ const initialState = {
   loginValue: [],
   token: {},
   isLogged: false,
+  currentUser: [],
 };
 
 const users = (state = initialState, action = {}) => {
@@ -30,6 +32,12 @@ const users = (state = initialState, action = {}) => {
         ...state,
         token: action.token,
         isLogged: true,
+      };
+
+    case SET_USER:
+      return {
+        ...state,
+        currentUser: action.user,
       };
 
     default: return state;
