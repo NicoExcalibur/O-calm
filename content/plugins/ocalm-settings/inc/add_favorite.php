@@ -6,7 +6,6 @@ if (!defined('WPINC')) {
 
 class Add_favorite
 {
-
     public function __construct()
     {
         // Récupération de l'instance wpdb
@@ -31,10 +30,10 @@ class Add_favorite
                 '%d',
                 '%d',
             ]
-        );        
+        );
     }
 
-    // function that checks if a post is favorite or not 
+    // function that checks if a post is favorite or not
     public function check_status($id)
     {
         $prepared = $this->wpdb->prepare(
@@ -43,9 +42,28 @@ class Add_favorite
                 FROM {$this->table}
                 WHERE id = %d;
             ",
-            $id);
+            $id
+        );
       
         return $this->wpdb->get_var($prepared);
         var_dump($prepared);
+    }
+
+    // function that links the user and the post and retrieve it
+    
+    public function retrieve_favorite()
+    {
+        $prepared = $this->wpdb->prepare(
+            "
+            SELECT user_login,post_ID
+            FROM wp_users
+            INNER JOIN {$this->table}
+            ON wp_users.ID = {$this->table}.user_id
+            INNER JOIN wp_posts
+            ON wp_posts.ID = {$this->table}.post_id
+        "
+        );
+        
+        return $this->wpdb->get_var($prepared);
     }
 }
