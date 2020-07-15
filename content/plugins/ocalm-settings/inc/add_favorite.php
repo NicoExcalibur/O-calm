@@ -33,22 +33,6 @@ class Add_favorite
         );
     }
 
-    // function that checks if a post is favorite or not
-    public function check_status($id)
-    {
-        $prepared = $this->wpdb->prepare(
-            "
-                SELECT post_id
-                FROM {$this->table}
-                WHERE id = %d;
-            ",
-            $id
-        );
-      
-        return $this->wpdb->get_var($prepared);
-        var_dump($prepared);
-    }
-
     // function that links the user and the post and retrieve it
     
     public function retrieve_favorite()
