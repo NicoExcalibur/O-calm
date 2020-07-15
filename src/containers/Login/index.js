@@ -5,6 +5,7 @@ import { saveLogin, verifLogin } from 'src/actions/users';
 
 const mapStateToProps = (state) => ({
   loginValue: state.users.loginValue,
+  token: state.users.token,
 });
 
 const mapDispatchToProps = (dispatch) => ({

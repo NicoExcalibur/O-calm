@@ -7,7 +7,8 @@ import {
 const initialState = {
   users: [],
   loginValue: [],
-  token: '',
+  token: {},
+  isLogged: false,
 };
 
 const users = (state = initialState, action = {}) => {
@@ -28,6 +29,7 @@ const users = (state = initialState, action = {}) => {
       return {
         ...state,
         token: action.token,
+        isLogged: true,
       };
 
     default: return state;

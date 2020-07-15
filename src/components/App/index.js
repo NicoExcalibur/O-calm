@@ -16,6 +16,7 @@ const App = ({
   fetchAuthors,
   fetchDurations,
   fetchUsers,
+  isLogged,
 }) => {
   useEffect(() => {
     fetchVideos();
@@ -33,21 +34,27 @@ const App = ({
 
   return (
     <div className="app">
+      {!isLogged && (
       <Route
         path="/"
         exact
       >
         <Login />
       </Route>
+      )}
       <Route
         path="/subscribe"
         exact
       >
         <Subscribe />
       </Route>
-      {/* <Header openMenu={openMenu} menuBool={menuBool} />
-      <Page />
-      <Footer /> */}
+      {isLogged && (
+      <div className="app">
+        <Header openMenu={openMenu} menuBool={menuBool} />
+        <Page />
+        <Footer />
+      </div>
+      )}
     </div>
   );
 };
@@ -58,6 +65,7 @@ App.propTypes = {
   fetchAuthors: PropTypes.func.isRequired,
   fetchDurations: PropTypes.func.isRequired,
   fetchUsers: PropTypes.func.isRequired,
+  isLogged: PropTypes.bool.isRequired,
 };
 
 // == Export

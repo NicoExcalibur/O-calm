@@ -5,14 +5,15 @@ import PropTypes from 'prop-types';
 import './login.scss';
 import logo from 'src/assets/logo.png';
 
-const Login = ({ saveLogin, verifLogin }) => {
+const Login = ({ saveLogin, verifLogin, token }) => {
   const loginFormValue = [];
   const handleLogin = (event) => {
     const loginFormData = new FormData(event.currentTarget);
-    loginFormValue.email = loginFormData.get('email');
+    loginFormValue.username = loginFormData.get('username');
     loginFormValue.password = loginFormData.get('password');
     saveLogin(loginFormValue);
   };
+  console.log(token);
   return (
     <div className="login">
       <img className="logo" src={logo} alt="Logo O'Calm" />
@@ -25,7 +26,7 @@ const Login = ({ saveLogin, verifLogin }) => {
             verifLogin();
           }}
         >
-          <input name="email" type="mail" className="input-login" placeholder="E-mail" />
+          <input name="username" type="text" className="input-login" placeholder="Pseudo" />
           <input name="password" type="password" className="input-login" placeholder="Mot de passe" />
           <button type="submit" className="submit">Entrer dans le zen</button>
         </form>
@@ -50,6 +51,7 @@ const Login = ({ saveLogin, verifLogin }) => {
 Login.propTypes = {
   saveLogin: PropTypes.func.isRequired,
   verifLogin: PropTypes.func.isRequired,
+  token: PropTypes.string.isRequired,
 };
 
 export default Login;

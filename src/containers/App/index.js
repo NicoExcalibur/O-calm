@@ -11,7 +11,8 @@ import { fetchUsers } from 'src/actions/users';
 
 import App from 'src/components/App';
 
-const mapStateToProps = () => ({
+const mapStateToProps = (state) => ({
+  isLogged: state.users.isLogged,
 });
 
 const mapDispatchToProps = (dispatch) => ({

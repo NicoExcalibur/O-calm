@@ -7,7 +7,6 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = () => ({
-  // caca
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Favorites);
