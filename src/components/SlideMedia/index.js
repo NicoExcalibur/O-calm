@@ -33,11 +33,6 @@ SlideMedia.propTypes = {
   videos: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number.isRequired,
-      video_categorie: PropTypes.arrayOf(
-        PropTypes.shape({
-          id: PropTypes.number.isRequired,
-        }).isRequired,
-      ).isRequired,
     }).isRequired,
   ).isRequired,
   title: PropTypes.string.isRequired,

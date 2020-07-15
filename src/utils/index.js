@@ -32,3 +32,15 @@ export const convertHTML = (htmlString) => {
   const string = htmlString.replace('<p>', '').replace('</p>', '').replace(/&rsquo;/g, "'");
   return string;
 };
+
+export const compareUserArray = (users, token) => {
+  users.forEach((user) => {
+    const filterData = user.find(token);
+    console.log(filterData);
+    return filterData;
+    // if (user.name == token.user_nicename) {
+    //   console.log(user);
+    //   return user;
+    // }
+  });
+};
