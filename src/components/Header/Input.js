@@ -10,7 +10,9 @@ const Input = ({
   saveSearch,
   videos,
   saveCompare,
+  users,
 }) => {
+  console.log(users);
   const history = useHistory();
   return (
     <form
@@ -39,6 +41,7 @@ Input.propTypes = {
   searchValue: PropTypes.string.isRequired,
   saveSearch: PropTypes.func.isRequired,
   saveCompare: PropTypes.func.isRequired,
+  users: PropTypes.array.isRequired,
   videos: PropTypes.arrayOf(
     PropTypes.shape({
       video: PropTypes.arrayOf(

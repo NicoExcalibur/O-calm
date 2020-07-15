@@ -22,13 +22,14 @@ const Research = ({
   let categoryId = '';
   let authorId = '';
   let durationId = '';
+  let videoDisplay = researchVideoDisplay(compare, select);
   const provArray = [];
   const startResearch = () => {
     videos.map((video) => {
       video.video_categorie.forEach((element) => {
         if (categoryId == element) {
           provArray.push(video);
-        }
+        } 
       });
       video.video_auteur.forEach((element) => {
         if (authorId == element) {
@@ -44,7 +45,7 @@ const Research = ({
     saveSelect(provArray);
   };
 
-  let videoDisplay = researchVideoDisplay(compare, select);
+  // let videoDisplay = researchVideoDisplay(compare, select);
   return (
     <div className="research">
       <div className="input-research">

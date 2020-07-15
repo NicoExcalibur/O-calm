@@ -14,7 +14,9 @@ import Home from 'src/containers/Home';
 import Research from 'src/containers/Research';
 import Favorites from 'src/containers/Favorites';
 import SinglePage from 'src/containers/SinglePage';
-import Account from '../Account';
+
+import Account from 'src/containers/Account';
+
 import LegalMentions from '../LegalMentions';
 import About from '../About';
 

@@ -1,11 +1,13 @@
 // == Import npm
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import { Route } from 'react-router-dom';
 
+import Login from 'src/containers/Login';
 import Header from '../Header';
 import Footer from '../Footer';
 import Page from '../Page';
-// import Login from '../Login';
+import Subscribe from '../Subscribe';
 import './styles.scss';
 
 const App = ({
@@ -13,10 +15,12 @@ const App = ({
   fetchCategories,
   fetchAuthors,
   fetchDurations,
+  fetchUsers,
+  isLogged,
 }) => {
   useEffect(() => {
     fetchVideos();
-    fetchVideos();
+    fetchUsers();
     fetchCategories();
     fetchAuthors();
     fetchDurations();
@@ -30,10 +34,27 @@ const App = ({
 
   return (
     <div className="app">
-      {/* <Login /> */}
-      <Header openMenu={openMenu} menuBool={menuBool} />
-      <Page />
-      <Footer />
+      {!isLogged && (
+      <Route
+        path="/"
+        exact
+      >
+        <Login />
+      </Route>
+      )}
+      <Route
+        path="/subscribe"
+        exact
+      >
+        <Subscribe />
+      </Route>
+      {isLogged && (
+      <div className="app">
+        <Header openMenu={openMenu} menuBool={menuBool} />
+        <Page />
+        <Footer />
+      </div>
+      )}
     </div>
   );
 };
@@ -43,6 +64,8 @@ App.propTypes = {
   fetchCategories: PropTypes.func.isRequired,
   fetchAuthors: PropTypes.func.isRequired,
   fetchDurations: PropTypes.func.isRequired,
+  fetchUsers: PropTypes.func.isRequired,
+  isLogged: PropTypes.bool.isRequired,
 };
 
 // == Export

@@ -1,28 +1,57 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 import './login.scss';
 import logo from 'src/assets/logo.png';
 
-const Login = () => (
-  <div className="login">
-    <img className="logo" src={logo} alt="Logo O'Calm" />
-    <div className="right-login">
-      <h1>Connectez vous pour entrer dans le zen</h1>
-      <form>
-        <input type="mail" className="input-login" placeholder="E-mail" />
-        <input type="password" className="input-login" placeholder="Mot de passe" />
-        <button type="submit" className="submit">Entrer dans le zen</button>
-      </form>
-      <div className="subscribe">
-        <p className="question">
-          Vous n'avez pas encore de compte ?
-        </p>
-        <a href="#" className="new-account">
-          S'inscrire
-        </a>
+const Login = ({ saveLogin, verifLogin, token }) => {
+  const loginFormValue = [];
+  const handleLogin = (event) => {
+    const loginFormData = new FormData(event.currentTarget);
+    loginFormValue.username = loginFormData.get('username');
+    loginFormValue.password = loginFormData.get('password');
+    saveLogin(loginFormValue);
+  };
+  console.log(token);
+  return (
+    <div className="login">
+      <img className="logo" src={logo} alt="Logo O'Calm" />
+      <div className="right-login">
+        <h1>retrouvez votre petit coin o'calm</h1>
+        <form
+          onSubmit={(event) => {
+            event.preventDefault();
+            handleLogin(event);
+            verifLogin();
+          }}
+        >
+          <input name="username" type="text" className="input-login" placeholder="Pseudo" />
+          <input name="password" type="password" className="input-login" placeholder="Mot de passe" />
+          <button type="submit" className="submit">Entrer dans le zen</button>
+        </form>
+        <div className="subscribe">
+          <p className="question">
+            vous n'avez pas encore de coin o'calm ?
+          </p>
+          <NavLink
+            to="/subscribe"
+            exact
+          >
+            <a href="#" className="new-account">
+              Créer mon compte
+            </a>
+          </NavLink>
+        </div>
       </div>
     </div>
-  </div>
-);
+  );
+};
+
+Login.propTypes = {
+  saveLogin: PropTypes.func.isRequired,
+  verifLogin: PropTypes.func.isRequired,
+  token: PropTypes.string.isRequired,
+};
 
 export default Login;
