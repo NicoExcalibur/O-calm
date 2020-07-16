@@ -50,4 +50,6 @@ class Add_favorite
         
         return $this->wpdb->get_var($prepared);
     }
+
+    //
 }
