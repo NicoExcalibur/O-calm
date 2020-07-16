@@ -3,12 +3,13 @@
 .edit-user {
 
   position: absolute;
-  background-color: $hoverColor;
+  background-color: $backHeader;
   border-radius: 1rem;
   z-index: 80;
   margin-left: -3rem;
   margin-right: 5rem;
   margin-top: -28rem;
+  box-shadow: 1rem 1rem 1rem $altColor;
 
   .close {
     position: absolute;
@@ -32,7 +33,7 @@
   }
 
   form {
-    color: white;
+    color: $darkBlue;
     display: flex;
     flex-direction: column;
     text-align: left;
@@ -41,7 +42,7 @@
 
     .edit-my-info {
       text-align: center;
-      border-bottom: solid 2px white;
+      border-bottom: solid 2px $darkBlue;
       padding-bottom: 1rem;
       margin-bottom: 2rem;
 
@@ -88,6 +89,12 @@
 
         }
 
+        &::placeholder {
+          color: $mainBlue;
+          font-family: $quicksand;
+
+        }
+
       }
 
         .avatar {
@@ -99,30 +106,29 @@
     }
 
     .submit {
-      background-color: $ok;
-      margin-left: 5rem;
-      margin-right: 5rem;
-      color: white;
+      
+      border-style: none;
+      margin-left: 6rem;
+      margin-right: 6rem;
+      color: $focus;
+      background-color: white;
       font-family: $questrial;
       text-transform: uppercase;
       font-weight: bold;
-      border: 3px solid white;
       border-radius: 2rem;
       font-size: 1.2rem;
       padding: 1rem;
 
       &:hover {
-        background-color: white;
-        border: 3px solid $ok;
-        color: $ok;
+        background-color: $ok;
+        color: white;
 
       }
 
       &:active {
-        background-color: white;
-        border: 3px solid $ok;
-        color: $ok;
-        
+        background-color: $ok;
+        color: white;
+
       }
 
     }
