@@ -7,23 +7,31 @@ const Subscribe = () => {
   const subFormValue = {};
   const handleSub = (event) => {
     const loginFormData = new FormData(event.currentTarget);
-    if (subFormValue.password === subFormValue.confirmation) {
-      subFormValue.password = loginFormData.get('password');
-    } if (subFormValue.password !== subFormValue.confirmation) {
-      subFormValue.password = false;
-    }
+    // subFormValue.confirmation = loginFormData.get('confirmation');
+    subFormValue.password = loginFormData.get('password');
     subFormValue.avatar = loginFormData.get('avatar');
     subFormValue.email = loginFormData.get('email');
     subFormValue.username = loginFormData.get('username');
-
-    console.log(subFormValue);
   };
 
-  const wrongPassword = 'Le mot de passe n\'est pas identique';
-  const verifPassword = (event) => {
-    if (subFormValue.password === false) {
-      return wrongPassword;
-    }
+  // let wrongPassword;
+
+  // const verifPassword = () => {
+  //   // eslint-disable-next-line prefer-destructuring
+  //   const password = subFormValue.password;
+  //   // eslint-disable-next-line prefer-destructuring
+  //   const confirmation = subFormValue.confirmation;
+  //   if (password !== confirmation) {
+  //     wrongPassword = 'Le mot de passe n\'est pas identique';
+  //     return wrongPassword;
+  //   }
+  //   if (password === confirmation) {
+  //     return true;
+  //   }
+  // };
+
+  const getPassword = () => {
+    
   };
 
   return (
@@ -34,28 +42,43 @@ const Subscribe = () => {
           onSubmit={(event) => {
             event.preventDefault();
             handleSub(event);
+            // const check = verifPassword();
+            // console.log(check);
           }}
         >
-          <label className="choose-file">Choisissez une photo de profil
+          <label htmlFor="avatar" className="choose-file">Choisissez une photo de profil
             <input name="avatar" type="file" className="avatar" accept="image/png, image/jpeg" />
           </label>
-          <label>Rentrez votre e-mail
-            <input name="email" type="mail" className="input-login" placeholder="E-mail" />
+          <label htmlFor="email">Rentrez votre e-mail *
+            <input name="email" type="mail" className="input-login" placeholder="E-mail" required />
           </label>
-          <label>Choisissez un pseudo
-            <input name="username" type="text" className="input-login" placeholder="Pseudo" />
+          <label htmlFor="username">Choisissez un pseudo *
+            <input name="username" type="text" className="input-login" placeholder="Pseudo" required />
           </label>
-          <label>Rentrez votre mot de passe
-            <input name="password" type="password" className="input-login" placeholder="Mot de passe" />
+          <label htmlFor="password">Rentrez votre mot de passe *
+            <input
+              name="password"
+              type="password"
+              className="input-login"
+              placeholder="Mot de passe"
+              required
+              onBlur={(event) => {
+
+              }}
+            />
           </label>
-          <label>Confirmez votre mot de passe
+          <label htmlFor="confirmation">Confirmez votre mot de passe *
             <input
               name="confirmation"
               type="password"
               className="input-login validation"
               placeholder="Validation du mot de passe"
+              required
+              pattern={input.password.value}
             />
           </label>
+          <div className="wrong-pass"></div>
+          <div className="required">* veuillez impérativement remplir ces champs</div>
           <button type="submit" className="submit">Entrer dans le zen</button>
         </form>
       </div>

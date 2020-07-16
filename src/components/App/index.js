@@ -45,7 +45,7 @@ const App = ({
     fetchCategories();
     fetchAuthors();
     fetchDurations();
-    loadPage();
+    // loadPage();
   }, []);
 
   return (

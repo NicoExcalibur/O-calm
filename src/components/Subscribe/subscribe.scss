@@ -80,6 +80,33 @@
           color: $mainColor;
         }
 
+        &:required {
+          border-style: none;
+
+        }
+
+        &:invalid {
+          border: 1px solid $delete;
+
+        }
+
+        &:valid {
+          border: 1px solid $ok;
+
+        }
+      }
+
+      .wrong-pass {
+        color: $delete;
+        font-size: 1rem;
+        height: 2rem;
+        text-align: left;
+      }
+
+      .required {
+        color: $darkBlue;
+        font-size: 0.8rem;
+        text-align: left;
       }
 
       .submit {
