@@ -14,7 +14,6 @@ const usersMiddleware = (store) => (next) => (action) => {
     case FETCH_USERS: {
       axios.get('http://ec2-100-25-192-123.compute-1.amazonaws.com/o-calm/wp-json/wp/v2/users?per_page=100')
         .then((response) => {
-          console.log(response.data);
           store.dispatch(saveUsers(response.data));
         })
         .then((error) => {
@@ -32,6 +31,7 @@ const usersMiddleware = (store) => (next) => (action) => {
       axios.post(`http://ec2-100-25-192-123.compute-1.amazonaws.com/o-calm/wp-json/jwt-auth/v1/token?username=${username}&password=${password}`)
         .then((response) => {
           console.log(response.data);
+          sessionStorage.setItem('token', response.data.token);
           store.dispatch(saveToken(response.data));
         })
         .then((error) => {

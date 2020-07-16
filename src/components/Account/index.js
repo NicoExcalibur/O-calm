@@ -24,10 +24,12 @@ const Account = ({ token }) => {
           Bonjour <em className="hey-you">pseudo{token.user_nicename}</em> !
         </h2>
         <div className="avatar-editor">
+
           <img className="avatar" src={avatar} alt="avatar" />
         </div>
       </div>
       <div className="edit-info">
+
         <h1 className="edit-title">Mes informations</h1>
         <form className="edit-form">
           <h2 className="infos">Adresse e-mail</h2>
@@ -52,18 +54,22 @@ const Account = ({ token }) => {
             modifier mon compte
           </p>
         </div>
+
       </div>
     </div>
   );
 };
 
 Account.propTypes = {
+  users: PropTypes.array.isRequired,
   token: PropTypes.objectOf(
     PropTypes.shape({
       user_email: PropTypes.string.isRequired,
       user_nicename: PropTypes.string.isRequired,
     }).isRequired,
   ).isRequired,
+  setUser: PropTypes.func.isRequired,
+  currentUser: PropTypes.array.isRequired,
 };
 
 export default Account;

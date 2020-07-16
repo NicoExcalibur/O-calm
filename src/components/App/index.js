@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Route } from 'react-router-dom';
 
+import { compareUserArray } from 'src/utils';
 import Login from 'src/containers/Login';
 import Header from '../Header';
 import Footer from '../Footer';

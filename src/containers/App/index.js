@@ -13,6 +13,8 @@ import App from 'src/components/App';
 
 const mapStateToProps = (state) => ({
   isLogged: state.users.isLogged,
+  users: state.users.users,
+  token: state.users.token,
 });
 
 const mapDispatchToProps = (dispatch) => ({

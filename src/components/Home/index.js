@@ -3,7 +3,12 @@ import PropTypes from 'prop-types';
 
 import SlideMedia from 'src/containers/SlideMedia';
 
-const Home = ({ videos, categories, users }) => {
+const Home = ({
+  videos,
+  categories,
+  users,
+  token,
+}) => {
   console.log(users);
   return (
     <div className="home">
@@ -22,6 +27,7 @@ const Home = ({ videos, categories, users }) => {
 Home.propTypes = {
   videos: PropTypes.array.isRequired,
   users: PropTypes.array.isRequired,
+  token: PropTypes.object.isRequired,
   categories: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number.isRequired,

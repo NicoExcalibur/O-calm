@@ -13,7 +13,6 @@ const Login = ({ saveLogin, verifLogin, token }) => {
     loginFormValue.password = loginFormData.get('password');
     saveLogin(loginFormValue);
   };
-  console.log(token);
   return (
     <div className="login">
       <img className="logo" src={logo} alt="Logo O'Calm" />
@@ -38,9 +37,7 @@ const Login = ({ saveLogin, verifLogin, token }) => {
             to="/subscribe"
             exact
           >
-            <a href="#" className="new-account">
-              Créer mon compte
-            </a>
+            <p className="new-account">Créez mon compte</p>
           </NavLink>
         </div>
       </div>
@@ -51,7 +48,7 @@ const Login = ({ saveLogin, verifLogin, token }) => {
 Login.propTypes = {
   saveLogin: PropTypes.func.isRequired,
   verifLogin: PropTypes.func.isRequired,
-  token: PropTypes.string.isRequired,
+  token: PropTypes.object.isRequired,
 };
 
 export default Login;

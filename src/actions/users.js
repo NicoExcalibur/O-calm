@@ -4,6 +4,7 @@ export const SAVE_LOGIN = 'SAVE_LOGIN';
 export const VERIF_LOGIN = 'VERIF_LOGIN';
 export const SAVE_TOKEN = 'SAVE_TOKEN';
 export const IS_LOGGED = 'IS_LOGGED';
+export const SET_USER = 'SET_USER';
 
 export const fetchUsers = () => ({
   type: FETCH_USERS,
@@ -30,4 +31,9 @@ export const saveToken = (token) => ({
 
 export const idLogged = () => ({
   type: IS_LOGGED,
+});
+
+export const setUser = (user) => ({
+  type: SET_USER,
+  currentUser: user,
 });
