@@ -34,9 +34,7 @@ const App = ({
     } if (isLogged === false) {
       logging = false;
     }
-    verifSession()
-      .then(logging = true)
-      .then(logging = false);
+    verifSession();
     return logging;
   };
   useEffect(() => {

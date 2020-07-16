@@ -1,3 +1,4 @@
+/* eslint-disable prefer-destructuring */
 /* eslint-disable prefer-arrow-callback */
 import axios from 'axios';
 
@@ -44,31 +45,28 @@ const usersMiddleware = (store) => (next) => (action) => {
     }
 
     case VERIF_SESSION: {
-      // eslint-disable-next-line prefer-destructuring
-      console.log(sessionStorage);
-      // const stateToken = sessionStorage.token; // store.getState().users.token.token;
-      const token = sessionStorage.token;
-      // const tokenFunc = () => {
-      //   if (stateToken.length > 0) {
-      //     token = stateToken;
-      //   }
-      // };
-      // tokenFunc();
+      // console.log(sessionStorage);
+      const token = sessionStorage.getItem('token');
       console.log(token);
-      // const verifySession = new
-      // Promise((resolve, reject) => {
-      if (token.length > 0) {
-        axios.post('http://ec2-100-25-192-123.compute-1.amazonaws.com/o-calm/wp-json/jwt-auth/v1/token/validate', {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        })
-          .then(isLogged(true));
-      }
-      else {
-        isLogged(false);
-      }
-      // verifySession();
+      const verifySession = new Promise((resolve, reject) => {
+        setTimeout(300);
+        if (sessionStorage.token) {
+          axios({
+            method: 'post',
+            url: 'http://ec2-100-25-192-123.compute-1.amazonaws.com/o-calm/wp-json/jwt-auth/v1/token/validate',
+            headers: { Authorization: `Bearer ${token}` },
+          })
+            .then(resolve)
+            .catch(reject);
+        }
+        else {
+          reject();
+        }
+      });
+      verifySession
+        .then(isLogged(true))
+        .catch(isLogged(false));
+
       next(action);
       break;
     }
