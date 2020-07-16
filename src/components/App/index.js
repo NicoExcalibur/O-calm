@@ -17,25 +17,40 @@ const App = ({
   fetchAuthors,
   fetchDurations,
   fetchUsers,
+  verifSession,
   isLogged,
 }) => {
-  useEffect(() => {
-    fetchVideos();
-    fetchUsers();
-    fetchCategories();
-    fetchAuthors();
-    fetchDurations();
-  }, []);
-
   const [menuBool, setMenuBool] = useState(false);
 
   const openMenu = () => {
     setMenuBool(!menuBool);
   };
 
+  let logging = false;
+
+  const loadPage = () => {
+    if (isLogged === true) {
+      logging = true;
+    } if (isLogged === false) {
+      logging = false;
+    }
+    verifSession()
+      .then(logging = true)
+      .then(logging = false);
+    return logging;
+  };
+  useEffect(() => {
+    fetchVideos();
+    fetchUsers();
+    fetchCategories();
+    fetchAuthors();
+    fetchDurations();
+    loadPage();
+  }, []);
+
   return (
     <div className="app">
-      {/* {!isLogged && (
+      {!isLogged && (
       <Route
         path="/"
         exact
@@ -49,13 +64,13 @@ const App = ({
       >
         <Subscribe />
       </Route>
-      {isLogged && ( */}
+      {isLogged && (
       <div className="app">
         <Header openMenu={openMenu} menuBool={menuBool} />
         <Page />
         <Footer />
       </div>
-      {/* )} */}
+      )}
     </div>
   );
 };
@@ -66,6 +81,7 @@ App.propTypes = {
   fetchAuthors: PropTypes.func.isRequired,
   fetchDurations: PropTypes.func.isRequired,
   fetchUsers: PropTypes.func.isRequired,
+  verifSession: PropTypes.func.isRequired,
   isLogged: PropTypes.bool.isRequired,
 };
 

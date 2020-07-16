@@ -5,6 +5,8 @@ export const VERIF_LOGIN = 'VERIF_LOGIN';
 export const SAVE_TOKEN = 'SAVE_TOKEN';
 export const IS_LOGGED = 'IS_LOGGED';
 export const SET_USER = 'SET_USER';
+export const VERIF_SESSION = 'VERIF_SESSION';
+export const NOT_LOGGED = 'NOT_LOGGED';
 
 export const fetchUsers = () => ({
   type: FETCH_USERS,
@@ -29,11 +31,16 @@ export const saveToken = (token) => ({
   token,
 });
 
-export const idLogged = () => ({
+export const isLogged = (value) => ({
   type: IS_LOGGED,
+  isLogged: value,
 });
 
 export const setUser = (user) => ({
   type: SET_USER,
   currentUser: user,
+});
+
+export const verifSession = () => ({
+  type: VERIF_SESSION,
 });

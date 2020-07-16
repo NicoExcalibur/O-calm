@@ -16,12 +16,13 @@ const Account = ({ token }) => {
   const closeEdit = () => {
     setEditBool(false);
   };
+  
 
   return (
     <div className="account">
       <div className="desktop">
         <h2 className="account-name">
-          Bonjour <em className="hey-you">pseudo{token.user_nicename}</em> !
+          Bonjour <em className="hey-you">{token.user_nicename}</em> !
         </h2>
         <div className="avatar-editor">
 
@@ -33,10 +34,10 @@ const Account = ({ token }) => {
         <h1 className="edit-title">Mes informations</h1>
         <form className="edit-form">
           <h2 className="infos">Adresse e-mail</h2>
-          <h3 className="mail">adresse@mail.com{token.user_email}</h3>
+          <h3 className="mail">{token.user_email}</h3>
           <h2 className="infos">Pseudo</h2>
           <h3 className="pseudo">
-            pseudo{token.user_nicename}
+            {token.user_nicename}
           </h3>
         </form>
         <div className="edit-account">

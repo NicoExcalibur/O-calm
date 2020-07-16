@@ -3,6 +3,7 @@ import {
   SAVE_LOGIN,
   SAVE_TOKEN,
   SET_USER,
+  IS_LOGGED,
 } from 'src/actions/users';
 
 const initialState = {
@@ -38,6 +39,12 @@ const users = (state = initialState, action = {}) => {
       return {
         ...state,
         currentUser: action.user,
+      };
+
+    case IS_LOGGED:
+      return {
+        ...state,
+        isLogged: action.value,
       };
 
     default: return state;

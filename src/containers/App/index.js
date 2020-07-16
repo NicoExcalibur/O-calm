@@ -7,7 +7,7 @@ import {
   fetchDurations,
 } from 'src/actions/videos';
 
-import { fetchUsers } from 'src/actions/users';
+import { fetchUsers, verifSession } from 'src/actions/users';
 
 import App from 'src/components/App';
 
@@ -32,6 +32,9 @@ const mapDispatchToProps = (dispatch) => ({
   },
   fetchUsers: () => {
     dispatch(fetchUsers());
+  },
+  verifSession: () => {
+    dispatch(verifSession());
   },
 });
 
