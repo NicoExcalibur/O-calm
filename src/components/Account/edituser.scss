@@ -1,0 +1,171 @@
+@import 'src/styles/vars';
+  
+.edit-user {
+
+  position: absolute;
+  background-color: $backHeader;
+  border-radius: 1rem;
+  z-index: 80;
+  margin-left: -3rem;
+  margin-right: 5rem;
+  margin-top: -28rem;
+  box-shadow: 1rem 1rem 1rem $altColor;
+
+  .close {
+    position: absolute;
+    background-color: $delete;
+    border: 2px solid white;
+    color: white;
+    font-weight: bold;
+    font-size: 1.3rem;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 1rem;
+    margin-left: 92%;
+    margin-top: -2%;
+    
+    p {
+      margin-left: -0.1rem;
+      margin-top: 0.1rem;
+
+    }
+
+  }
+
+  form {
+    color: $darkBlue;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    font-size: 1.1rem;
+    margin: 2rem;
+
+    .edit-my-info {
+      text-align: center;
+      border-bottom: solid 2px $darkBlue;
+      padding-bottom: 1rem;
+      margin-bottom: 2rem;
+
+    }
+
+    .choose-file {
+      margin-bottom: 1.5rem;
+      background-color: $backMedia;
+      color: white;
+      padding: 0.5rem;
+      width: 80%;
+      font-size: 1rem;
+      border-radius: 1rem;
+
+      &:active {
+        color: $backMedia;
+        background-color: white;
+
+      }
+
+      &:hover {
+        color: $backMedia;
+        background-color: white;
+
+      }
+
+    }
+
+    label {
+      
+
+      input {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+        border-style: none;
+        padding-left: 0.3rem;
+        width: 80%;
+
+        &:focus {
+          border-radius: 2rem;
+          border: 2px solid $backMedia;
+
+        }
+
+        &::placeholder {
+          color: $mainBlue;
+          font-family: $quicksand;
+
+        }
+
+      }
+
+        .avatar {
+          display: none;
+  
+        }
+
+     
+    }
+
+    .submit {
+      
+      border-style: none;
+      margin-left: 6rem;
+      margin-right: 6rem;
+      color: $focus;
+      background-color: white;
+      font-family: $questrial;
+      text-transform: uppercase;
+      font-weight: bold;
+      border-radius: 2rem;
+      font-size: 1.2rem;
+      padding: 1rem;
+
+      &:hover {
+        background-color: $ok;
+        color: white;
+
+      }
+
+      &:active {
+        background-color: $ok;
+        color: white;
+
+      }
+
+    }
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .edit-user {
+    margin-left: -10rem;
+    margin-right: 8rem;
+    margin-top: -22rem;
+
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .edit-user {
+
+    .close {
+      margin-left: 95%;
+    }
+  }
+}
+
+@media screen and (min-width: 1400px) {
+  .edit-user {
+    margin-top: -22rem;
+    margin-right: 2rem;
+    margin-left: 2rem;
+
+  }
+}
+@media screen and (min-width: 1600px) {
+  .edit-user {
+    margin-top: -22rem;
+    margin-right: 2rem;
+    margin-left: 8rem;
+
+  }
+}

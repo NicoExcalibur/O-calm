@@ -1,41 +1,65 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Edit } from 'react-feather';
 
 import avatar from 'src/assets/images/fabio.png';
 import './account.scss';
+import EditUser from './EditUser';
 
-const Account = ({ token, users, setUser, currentUser }) => {
-  users.forEach((user) => {
-    if (user.name === token.user_nicename) {
-      setUser(user);
-    }
-  });
+const Account = ({ token }) => {
+  const [editBool, setEditBool] = useState(false);
+
+  const openEdit = () => {
+    setEditBool(true);
+  };
+
+  const closeEdit = () => {
+    setEditBool(false);
+  };
+
   return (
     <div className="account">
       <div className="desktop">
-        <h2 className="account-name">Bonjour {token.user_nicename} !</h2>
+        <h2 className="account-name">
+          Bonjour <em className="hey-you">pseudo{token.user_nicename}</em> !
+        </h2>
         <div className="avatar-editor">
-          <label htmlFor="file">
-            <Edit htmlFor="file" className="edit" />
-            <input className="avatar-input" name="file" type="file" accept="image/png, image/jpeg" />
-          </label>
+
           <img className="avatar" src={avatar} alt="avatar" />
         </div>
       </div>
       <div className="edit-info">
-        <h1 className="edit-title">Modifier les informations de mon compte</h1>
+
+        <h1 className="edit-title">Mes informations</h1>
         <form className="edit-form">
-          <input type="mail" className="mail" placeholder="E-mail" value={token.user_email} />
-          <input type="text" className="pseudo" placeholder="Pseudo" value={token.user_nicename} />
-          <input type="password" className="password" placeholder="Password" />
-          <button type="submit" className="submit">Enregistrer</button>
+          <h2 className="infos">Adresse e-mail</h2>
+          <h3 className="mail">adresse@mail.com{token.user_email}</h3>
+          <h2 className="infos">Pseudo</h2>
+          <h3 className="pseudo">
+            pseudo{token.user_nicename}
+          </h3>
         </form>
-        <a href="#" className="delete">Supprimer mon compte</a>
+        <div className="edit-account">
+          <a className="edit">
+            <Edit
+              className="edit"
+              size={30}
+              onClick={openEdit}
+            />
+            {editBool && (
+              <EditUser closeEdit={closeEdit} />
+            )}
+          </a>
+          <p className="edit-legend">
+            modifier mon compte
+          </p>
+        </div>
+
       </div>
     </div>
   );
 };
+
 Account.propTypes = {
   users: PropTypes.array.isRequired,
   token: PropTypes.objectOf(
