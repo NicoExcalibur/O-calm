@@ -14,7 +14,7 @@ require plugin_dir_path(__FILE__) . 'inc/video_cpt.php';
 require plugin_dir_path(__FILE__) . 'inc/custom_table.php';
 require plugin_dir_path(__FILE__) . 'inc/roles.php';
 require plugin_dir_path(__FILE__) . 'inc/rest_api.php';
-
+require plugin_dir_path(__FILE__) . 'inc/recently_viewed_video.php';
 //
 
 // CPT RECIPE + TAXO
@@ -40,3 +40,8 @@ $ocalm_role = new Ocalm_role();
 register_activation_hook(__FILE__, [$ocalm_role, 'activation']);
 register_deactivation_hook(__FILE__, [$ocalm_role, 'deactivation']);
 
+// video recentes
+
+$recently_viewed_video = new recentlyViewedVideo();
+$recently_viewed_video->recentlyvideo_endpoints($r);
+add_action('rest_api_init', 'recentlyvideo_endpoints'); 

@@ -4,7 +4,9 @@ class OcalmRestApi {
 
     public function __construct()
     {
-        add_action('rest_api_init', [$this, 'metaFields']);       
+        add_action('rest_api_init', [$this, 'metaFields']);
+
+        add_filter( "rest_work_query", [$this, 'filterRestWorkQuery', 10, 2] );        
     }
 
     public function metaFields()
@@ -33,4 +35,5 @@ class OcalmRestApi {
     // var_dump($object);
     return get_post_meta($object['id'], $field_name, true);
   }
+  
 }
