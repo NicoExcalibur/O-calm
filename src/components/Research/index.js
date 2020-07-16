@@ -91,7 +91,7 @@ const Research = ({
               Choisissez une catégorie
             </option>
             {categories.map((category) => (
-              <option value={category.id}>
+              <option key={category.id} value={category.id}>
                 {category.name}
               </option>
             ))}
@@ -106,7 +106,7 @@ const Research = ({
               Choisissez la durée de votre séance
             </option>
             {durations.map((duration) => (
-              <option value={duration.id}>
+              <option key={duration.id} value={duration.id}>
                 {duration.name}
               </option>
             ))}
@@ -121,7 +121,7 @@ const Research = ({
               Choisissez l'auteur de votre choix
             </option>
             {authors.map((author) => (
-              <option value={author.id}>
+              <option key={author.id} value={author.id}>
                 {author.name}
               </option>
             ))}
@@ -155,7 +155,7 @@ Research.propTypes = {
   videos: PropTypes.array.isRequired,
   saveCompare: PropTypes.func.isRequired,
   saveSelect: PropTypes.func.isRequired,
-  select: PropTypes.objectOf(
+  select: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number.isRequired,
     }).isRequired,
