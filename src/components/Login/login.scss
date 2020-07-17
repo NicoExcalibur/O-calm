@@ -30,11 +30,19 @@
       padding-right: 2rem;
       border-radius: 2rem;
       
+      label {
+        color: $darkBlue;
+        text-align: left;
+        font-weight: bold;
+        width: 100%;
+
+      }
+
       .input-login {
         font-family: $quicksand;
-        margin-top: 1rem;
         padding: 0.5rem;
         border-style: none;
+        margin-bottom: 0.5rem;
 
         &:focus {
           border: 2px solid $backMedia;
@@ -78,9 +86,12 @@
   }
   
   .subscribe {
-
+    display: flex;
+    flex-direction: column;
+    
     .question {
       color: $mainColor;
+      font-size: 0.8rem;
       font-style: italic;
       margin-bottom: 1rem;
 
