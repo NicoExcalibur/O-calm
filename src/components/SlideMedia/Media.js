@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ReactPlayer from 'react-player';
 import { Play } from 'react-feather';
-// import { PlayCircle } from 'react-feather';
 import { NavLink } from 'react-router-dom';
 
 import './media.scss';
@@ -16,7 +15,6 @@ const Media = ({ video }) => (
       height={120}
       {...video}
     />
-    <h3>{video.title.rendered}</h3>
     <NavLink
       className="play"
       to={`/player/${video.slug}`}
@@ -24,6 +22,7 @@ const Media = ({ video }) => (
     >
       <Play className="icon" size={40} />
     </NavLink>
+    <h3>{video.title.rendered}</h3>
   </div>
 );
 
