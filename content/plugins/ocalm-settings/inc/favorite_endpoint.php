@@ -10,64 +10,67 @@ class FavoriteEndpoint {
     public function favorite_endpoint($request) {
         register_rest_route('ocalm-settings/v1', 'video/favorite', [
           'methods' => 'POST',
-          'callback' => [$this, 'get_favorite'] //tes
+          'callback' => [$this, 'get_favorite']
         ]);
-    } // en retest
-    //ok
+    }
+
     public function get_favorite($request = null) {
       
-      //$response = [];
+      $response = [];
       $parameters = $request->get_json_params();
       $user_id = intval($parameters['user_id']);
       $post_id = intval($parameters['post_id']);
-      $data = array( $user_id, $post_id); //plz
+      $data = array( $user_id, $post_id); 
       
       $response = new WP_REST_Response( $data );
-      // maintenent faut inséré ds la bdd. non :p
-      var_dump($data);
-      do_action([$this, 'insert'], $response); // euh la je vais de la magie fusion. go on test stp normal
-      return new WP_REST_Response($response, 200);
+  
+      $this->insert($user_id, $post_id,$response); // 
+      return $response;
       
-
+/* 
+   $this->wpdb->insert(
+        $this->table,
+        [
+          'email' => $_POST['email'],
+          'optin_general' => 1,
+          'optin_partners' => $optin,
+          'fk_user_id' => $fk_user_id,
+        ],
+        [
+          '%s',
+          '%d',
+          '%d',
+          '%d',
+        ]
+      );
+    }
+*/
     }
     // https://developer.wordpress.org/reference/classes/wpdb/
-    public function insert($response)
+    public function insert($user_id, $post_id, $response)
     { 
+     //var_dump($_POST['user_id']); die(); //
      //return var_dump($response);
+
       // tes
      global $wpdb;
   //https://developer.wordpress.org/reference/classes/wpdb/#top
   
       $this->wpdb = $wpdb;
       $this->table = $wpdb->prefix . 'favorites';
-      // c les bon champs? ok. fais un bisous à lou avant pour nous porté chance. rien en bdd? il est là
-      $wpdb->query(
-        $wpdb->prepare(
-          "
-          INSERT INTO {$this->table}
-          (user_id, post_id)
-          VALUES (%d, %d)
-          ",
-          array(
-            $response['user_id'],
-            $response['post_id'],
-          )
-        )
-
-      );
-
-      /*$wpdb->insert( 
+      
+      $wpdb->insert( 
         $this->table, 
         array( 
-          'user_id' => $response['user_id'], 
-          'post_id' => $response['post_id'] 
+          'user_id' => $user_id, 
+          'post_id' => $post_id // ta été trop vite lol 
         ), 
         array( 
           '%d', 
           '%d' 
         ) 
-      );*/
-      
+      );
+      return new WP_REST_Response($response, 200);
     }
 
 
