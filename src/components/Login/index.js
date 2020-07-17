@@ -25,7 +25,9 @@ const Login = ({ saveLogin, verifLogin, token }) => {
             verifLogin();
           }}
         >
+          <label for="username">Votre pseudo</label>
           <input name="username" type="text" className="input-login" placeholder="Pseudo" />
+          <label for="password">Votre mot de passe</label>
           <input name="password" type="password" className="input-login" placeholder="Mot de passe" />
           <button type="submit" className="submit">Entrer dans le zen</button>
         </form>
@@ -37,7 +39,7 @@ const Login = ({ saveLogin, verifLogin, token }) => {
             to="/subscribe"
             exact
           >
-            <p className="new-account">Créez mon compte</p>
+            <p className="new-account">Créer mon compte</p>
           </NavLink>
         </div>
       </div>

@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
+import { NavLink } from 'react-router-dom';
 
 import logo from 'src/assets/images/logo.png';
 import './subscribe.scss';
@@ -103,6 +104,17 @@ const Subscribe = ({ subArray, insertSubscribe, sendSubscribe }) => {
           <div className="required">* veuillez impérativement remplir ces champs</div>
           <button type="submit" className="submit">Entrer dans le zen</button>
         </form>
+        <div className="back">
+          <p className="go-back">
+            oh, vous aviez déjà un compte ?
+          </p>
+          <NavLink
+            to="/"
+            exact
+          >
+            <p className="go-back-link">Retour à la page de connexion</p>
+          </NavLink>
+        </div>
       </div>
       <img className="logo" src={logo} alt="Logo O'Calm" />
     </div>

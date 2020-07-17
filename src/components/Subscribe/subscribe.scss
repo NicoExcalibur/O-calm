@@ -124,6 +124,35 @@
         
       }
     }    
+
+    .back {
+      margin-bottom: 4rem;
+
+      .go-back {
+        color: $mainColor;
+        font-size: 0.8rem;
+        font-style: italic;
+
+      }
+
+      .go-back-link {
+        color: $mainBlue;
+        font-weight: bold;
+        text-decoration: underline;
+        margin-top: 1rem;
+
+        &:hover {
+          color: $backMedia;
+
+        }
+
+        &:active {
+          color: $backMedia;
+          
+        }
+
+      }
+    }
   }
   
   img {

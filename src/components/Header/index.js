@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import logo from 'src/assets/images/logo.png';
@@ -16,11 +17,16 @@ const Header = ({ openMenu, menuBool }) => (
       <Menu />
       <ButtonMenu openMenu={openMenu} menuBool={menuBool} />
     </div>
-    <img
+    <NavLink
+      to="/"
+      exact
+    >
+       <img
       src={logo}
       alt="logocalm"
       className="logo-header"
     />
+    </NavLink>
   </header>
 );
 
