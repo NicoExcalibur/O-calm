@@ -9,6 +9,17 @@ const Home = ({
   users,
   token,
 }) => {
+  const userArray = [];
+  const arrayCompare = () => {
+    users.forEach((user) => {
+      console.log(user);
+      if (user.name == token.user_nicename) {
+        userArray.push(user);
+      }
+    });
+  };
+  arrayCompare();
+  console.log(userArray);
   console.log(users);
   return (
     <div className="home">

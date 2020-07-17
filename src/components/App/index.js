@@ -26,24 +26,13 @@ const App = ({
     setMenuBool(!menuBool);
   };
 
-  let logging = false;
-
-  const loadPage = () => {
-    if (isLogged === true) {
-      logging = true;
-    } if (isLogged === false) {
-      logging = false;
-    }
-    verifSession();
-    return logging;
-  };
   useEffect(() => {
+    verifSession();
     fetchVideos();
     fetchUsers();
     fetchCategories();
     fetchAuthors();
     fetchDurations();
-    loadPage();
   }, []);
 
   return (
