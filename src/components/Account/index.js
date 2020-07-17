@@ -6,8 +6,10 @@ import avatar from 'src/assets/images/fabio.png';
 import './account.scss';
 import EditUser from './EditUser';
 
-const Account = ({ token }) => {
+const Account = ({ token, userProfile }) => {
   const [editBool, setEditBool] = useState(false);
+
+  userProfile();
 
   const openEdit = () => {
     setEditBool(true);
@@ -62,8 +64,10 @@ const Account = ({ token }) => {
 
 Account.propTypes = {
   users: PropTypes.array.isRequired,
+  userProfile: PropTypes.func.isRequired,
   token: PropTypes.objectOf(
     PropTypes.shape({
+      token: PropTypes.string.isRequired,
       user_email: PropTypes.string.isRequired,
       user_nicename: PropTypes.string.isRequired,
     }).isRequired,

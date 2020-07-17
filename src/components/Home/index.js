@@ -8,18 +8,19 @@ const Home = ({
   categories,
   users,
   token,
+  currentUser,
+  setUser,
 }) => {
-  const userArray = [];
   const arrayCompare = () => {
     users.forEach((user) => {
       console.log(user);
       if (user.name == token.user_nicename) {
-        userArray.push(user);
+        setUser(user);
       }
     });
   };
   arrayCompare();
-  console.log(userArray);
+  console.log(currentUser);
   console.log(users);
   return (
     <div className="home">
@@ -39,6 +40,8 @@ Home.propTypes = {
   videos: PropTypes.array.isRequired,
   users: PropTypes.array.isRequired,
   token: PropTypes.object.isRequired,
+  currentUser: PropTypes.array.isRequired,
+  setUser: PropTypes.func.isRequired,
   categories: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number.isRequired,

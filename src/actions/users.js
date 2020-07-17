@@ -7,6 +7,9 @@ export const IS_LOGGED = 'IS_LOGGED';
 export const SET_USER = 'SET_USER';
 export const VERIF_SESSION = 'VERIF_SESSION';
 export const NOT_LOGGED = 'NOT_LOGGED';
+export const INSERT_SUBSCRIBE = 'INSERT_SUBSCRIBE';
+export const SEND_SUBSCRIBE = 'SEND_SUBSCRIBE';
+export const USER_PROFILE = 'USER_PROFILE';
 
 export const fetchUsers = () => ({
   type: FETCH_USERS,
@@ -43,4 +46,17 @@ export const setUser = (user) => ({
 
 export const verifSession = () => ({
   type: VERIF_SESSION,
+});
+
+export const insertSubscribe = (subArray) => ({
+  type: INSERT_SUBSCRIBE,
+  subArray,
+});
+
+export const sendSubscribe = () => ({
+  type: SEND_SUBSCRIBE,
+});
+
+export const userProfile = () => ({
+  type: USER_PROFILE,
 });

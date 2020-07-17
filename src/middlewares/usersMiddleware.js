@@ -9,7 +9,10 @@ import {
   saveToken,
   VERIF_SESSION,
   isLogged,
+  SEND_SUBSCRIBE,
+  USER_PROFILE,
 } from 'src/actions/users';
+import { setUser } from '../actions/users';
 // http://ec2-100-25-192-123.compute-1.amazonaws.com/o-calm/wp-json/jwt-auth/v1/token?username=ocalm&password=ocalm
 
 const usersMiddleware = (store) => (next) => (action) => {
@@ -45,11 +48,8 @@ const usersMiddleware = (store) => (next) => (action) => {
     }
 
     case VERIF_SESSION: {
-      // console.log(sessionStorage);
       const token = sessionStorage.getItem('token');
-      console.log(token);
       const verifySession = new Promise((resolve, reject) => {
-        setTimeout(300);
         if (sessionStorage.token) {
           axios({
             method: 'post',
@@ -70,6 +70,46 @@ const usersMiddleware = (store) => (next) => (action) => {
       next(action);
       break;
     }
+
+    case SEND_SUBSCRIBE: {
+      const { subArray } = store.getState().users;
+      axios.post('http://ec2-100-25-192-123.compute-1.amazonaws.com/o-calm/wp-json/wp/v2/users/register', subArray)
+        .then((response) => {
+          console.log(response);
+        })
+        .catch((error) => {
+          console.warn(error);
+        });
+      next(action);
+      break;
+    }
+
+    case USER_PROFILE: {
+      const token = sessionStorage.getItem('token');
+      const verifySession = new Promise((resolve, reject) => {
+        if (sessionStorage.token) {
+          axios({
+            method: 'post',
+            url: 'http://ec2-100-25-192-123.compute-1.amazonaws.com/o-calm/wp-json/jwt-auth/v2/users/me',
+            headers: { Authorization: `Bearer ${token}` },
+          })
+            .then(resolve)
+            .catch(reject);
+        }
+        else {
+          reject();
+        }
+      });
+      verifySession
+        .then((response) => {
+          console.log(response);
+        })
+        .catch((error) => {
+          console.warn(error);
+        });
+
+      next(action);
+      break; }
 
     default:
       next(action);

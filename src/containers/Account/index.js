@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-import { setUser } from 'src/actions/users';
+import { userProfile } from 'src/actions/users';
 
 import Account from 'src/components/Account';
 
@@ -11,8 +11,8 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  setUser: (user) => {
-    dispatch(setUser(user));
+  userProfile: () => {
+    dispatch(userProfile());
   },
 });
 

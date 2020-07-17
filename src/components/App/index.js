@@ -5,10 +5,10 @@ import { Route } from 'react-router-dom';
 
 import { compareUserArray } from 'src/utils';
 import Login from 'src/containers/Login';
+import Subscribe from 'src/containers/Subscribe';
 import Header from '../Header';
 import Footer from '../Footer';
 import Page from '../Page';
-import Subscribe from '../Subscribe';
 import './styles.scss';
 
 const App = ({
@@ -33,9 +33,6 @@ const App = ({
     fetchCategories();
     fetchAuthors();
     fetchDurations();
-
-    // loadPage();
-
   }, []);
 
   return (

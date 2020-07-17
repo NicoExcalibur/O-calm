@@ -4,6 +4,7 @@ import {
   SAVE_TOKEN,
   SET_USER,
   IS_LOGGED,
+  INSERT_SUBSCRIBE,
 } from 'src/actions/users';
 
 const initialState = {
@@ -12,6 +13,7 @@ const initialState = {
   token: {},
   isLogged: false,
   currentUser: [],
+  subArray: {},
 };
 
 const users = (state = initialState, action = {}) => {
@@ -45,6 +47,12 @@ const users = (state = initialState, action = {}) => {
       return {
         ...state,
         isLogged: action.value,
+      };
+
+    case INSERT_SUBSCRIBE:
+      return {
+        ...state,
+        subArray: action.subArray,
       };
 
     default: return state;

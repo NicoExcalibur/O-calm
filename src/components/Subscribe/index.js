@@ -1,10 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import PropTypes from 'prop-types';
 
 import logo from 'src/assets/images/logo.png';
 import './subscribe.scss';
 
-const Subscribe = () => {
+const Subscribe = ({ subArray, insertSubscribe, sendSubscribe }) => {
   let inputValue;
   const getPassword = (event) => {
     const inputPassword = event.currentTarget.value;
@@ -50,7 +51,9 @@ const Subscribe = () => {
           onSubmit={(event) => {
             event.preventDefault();
             handleSub(event);
-            console.log(subFormValue);
+            insertSubscribe(subFormValue);
+            sendSubscribe();
+            console.log(subArray);
           }}
         >
           <label className="choose-file">Choisissez une photo de profil
@@ -62,6 +65,7 @@ const Subscribe = () => {
               type="mail"
               className="input-login"
               placeholder="E-mail"
+              pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
               required
             />
           </label>
@@ -104,4 +108,11 @@ const Subscribe = () => {
     </div>
   );
 };
+
+Subscribe.propTypes = {
+  subArray: PropTypes.object.isRequired,
+  insertSubscribe: PropTypes.func.isRequired,
+  sendSubscribe: PropTypes.func.isRequired,
+};
+
 export default Subscribe;
