@@ -3,33 +3,31 @@
 .media {
   height: 13rem;
 
-  &:hover {
-    background-color: $backMedia;
+
+  .react-player {
+    margin-left: -1rem;
 
   }
 
-  .play {
-    margin: 1rem;
-    color: $altColor;
-    text-align: center;
-    display: block;
-    width: 200px;
-  
-    .react-player {
-      margin-left: -1rem;
+  h3 {
+    color: $mainColor;
+    font-weight: bold;
+    margin: auto;
 
+  }    
+
+  .play {
+    color: white;
+    margin: auto;
+    text-align: center;
+    background-color: $focus;
+    border-radius: 2rem;
+    width: 3rem;
+    height: 3rem;
+
+    .icon {
+     
     }
 
-    h3 {
-      color: $mainColor;
-      font-weight: bold;
-      margin-right: 2rem;
-
-      &:hover {
-        color: white;
-        
-      }
-
-    }    
   }
 }
