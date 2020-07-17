@@ -16,7 +16,6 @@ const Account = ({ token }) => {
   const closeEdit = () => {
     setEditBool(false);
   };
-  
 
   return (
     <div className="account">

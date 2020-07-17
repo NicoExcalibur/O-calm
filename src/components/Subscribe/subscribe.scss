@@ -62,6 +62,7 @@
           
         }
 
+
       .input-login {
         font-family: $quicksand;
         margin-top: 1rem;
@@ -80,6 +81,21 @@
           color: $mainColor;
         }
 
+      }
+
+
+      #wrong-pass {
+        color: $delete;
+        font-weight: bold;
+        font-size: 1rem;
+        height: 2rem;
+        text-align: left;
+      }
+
+      .required {
+        color: $darkBlue;
+        font-size: 0.8rem;
+        text-align: left;
       }
 
       .submit {
