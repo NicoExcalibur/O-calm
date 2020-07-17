@@ -1,37 +1,45 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 
 import logo from 'src/assets/images/logo.png';
 import './subscribe.scss';
 
 const Subscribe = () => {
-  const subFormValue = {};
-  const handleSub = (event) => {
-    const loginFormData = new FormData(event.currentTarget);
-    // subFormValue.confirmation = loginFormData.get('confirmation');
-    subFormValue.password = loginFormData.get('password');
-    subFormValue.avatar = loginFormData.get('avatar');
-    subFormValue.email = loginFormData.get('email');
-    subFormValue.username = loginFormData.get('username');
+  let inputValue;
+  const getPassword = (event) => {
+    const inputPassword = event.currentTarget.value;
+    inputValue = inputPassword;
   };
 
-  // let wrongPassword;
+  let secondInputValue;
+  const getConfirmation = (event) => {
+    const inputConfirmation = event.currentTarget.value;
+    secondInputValue = inputConfirmation;
+  };
 
-  // const verifPassword = () => {
-  //   // eslint-disable-next-line prefer-destructuring
-  //   const password = subFormValue.password;
-  //   // eslint-disable-next-line prefer-destructuring
-  //   const confirmation = subFormValue.confirmation;
-  //   if (password !== confirmation) {
-  //     wrongPassword = 'Le mot de passe n\'est pas identique';
-  //     return wrongPassword;
-  //   }
-  //   if (password === confirmation) {
-  //     return true;
-  //   }
-  // };
+  let errorMessage;
+  const comparePassword = () => {
+    if (inputValue === secondInputValue) {
+      errorMessage = '';
+      ReactDOM.render(errorMessage, document.getElementById('wrong-pass'));
+      return true;
+    }
+    if (inputValue !== secondInputValue) {
+      errorMessage = 'Le mot de passe n\'est pas identique';
+      ReactDOM.render(errorMessage, document.getElementById('wrong-pass'));
+    }
+  };
 
-  const getPassword = () => {
-    
+  const subFormValue = {};
+  const handleSub = (event) => {
+    if (comparePassword() == true) {
+      const loginFormData = new FormData(event.currentTarget);
+      // subFormValue.confirmation = loginFormData.get('confirmation');
+      subFormValue.password = loginFormData.get('password');
+      subFormValue.avatar = loginFormData.get('avatar');
+      subFormValue.email = loginFormData.get('email');
+      subFormValue.username = loginFormData.get('username');
+    }
   };
 
   return (
@@ -42,15 +50,20 @@ const Subscribe = () => {
           onSubmit={(event) => {
             event.preventDefault();
             handleSub(event);
-            // const check = verifPassword();
-            // console.log(check);
+            console.log(subFormValue);
           }}
         >
-          <label htmlFor="avatar" className="choose-file">Choisissez une photo de profil
+          <label className="choose-file">Choisissez une photo de profil
             <input name="avatar" type="file" className="avatar" accept="image/png, image/jpeg" />
           </label>
           <label htmlFor="email">Rentrez votre e-mail *
-            <input name="email" type="mail" className="input-login" placeholder="E-mail" required />
+            <input
+              name="email"
+              type="mail"
+              className="input-login"
+              placeholder="E-mail"
+              required
+            />
           </label>
           <label htmlFor="username">Choisissez un pseudo *
             <input name="username" type="text" className="input-login" placeholder="Pseudo" required />
@@ -63,7 +76,8 @@ const Subscribe = () => {
               placeholder="Mot de passe"
               required
               onBlur={(event) => {
-
+                getPassword(event);
+                console.log(inputValue);
               }}
             />
           </label>
@@ -74,10 +88,14 @@ const Subscribe = () => {
               className="input-login validation"
               placeholder="Validation du mot de passe"
               required
-              pattern={input.password.value}
+              onBlur={(event) => {
+                getConfirmation(event);
+                comparePassword(event);
+                console.log(errorMessage);
+              }}
             />
           </label>
-          <div className="wrong-pass"></div>
+          <div id="wrong-pass"></div>
           <div className="required">* veuillez impérativement remplir ces champs</div>
           <button type="submit" className="submit">Entrer dans le zen</button>
         </form>
