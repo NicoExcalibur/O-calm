@@ -13,7 +13,7 @@ if (!defined('WPINC')) {die();}
 require plugin_dir_path(__FILE__) . 'inc/video_cpt.php';
 require plugin_dir_path(__FILE__) . 'inc/custom_table.php';
 require plugin_dir_path(__FILE__) . 'inc/roles.php';
-require plugin_dir_path(__FILE__) . 'inc/rest_api.php';
+//require plugin_dir_path(__FILE__) . 'inc/rest_api.php';
 require plugin_dir_path(__FILE__) . 'inc/recently_viewed_video.php';
 //
 
@@ -32,7 +32,7 @@ register_deactivation_hook( __FILE__,[$custom_table, 'deactivation']);
 
 // Api rest
 
-$calm_rest_api = new OcalmRestApi();
+//$calm_rest_api = new OcalmRestApi();
 
 // Roles
 $ocalm_role = new Ocalm_role();
@@ -43,5 +43,4 @@ register_deactivation_hook(__FILE__, [$ocalm_role, 'deactivation']);
 // video recentes
 
 $recently_viewed_video = new recentlyViewedVideo();
-$recently_viewed_video->recentlyvideo_endpoints($r);
-add_action('rest_api_init', 'recentlyvideo_endpoints'); 
+

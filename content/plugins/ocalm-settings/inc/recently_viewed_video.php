@@ -1,15 +1,13 @@
 <?php
-
 class recentlyViewedVideo {
     public function __construct()
     {
-        //exit('coucou');
+      //  exit('coucou');
+      add_action('rest_api_init', [$this, 'recentlyvideo_endpoints']);
     }
-
-    
-    
+    // j'ai mis le serveur c 
     public function recentlyvideo_endpoints($request) {
-        register_rest_route('ocalm-sittings/v1', 'video/recent', [
+        register_rest_route('ocalm-settings/v1', 'video/recent', [
           'methods' => 'POST',
           'callback' => function() {
               return 'test OK ';

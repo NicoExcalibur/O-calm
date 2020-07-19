@@ -1,4 +1,4 @@
-vendor
+!vendor
 wp
 wp-config.php
 content/languages
