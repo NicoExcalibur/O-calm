@@ -40,7 +40,7 @@ const App = ({
 
   return (
     <div className="app">
-      {/* {!isLogged && (
+      {!isLogged && (
       <Route
         path="/"
         exact
@@ -60,13 +60,13 @@ const App = ({
         <Page />
         <Footer />
       </div>
-      )} */}
-      <Route
+      )}
+      {/* <Route
         path="/error403"
         exact
       >
         <Error403 />
-      </Route>
+      </Route> */}
     </div>
   );
 };
