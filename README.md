@@ -6,10 +6,9 @@ Cahier des charges
 O’Calm est une plateforme de streaming audio et vidéo orientée vers la relaxation, s’adressant à tout type de public. 
 
 ### Références : 
-osho
-christopheandre
-youtube 
-musicscreen
+Christophe André,
+Eckhart Tolle, ...
+Youtube 
 
 ## Définir les besoins et objectifs : 
 
@@ -26,23 +25,18 @@ L’utilisateur peut rechercher un média sur la page d’accueil et dans un ong
 L’utilisateur peut parcourir les différentes catégories dans l’onglet “Parcourir”
 L’utilisateur peut cliquer puis accéder à des sons et vidéos via des liens
 L’utilisateur peut ajouter des médias à ses favoris via un petit “coeur”, puis les consulter dans l’onglet “Favoris”
-L’utilisateur peut se connecter / déconnecter et supprimer son compte
-L’administrateur peut se connecter/déconnecter
-Il peut ajouter/modifier/supprimer un utilisateur
-Il peut ajouter/modifier/supprimer un média
+L’utilisateur peut se créer un compte, se connecter / déconnecter et supprimer son compte
 
 ## CATÉGORIES DU SITE : 
 * Méditation
-* méditation guidée
-* méditation active
-* méditation passive
+ * méditation guidée
+ * méditation active
+ * méditation passive
 * Yoga
-* thérapeutique
+ * thérapeutique
 * Musique & Sons  Relaxants
-* Nature
-* Zen
-* Lo-fi
-* ASMR
+ * Nature
+ * Zen
 
 ## Fonctionnalités : 
 
@@ -56,6 +50,7 @@ Il peut ajouter/modifier/supprimer un média
 * supprimer son compte
 * parcourir les catégories sur la page d’accueil
 * voir les derniers morceaux et dernières vidéos écoutées/visionnées
+* ajouter des vidéos en favoris
 
 ### ADMINISTRATEUR : 
 
@@ -68,10 +63,13 @@ Il peut ajouter/modifier/supprimer un média
 
  | WORDPRESS:| REACT:|
  |-------------:|----------:|
-|  npm          |  router |
-|  composer     |  redux |
-|  plugins en tous genres (acf) |  sass |
-|  post type |  axios |
+|  composer     |  router |
+|  plugins en tous genres  |  redux |
+|  CPT |  sass |
+|  Taxonomies |  axios |
+|acf||
+|REST API||
+|custom table||
 
 ## Cible du projet (qui que ça concerne) :
 
