@@ -40,3 +40,8 @@ export const compareUserArray = (users, token) => {
     return filterData;
   });
 };
+
+export const getRandomValue = (array) => {
+ const randomValue = array[Math.floor(Math.random() * array.length)];
+ return randomValue;
+};
