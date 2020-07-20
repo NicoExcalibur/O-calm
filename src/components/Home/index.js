@@ -23,10 +23,16 @@ const Home = ({
   };
   arrayCompare();
   const firstSlide = getRandomValue(categories);
-  const secondSlide = getRandomValue(categories);
-  const thirdSlide = getRandomValue(categories);
-  console.log(getRandomValue(categories));
-  console.log(getRandomValue(categories));
+  let secondSlide = getRandomValue(categories);
+  let thirdSlide = getRandomValue(categories);
+  const slideFunc = () => {
+    if (firstSlide.id === secondSlide.id) {
+      secondSlide = getRandomValue(categories);
+    } if (secondSlide.id === thirdSlide.id || thirdSlide.id === firstSlide.id) {
+      thirdSlide = getRandomValue(categories);
+    }
+  };
+  slideFunc();
   return (
     <div className="home">
       <SlideMedia
@@ -47,15 +53,6 @@ const Home = ({
         title={thirdSlide.name}
         {...videos}
       />
-
-      {/* {categories.map((category) => (
-        <SlideMedia
-          key={category.id}
-          categoryId={category.id}
-          title={category.name}
-          {...videos}
-        />
-      ))} */}
     </div>
   );
 };
