@@ -15,7 +15,8 @@
   }
 
   .error {
-    margin-top: -3rem;
+    margin-top: 2rem;
+
 
     .back-image {
       width: 100%;
@@ -24,10 +25,18 @@
     }
 
     h1 {
+      font-family: $greatvibes;
+      font-size: 15rem;
+      color: $hoverColor;
+      text-align: center;
+
+    }
+
+    h2 {
+      margin-top: -2rem;
       font-size: 1.5rem;
       text-transform: uppercase;
       font-family: $montserrat;
-      margin-top: -6rem;
       text-align: center;
       margin-bottom: 3rem;
       font-weight: bold;
@@ -49,42 +58,17 @@
       text-decoration: underline;
       margin-top: 2rem;
 
+      &:hover {
+        color: $backMedia;
+
+      }
+
+      &:active {
+        color: $backMedia;
+        
+      }
+
     }
   }
 }
 
-@media screen and (min-width:600px) {
-  
-  .error-page {
-
-    .header {
-
-      .logo {
-
-      }
-    }
-
-    .error {
-      padding-top: -10rem;
-      
-      .back-image {
-        width: 60%;
-
-      }
-
-      h1 {
-        
-
-      }
-
-      p {
-
-      }
-
-      .home {
-
-        
-      }
-    }
-  }
-}
