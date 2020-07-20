@@ -9,6 +9,9 @@ import Subscribe from 'src/containers/Subscribe';
 import Header from '../Header';
 import Footer from '../Footer';
 import Page from '../Page';
+import Error403 from '../Error403';
+import Error404 from '../Error404';
+import Error500 from '../Error500';
 import './styles.scss';
 
 const App = ({
@@ -58,6 +61,12 @@ const App = ({
         <Footer />
       </div>
       )}
+      {/* <Route
+        path="/error403"
+        exact
+      >
+        <Error403 />
+      </Route> */}
     </div>
   );
 };
