@@ -12,12 +12,49 @@ class Add_favorite {
         'methods' => 'POST',
         'callback' => [$this, 'add_favorite']
       ]);
-      register_rest_route('ocalm-settings/v1', 'video/favorite/', [
+      
+      register_rest_route('ocalm-settings/v1', 'video/favorite', [
         'methods' => 'GET',
         'callback' => [$this, 'get_favorite']
-      ]); // on verra demain, plus d'inspiration lol
+      ]);
   }
+  public function get_favorite ()
+  {
+      // oui là on dois cherche tout les fav du user
+      
+      global $wpdb;
 
+      $this->wpdb = $wpdb;
+      $this->table = $wpdb->prefix . 'favorites';
+      $user_id = get_current_user_id();
+
+      // on récupère un array d'objets
+      $favs = $wpdb->get_results("SELECT * FROM {$this->table} WHERE user_id={$user_id}");
+      
+      $myFav = [];
+      foreach ($favs as $fav){
+       $myFav[] = $fav->post_id;   
+      }
+
+      //print_r($myFav); die();
+
+      $args = array(
+        'post_type' => 'video',
+        'post__in' => $myFav); 
+    
+    $posts = get_posts($args);
+    return $posts;
+      //$favPost = $wpdb->get_results("SELECT * FROM {$wpdb->prefix . 'posts'} WHERE id IN ($myFav)");
+      // oui mais je pense qui manque un gros truc lol
+      // get_results() renvoit un array
+      /*
+      $wpdb->get_results( '
+      SELECT * 
+      FROM wp_favoris 
+      WHERE user_id="get_current_user_id()"'
+    );  */   
+  }
+  
   public function add_favorite($request = null) {
     // faire un if pour dire si on est connecté
     if (is_user_logged_in()) {
@@ -31,14 +68,13 @@ class Add_favorite {
 
         $this->insert($user_id, $post_id, $response);
         return $response;
-    } // faudrai rajouter renvoyer un message d'erreur mais bon lol 
+    } 
   }
   // https://developer.wordpress.org/reference/classes/wpdb/
   public function insert($user_id, $post_id, $response) { 
 
     global $wpdb;
-    //https://developer.wordpress.org/reference/classes/wpdb/#top
-
+    
     $this->wpdb = $wpdb;
     $this->table = $wpdb->prefix . 'favorites';
     
