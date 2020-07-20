@@ -7,7 +7,9 @@ import {
   fetchDurations,
 } from 'src/actions/videos';
 
-import { fetchUsers, verifSession } from 'src/actions/users';
+import { fetchUsers, verifSession, importFavorites } from 'src/actions/users';
+
+import { getErrors } from 'src/actions/errors';
 
 import App from 'src/components/App';
 
@@ -15,6 +17,7 @@ const mapStateToProps = (state) => ({
   isLogged: state.users.isLogged,
   users: state.users.users,
   token: state.users.token,
+  errors: state.errors.errors,
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -35,6 +38,9 @@ const mapDispatchToProps = (dispatch) => ({
   },
   verifSession: () => {
     dispatch(verifSession());
+  },
+  importFavorites: () => {
+    dispatch(importFavorites());
   },
 });
 

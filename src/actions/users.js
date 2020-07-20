@@ -10,6 +10,9 @@ export const NOT_LOGGED = 'NOT_LOGGED';
 export const INSERT_SUBSCRIBE = 'INSERT_SUBSCRIBE';
 export const SEND_SUBSCRIBE = 'SEND_SUBSCRIBE';
 export const USER_PROFILE = 'USER_PROFILE';
+export const SEND_FAVORITES = 'SEND_FAVORITES';
+export const SAVE_FAVORITES = 'SAVE_FAVORITES';
+export const IMPORT_FAVORITES = 'IMPORT_FAVORITES';
 
 export const fetchUsers = () => ({
   type: FETCH_USERS,
@@ -59,4 +62,17 @@ export const sendSubscribe = () => ({
 
 export const userProfile = () => ({
   type: USER_PROFILE,
+});
+
+export const sendFavorites = () => ({
+  type: SEND_FAVORITES,
+});
+
+export const saveFavorites = (favorite) => ({
+  type: SAVE_FAVORITES,
+  favorite,
+});
+
+export const importFavorites = () => ({
+  type: IMPORT_FAVORITES,
 });

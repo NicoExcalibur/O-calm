@@ -1,9 +1,20 @@
 @import 'src/styles/vars';
 
 .media {
-  height: 13rem;
+
   display: flex;
   flex-direction: column;
+
+  .fav {
+    margin-left: 10rem;
+    position: absolute;
+    color: $backMedia;   
+    
+    &.is-favorite {
+      fill: $backMedia;
+    }
+
+  }
 
   .react-player {
     margin-left: -1rem;

@@ -5,6 +5,7 @@ import {
   SET_USER,
   IS_LOGGED,
   INSERT_SUBSCRIBE,
+  SAVE_FAVORITES,
 } from 'src/actions/users';
 
 const initialState = {
@@ -14,6 +15,7 @@ const initialState = {
   isLogged: false,
   currentUser: [],
   subArray: {},
+  favorites: [],
 };
 
 const users = (state = initialState, action = {}) => {
@@ -53,6 +55,12 @@ const users = (state = initialState, action = {}) => {
       return {
         ...state,
         subArray: action.subArray,
+      };
+
+    case SAVE_FAVORITES:
+      return {
+        ...state,
+        favorites: action.favorites,
       };
 
     default: return state;

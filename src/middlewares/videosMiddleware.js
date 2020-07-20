@@ -10,6 +10,7 @@ import {
   FETCH_DURATIONS,
   saveDurations,
 } from 'src/actions/videos';
+import { getErrors } from 'src/actions/errors';
 
 const videosMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
@@ -20,6 +21,7 @@ const videosMiddleware = (store) => (next) => (action) => {
         })
         .then((error) => {
           console.warn(error);
+          store.dispatch(getErrors(error));
         });
 
       next(action);
@@ -33,6 +35,7 @@ const videosMiddleware = (store) => (next) => (action) => {
         })
         .then((error) => {
           console.warn(error);
+          store.dispatch(getErrors(error));
         });
 
       next(action);
@@ -46,6 +49,7 @@ const videosMiddleware = (store) => (next) => (action) => {
         })
         .then((error) => {
           console.warn(error);
+          store.dispatch(getErrors(error));
         });
 
       next(action);
@@ -59,6 +63,7 @@ const videosMiddleware = (store) => (next) => (action) => {
         })
         .then((error) => {
           console.warn(error);
+          store.dispatch(getErrors(error));
         });
 
       next(action);

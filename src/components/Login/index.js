@@ -25,9 +25,9 @@ const Login = ({ saveLogin, verifLogin, token }) => {
             verifLogin();
           }}
         >
-          <label for="username">Votre pseudo</label>
+          <label htmlFor="username">Votre pseudo</label>
           <input name="username" type="text" className="input-login" placeholder="Pseudo" />
-          <label for="password">Votre mot de passe</label>
+          <label htmlFor="password">Votre mot de passe</label>
           <input name="password" type="password" className="input-login" placeholder="Mot de passe" />
           <button type="submit" className="submit">Entrer dans le zen</button>
         </form>

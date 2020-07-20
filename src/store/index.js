@@ -9,7 +9,6 @@ const enhancers = composeWithDevTools(
   applyMiddleware(
     videosMiddleware,
     usersMiddleware,
-
   ),
 );
 

@@ -45,3 +45,33 @@ export const getRandomValue = (array) => {
  const randomValue = array[Math.floor(Math.random() * array.length)];
  return randomValue;
 };
+
+export const displayError = (response) => {
+  console.log(response);
+  if (response.toString().includes('403')) {
+    return '/error403';
+  } if (response.toString().includes('404')) {
+    return '/error404';
+  } if (response.toString().includes('500')) {
+    return '/error500';
+  }
+};
+
+/*
+  EN GROS
+  dans cette fonction
+  on ferait un rendu du Heart correspondant en fonction de si c'est favoris ou non
+  if (video.id === videoFav.id)
+  export const fav = (postId) => {
+    if (postId.fav === true ) {
+      render <Heart fill>
+    }
+    if (postId.fav === false) {
+      render <Heart pas fill>
+    }
+  }
+
+  render (
+  <Heart trucmuche="tamère" />
+  );
+*/

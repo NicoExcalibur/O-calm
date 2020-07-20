@@ -1,9 +1,10 @@
 // == Import npm
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { Route } from 'react-router-dom';
+import { Route, Redirect } from 'react-router-dom';
 
-import { compareUserArray } from 'src/utils';
+import { compareUserArray, displayError } from 'src/utils';
+
 import Login from 'src/containers/Login';
 import Subscribe from 'src/containers/Subscribe';
 import Header from '../Header';
@@ -13,6 +14,7 @@ import Error403 from '../Error403';
 import Error404 from '../Error404';
 import Error500 from '../Error500';
 import './styles.scss';
+import { setErrors } from '../../actions/errors';
 
 const App = ({
   fetchVideos,
@@ -22,12 +24,21 @@ const App = ({
   fetchUsers,
   verifSession,
   isLogged,
+  importFavorites,
+  // errors,
 }) => {
   const [menuBool, setMenuBool] = useState(false);
 
   const openMenu = () => {
     setMenuBool(!menuBool);
   };
+
+  // const error = () => {
+  //   if (errors.length > 0) {
+  //     return true;
+  //   }
+  // };
+  // const err = error();
 
   useEffect(() => {
     verifSession();
@@ -36,11 +47,12 @@ const App = ({
     fetchCategories();
     fetchAuthors();
     fetchDurations();
+    importFavorites();
   }, []);
 
   return (
     <div className="app">
-      {/* {!isLogged && (
+      {!isLogged && (
       <Route
         path="/"
         exact
@@ -56,17 +68,12 @@ const App = ({
       </Route>
       {isLogged && (
       <div className="app">
-        <Header openMenu={openMenu} menuBool={menuBool} /> dit moi ce qu'il te faut :D
+        <Header openMenu={openMenu} menuBool={menuBool} />
         <Page />
         <Footer />
       </div>
-      )} */}
-      <Route
-        path="/error403"
-        exact
-      >
-        <Error403 />
-      </Route>
+      )}
+      {/* {err && <Redirect to={displayError(errors)} />} */}
     </div>
   );
 };
@@ -79,6 +86,8 @@ App.propTypes = {
   fetchUsers: PropTypes.func.isRequired,
   verifSession: PropTypes.func.isRequired,
   isLogged: PropTypes.bool.isRequired,
+  importFavorites: PropTypes.func.isRequired,
+  // errors: PropTypes.string.isRequired,
 };
 
 // == Export

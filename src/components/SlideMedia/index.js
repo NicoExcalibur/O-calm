@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Media from './Media';
+import Media from 'src/containers/SlideMedia/Media';
 
 import './slideMedia.scss';
 
