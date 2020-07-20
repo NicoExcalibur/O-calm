@@ -8,15 +8,20 @@ class Add_favorite {
   }
 
   public function favorite_endpoint($request) {
-      register_rest_route('ocalm-settings/v1', 'video/favorite', [
-        'methods' => 'POST',
-        'callback' => [$this, 'add_favorite']
-      ]);
-      
-      register_rest_route('ocalm-settings/v1', 'video/favorite', [
-        'methods' => 'GET',
-        'callback' => [$this, 'get_favorite']
-      ]);
+    register_rest_route('ocalm-settings/v1', 'video/favorite', [
+      'methods' => 'POST',
+      'callback' => [$this, 'add_favorite']
+    ]);
+    
+    register_rest_route('ocalm-settings/v1', 'video/favorite', [
+      'methods' => 'GET',
+      'callback' => [$this, 'get_favorite']
+    ]);
+
+    register_rest_route('ocalm-settings/v1', 'video/favorite/(?P\d+)', [
+      'methods' => 'DELETE',
+      'callback' => [$this, 'delete_favorite']
+    ]);
   }
   public function get_favorite ()
   {
@@ -91,6 +96,22 @@ class Add_favorite {
     );
     return new WP_REST_Response($response, 200);
   }
+
+  public function delete_favorite($id)
+  {
+    //il récupère pas le id,
+    print_r($id); die();
+    global $wpdb;
+    
+    $this->wpdb = $wpdb;
+    $this->table = $wpdb->prefix . 'favorites';
+
+    $wpdb->delete( 
+      $this->table, 
+      array ('id' => $id), 
+      $where_format = '%d');
+  }
+
 
 
   public function custom_table()
