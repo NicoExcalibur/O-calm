@@ -10,7 +10,7 @@ import './media.scss';
 const Media = ({ video, favorites }) => {
   const fav = () => {
     favorites.map((favorite) => {
-      if (video.id === favorite.id) {
+      if (video.id === favorite.ID) {
         return true;
       }
     });
@@ -42,7 +42,11 @@ const Media = ({ video, favorites }) => {
 };
 
 Media.propTypes = {
-  favorites: PropTypes.array.isRequired,
+  favorites: PropTypes.arrayOf(
+    PropTypes.shape({
+      ID: PropTypes.number.isRequired,
+    }).isRequired,
+  ).isRequired,
   video: PropTypes.shape({
     id: PropTypes.number.isRequired,
     slug: PropTypes.string.isRequired,

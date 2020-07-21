@@ -17,7 +17,7 @@ const Favorites = ({ videos, favorites }) => {
       });
     });
   };
-  // compareFavorites();
+  compareFavorites();
   console.log(favoriteMedia);
   return (
     <div className="favorites">
@@ -38,6 +38,10 @@ const Favorites = ({ videos, favorites }) => {
 
 Favorites.propTypes = {
   videos: PropTypes.array.isRequired,
-  favorites: PropTypes.array.isRequired,
+  favorites: PropTypes.arrayOf(
+    PropTypes.shape({
+      ID: PropTypes.number.isRequired,
+    }).isRequired,
+  ).isRequired,
 };
 export default Favorites;
