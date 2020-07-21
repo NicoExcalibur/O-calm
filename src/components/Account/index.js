@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Edit } from 'react-feather';
 
-import avatar from 'src/assets/images/fabio.png';
+import avatar from 'src/assets/images/avatar.png';
 import './account.scss';
 import EditUser from './EditUser';
 
