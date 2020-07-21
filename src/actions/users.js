@@ -68,9 +68,9 @@ export const sendFavorites = () => ({
   type: SEND_FAVORITES,
 });
 
-export const saveFavorites = (favorite) => ({
+export const saveFavorites = (favorites) => ({
   type: SAVE_FAVORITES,
-  favorite,
+  favorites,
 });
 
 export const importFavorites = () => ({

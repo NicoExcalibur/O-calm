@@ -151,7 +151,7 @@ const usersMiddleware = (store) => (next) => (action) => {
       });
       saveFav
         .then((response) => {
-          saveFavorites(response.data);
+          store.dispatch(saveFavorites(response.data));
         })
         .catch((error) => {
           console.warn(error);

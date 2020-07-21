@@ -4,6 +4,7 @@ import Favorites from 'src/components/Favorites';
 
 const mapStateToProps = (state) => ({
   videos: state.videos.videos,
+  favorites: state.users.favorites,
 });
 
 const mapDispatchToProps = () => ({
