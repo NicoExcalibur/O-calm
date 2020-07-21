@@ -12,6 +12,7 @@ const SingleMedia = ({ source }) => {
       <div className="single-media">
         <ReactPlayer
           className="player"
+          controls={true}
           url={source}
           width={300}
           height={200}

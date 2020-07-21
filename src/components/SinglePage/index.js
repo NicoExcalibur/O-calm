@@ -15,7 +15,7 @@ const SinglePage = ({ videos }) => {
   // let videoDuration;
   videos.map((value) => {
     if (slug === value.slug) {
-      videoTitle = value.title.rendered;
+      videoTitle = convertHTML(value.title.rendered);
       videoExcerpt = convertHTML(value.excerpt.rendered);
       videoAuthor = value.auteur;
       // videoDuration = value.duree;
