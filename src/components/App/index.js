@@ -1,7 +1,7 @@
 // == Import npm
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { Route, Redirect } from 'react-router-dom';
+import { Route, Redirect, Switch } from 'react-router-dom';
 
 import { compareUserArray, displayError } from 'src/utils';
 
@@ -52,28 +52,35 @@ const App = ({
 
   return (
     <div className="app">
-      {!isLogged && (
-      <Route
-        path="/"
-        exact
-      >
-        <Login />
-      </Route>
-      )}
-      <Route
-        path="/subscribe"
-        exact
-      >
-        <Subscribe />
-      </Route>
-      {isLogged && (
-      <div className="app">
-        <Header openMenu={openMenu} menuBool={menuBool} />
-        <Page />
-        <Footer />
-      </div>
-      )}
-      {/* {err && <Redirect to={displayError(errors)} />} */}
+      <Switch>
+        {!isLogged && (
+        <Route
+          path="/"
+          exact
+        >
+          <Login />
+        </Route>
+        )}
+        <Route
+          path="/subscribe"
+          exact
+        >
+          <Subscribe />
+        </Route>
+        {isLogged && (
+        <div className="app">
+          <Header openMenu={openMenu} menuBool={menuBool} />
+          <Page />
+          <Footer />
+        </div>
+        )}
+        <Route path="/error404">
+          <Error404 />
+        </Route>
+        <Route path="*">
+          <Redirect to="/error404" />
+        </Route>
+      </Switch>
     </div>
   );
 };
