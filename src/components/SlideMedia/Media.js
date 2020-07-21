@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import ReactDOM from 'react-dom';
 import ReactPlayer from 'react-player';
 import { Play, Heart } from 'react-feather';
 import { NavLink } from 'react-router-dom';
@@ -17,10 +18,17 @@ const Media = ({ video, favorites }) => {
   const cssClass = classNames('fav', {
     'fav--is-favorite': isFavorite,
   });
+  const manageFavorites = () => {
+    if (isFavorite === false) {
+      isFavorite = true;
+    } if (isFavorite === true) {
+      isFavorite = false;
+    }
+  };
 
   return (
     <div className="media">
-      <Heart className={cssClass} />
+      <Heart className={cssClass} onClick={manageFavorites()} />
       <ReactPlayer
         className="react-player"
         url={video.content.rendered}

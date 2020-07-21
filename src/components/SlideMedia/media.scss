@@ -12,6 +12,14 @@
     
     &.fav--is-favorite {
       fill: $backMedia;
+
+      &:hover {
+        fill: none;
+      }
+    }
+
+    &:hover {
+      fill: $backMedia;
     }  
   }
 
