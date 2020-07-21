@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { Route, Redirect, Switch } from 'react-router-dom';
 
 import { compareUserArray, displayError } from 'src/utils';
+import { setErrors } from 'src/actions/errors';
 
 import Login from 'src/containers/Login';
 import Subscribe from 'src/containers/Subscribe';
@@ -14,7 +15,6 @@ import Error403 from '../Error403';
 import Error404 from '../Error404';
 import Error500 from '../Error500';
 import './styles.scss';
-import { setErrors } from '../../actions/errors';
 
 const App = ({
   fetchVideos,
@@ -32,13 +32,6 @@ const App = ({
   const openMenu = () => {
     setMenuBool(!menuBool);
   };
-
-  // const error = () => {
-  //   if (errors.length > 0) {
-  //     return true;
-  //   }
-  // };
-  // const err = error();
 
   useEffect(() => {
     verifSession();
