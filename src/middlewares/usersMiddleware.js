@@ -17,8 +17,6 @@ import {
 } from 'src/actions/users';
 import { setErrors } from 'src/actions/errors';
 
-import { setUser } from '../actions/users';
-
 const usersMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
     case FETCH_USERS: {

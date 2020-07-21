@@ -18,6 +18,7 @@ const Research = ({
   saveCompare,
   saveSelect,
   select,
+  favorites,
 }) => {
   let categoryId = '';
   let authorId = '';
@@ -141,7 +142,7 @@ const Research = ({
         </h2>
         <div className="medias-results">
           {videoDisplay.map((video) => (
-            <Media key={video.id} video={video} />
+            <Media key={video.id} favorites={favorites} video={video} />
           ))}
         </div>
       </div>
@@ -150,6 +151,7 @@ const Research = ({
 };
 
 Research.propTypes = {
+  favorites: PropTypes.array.isRequired,
   searchValue: PropTypes.string.isRequired,
   saveSearch: PropTypes.func.isRequired,
   videos: PropTypes.array.isRequired,

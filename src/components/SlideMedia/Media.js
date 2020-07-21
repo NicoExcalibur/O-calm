@@ -8,15 +8,14 @@ import classNames from 'classnames';
 import './media.scss';
 
 const Media = ({ video, favorites }) => {
-  const fav = () => {
-    favorites.map((favorite) => {
-      if (video.id === favorite.ID) {
-        return true;
-      }
-    });
-  };
+  let isFavorite = false;
+  favorites.forEach((favorite) => {
+    if (video.id === favorite.ID) {
+      isFavorite = true;
+    }
+  });
   const cssClass = classNames('fav', {
-    'is-favorite': fav(),
+    'fav--is-favorite': isFavorite,
   });
 
   return (
@@ -42,11 +41,7 @@ const Media = ({ video, favorites }) => {
 };
 
 Media.propTypes = {
-  favorites: PropTypes.arrayOf(
-    PropTypes.shape({
-      ID: PropTypes.number.isRequired,
-    }).isRequired,
-  ).isRequired,
+  favorites: PropTypes.array.isRequired,
   video: PropTypes.shape({
     id: PropTypes.number.isRequired,
     slug: PropTypes.string.isRequired,

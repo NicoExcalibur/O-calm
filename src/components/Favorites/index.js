@@ -18,7 +18,6 @@ const Favorites = ({ videos, favorites }) => {
     });
   };
   compareFavorites();
-  console.log(favoriteMedia);
   return (
     <div className="favorites">
       <h1>Mes favoris</h1>
@@ -29,7 +28,7 @@ const Favorites = ({ videos, favorites }) => {
       </p>
       <div className="media-container">
         {favoriteMedia.map((video) => (
-          <Media key={video.id} video={video} />
+          <Media key={video.id} favorites={favorites} video={video} />
         ))}
       </div>
     </div>
@@ -38,10 +37,6 @@ const Favorites = ({ videos, favorites }) => {
 
 Favorites.propTypes = {
   videos: PropTypes.array.isRequired,
-  favorites: PropTypes.arrayOf(
-    PropTypes.shape({
-      ID: PropTypes.number.isRequired,
-    }).isRequired,
-  ).isRequired,
+  favorites: PropTypes.array.isRequired,
 };
 export default Favorites;
