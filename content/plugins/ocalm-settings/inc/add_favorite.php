@@ -35,17 +35,18 @@ class Add_favorite {
 
       // on récupère un array d'objets
       $favs = $wpdb->get_results("SELECT * FROM {$this->table} WHERE user_id={$user_id}");  // ici on a une tab avec id, post_id, user_id ? ok
-      print_r($favs);
+      //print_r($favs);
       $myFav = [];
       // ici on filtre le post_id, donc on récupère le post_id
       foreach ($favs as $fav){
        $myFav[] = $fav->post_id; // la on a le post_id on veut rajouté le id dans oui c fabio on a fait ça hier fid      comment le ID fav on le rajouté là ici, oui style $fav->id faut juste rajouté le id. oui mais comment rajouter plusieurs entré non
       }
 
-      print_r($myFav); die();
-      // on affiche les post qu'on veut avec leur id. oui
+      //print_r($myFav); die();
+      // on affiche les post qu'on veut avec leur id. 
       $args = array(
-        'post_type' => 'video',
+        'posts_per_page' => 100,
+        'post_type' => 'video', 
         'post__in' => $myFav); 
     
     $posts = get_posts($args);
@@ -73,6 +74,7 @@ class Add_favorite {
 
           $response = new WP_REST_Response(400); // pour que ça marche pour eux faux pull sur le serveur là on peut testé en local insomnia 
         }
+       
         return $response;
     } 
   }
