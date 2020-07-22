@@ -64,7 +64,7 @@ L’utilisateur peut se créer un compte, se connecter / déconnecter et supprim
  | WORDPRESS:| REACT:|
  |-------------:|----------:|
 |  composer     |  router |
-|  plugins en tous genres  |  redux |
+|  plugins  |  redux |
 |  CPT |  sass |
 |  Taxonomies |  axios |
 |acf||
