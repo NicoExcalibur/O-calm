@@ -11,6 +11,7 @@ const mapStateToProps = (state) => ({
   compare: state.videos.compare,
   searchValue: state.videos.searchValue,
   select: state.videos.select,
+  favorites: state.users.favorites,
 });
 
 const mapDispatchToProps = (dispatch) => ({

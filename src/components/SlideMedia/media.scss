@@ -1,6 +1,8 @@
 @import 'src/styles/vars';
 
 .media {
+
+  position: relative;
   display: flex;
   flex-direction: column;
 
@@ -9,16 +11,22 @@
     position: absolute;
     color: $backMedia;   
     
-    &.is-favorite {
+    &.fav--is-favorite {
       fill: $backMedia;
+
+      &:hover {
+        fill: none;
+      }
     }
 
+    &:hover {
+      fill: $backMedia;
+    }  
   }
 
   .react-player {
     margin-left: -1rem;
     margin-bottom: 0.5rem;
-
   }
 
   .play {
