@@ -2,9 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ReactDOM from 'react-dom';
 import ReactPlayer from 'react-player';
-import { Play, Heart } from 'react-feather';
+import { Heart } from 'react-feather';
 import { NavLink } from 'react-router-dom';
 import classNames from 'classnames';
+import { convertHTML } from 'src/utils';
+
+import thumbnail from "src/assets/images/thumbnail.png";
 
 import './media.scss';
 
@@ -32,6 +35,7 @@ const Media = ({ video, favorites }) => {
       <ReactPlayer
         className="react-player"
         url={video.content.rendered}
+        light={thumbnail}
         width={200}
         height={120}
         {...video}
@@ -41,9 +45,9 @@ const Media = ({ video, favorites }) => {
         to={`/player/${video.slug}`}
         exact
       >
-        <Play className="icon" size={40} />
+        <span>Lire la vidéo</span>
       </NavLink>
-      <h3>{video.title.rendered}</h3>
+      <h3>{convertHTML(video.title.rendered)}</h3>
     </div>
   );
 };

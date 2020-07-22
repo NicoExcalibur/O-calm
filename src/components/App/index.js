@@ -1,9 +1,10 @@
 // == Import npm
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { Route, Redirect } from 'react-router-dom';
+import { Route, Redirect, Switch } from 'react-router-dom';
 
 import { compareUserArray, displayError } from 'src/utils';
+import { setErrors } from 'src/actions/errors';
 
 import Login from 'src/containers/Login';
 import Subscribe from 'src/containers/Subscribe';
@@ -14,7 +15,6 @@ import Error403 from '../Error403';
 import Error404 from '../Error404';
 import Error500 from '../Error500';
 import './styles.scss';
-import { setErrors } from '../../actions/errors';
 
 const App = ({
   fetchVideos,
@@ -33,13 +33,6 @@ const App = ({
     setMenuBool(!menuBool);
   };
 
-  // const error = () => {
-  //   if (errors.length > 0) {
-  //     return true;
-  //   }
-  // };
-  // const err = error();
-
   useEffect(() => {
     verifSession();
     fetchVideos();
@@ -52,28 +45,35 @@ const App = ({
 
   return (
     <div className="app">
-      {!isLogged && (
-      <Route
-        path="/"
-        exact
-      >
-        <Login />
-      </Route>
-      )}
-      <Route
-        path="/subscribe"
-        exact
-      >
-        <Subscribe />
-      </Route>
-      {isLogged && (
-      <div className="app">
-        <Header openMenu={openMenu} menuBool={menuBool} />
-        <Page />
-        <Footer />
-      </div>
-      )}
-      {/* {err && <Redirect to={displayError(errors)} />} */}
+      <Switch>
+        {!isLogged && (
+        <Route
+          path="/"
+          exact
+        >
+          <Login />
+        </Route>
+        )}
+        <Route
+          path="/subscribe"
+          exact
+        >
+          <Subscribe />
+        </Route>
+        {isLogged && (
+        <div className="app">
+          <Header openMenu={openMenu} menuBool={menuBool} />
+          <Page />
+          <Footer />
+        </div>
+        )}
+        <Route path="/error404">
+          <Error404 />
+        </Route>
+        <Route path="*">
+          <Redirect to="/error404" />
+        </Route>
+      </Switch>
     </div>
   );
 };
