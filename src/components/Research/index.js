@@ -21,6 +21,8 @@ const Research = ({
   favorites,
   sendFavorites,
   addFavorite,
+  deleteFavorite,
+  importFavorites,
 }) => {
   let categoryId = '';
   let authorId = '';
@@ -48,7 +50,6 @@ const Research = ({
     saveSelect(provArray);
   };
 
-  // let videoDisplay = researchVideoDisplay(compare, select);
   return (
     <div className="research">
       <div className="input-research">
@@ -144,7 +145,15 @@ const Research = ({
         </h2>
         <div className="medias-results">
           {videoDisplay.map((video) => (
-            <Media key={video.id} favorites={favorites} sendFavorites={sendFavorites} addFavorite={addFavorite} video={video} />
+            <Media
+              key={video.id}
+              importFavorites={importFavorites}
+              deleteFavorite={deleteFavorite}
+              favorites={favorites}
+              sendFavorites={sendFavorites}
+              addFavorite={addFavorite}
+              video={video}
+            />
           ))}
         </div>
       </div>
@@ -153,6 +162,8 @@ const Research = ({
 };
 
 Research.propTypes = {
+  importFavorites: PropTypes.func.isRequired,
+  deleteFavorite: PropTypes.func.isRequired,
   sendFavorites: PropTypes.func.isRequired,
   addFavorite: PropTypes.func.isRequired,
   favorites: PropTypes.array.isRequired,

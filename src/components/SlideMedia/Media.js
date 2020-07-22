@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import ReactDOM from 'react-dom';
 import ReactPlayer from 'react-player';
 import { Heart } from 'react-feather';
 import { NavLink } from 'react-router-dom';
@@ -16,6 +15,8 @@ const Media = ({
   favorites,
   addFavorite,
   sendFavorites,
+  importFavorites,
+  deleteFavorite,
 }) => {
   let isFavorite = false;
   favorites.forEach((favorite) => {
@@ -23,14 +24,23 @@ const Media = ({
       isFavorite = true;
     }
   });
-  const manageFavorites = () => {
-    addFavorite(video.id);
-    sendFavorites();
-  };
-  const cssClass = classNames('fav', {
+  let cssClass = classNames('fav', {
     'fav--is-favorite': isFavorite,
   });
-
+  const manageFavorites = () => {
+    if (isFavorite === true) {
+      cssClass = 'fav fav--is-favorite';
+    } if (isFavorite === false) {
+      cssClass = 'fav';
+    }
+    addFavorite(video.id);
+    if (isFavorite === true) {
+      deleteFavorite();
+    } if (isFavorite === false) {
+      sendFavorites();
+    }
+    importFavorites();
+  };
   return (
     <div className="media">
       <Heart className={cssClass} onClick={manageFavorites} />
@@ -55,6 +65,8 @@ const Media = ({
 };
 
 Media.propTypes = {
+  deleteFavorite: PropTypes.func.isRequired,
+  importFavorites: PropTypes.func.isRequired,
   sendFavorites: PropTypes.func.isRequired,
   addFavorite: PropTypes.func.isRequired,
   favorites: PropTypes.array.isRequired,

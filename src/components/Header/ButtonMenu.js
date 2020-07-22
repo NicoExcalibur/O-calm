@@ -44,7 +44,7 @@ const ButtonMenu = ({ openMenu, menuBool }) => (
         >
           Profil
         </NavLink>
-        <a href="#" className="logout">Déconnexion</a>
+        <a href="/" className="logout">Déconnexion</a>
       </nav>
     )}
   </div>

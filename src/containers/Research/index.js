@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 
 import Research from 'src/components/Research';
 import { saveSearch, saveCompare, saveSelect } from 'src/actions/videos';
-import { addFavorite, sendFavorites } from 'src/actions/users';
+import { addFavorite, sendFavorites, importFavorites, deleteFavorite } from 'src/actions/users';
 
 const mapStateToProps = (state) => ({
   videos: state.videos.videos,
@@ -30,6 +30,12 @@ const mapDispatchToProps = (dispatch) => ({
   },
   sendFavorites: (addFav) => {
     dispatch(sendFavorites(addFav));
+  },
+  importFavorites: () => {
+    dispatch(importFavorites());
+  },
+  deleteFavorite: () => {
+    dispatch(deleteFavorite());
   },
 });
 

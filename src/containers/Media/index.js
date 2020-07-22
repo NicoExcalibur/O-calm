@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-import { addFavorite, sendFavorites } from 'src/actions/users';
+import { addFavorite, sendFavorites, importFavorites, deleteFavorite } from 'src/actions/users';
 
 import Media from 'src/components/SlideMedia/Media';
 
@@ -14,6 +14,12 @@ const mapDispatchToProps = (dispatch) => ({
   },
   sendFavorites: (addFav) => {
     dispatch(sendFavorites(addFav));
+  },
+  importFavorites: () => {
+    dispatch(importFavorites());
+  },
+  deleteFavorite: () => {
+    dispatch(deleteFavorite());
   },
 });
 

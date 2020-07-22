@@ -33,6 +33,8 @@ const App = ({
     setMenuBool(!menuBool);
   };
 
+  importFavorites();
+
   useEffect(() => {
     verifSession();
     fetchVideos();
@@ -40,7 +42,6 @@ const App = ({
     fetchCategories();
     fetchAuthors();
     fetchDurations();
-    importFavorites();
   }, []);
 
   return (

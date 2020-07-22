@@ -18,18 +18,11 @@
         fill: none;
       }
 
-      &:active {
-        fill: none;
-      }
     }
 
     &:hover {
       fill: $backMedia;
     }  
-
-    &:active {
-      fill: $backMedia;
-    }
   }
   
   .react-player {
