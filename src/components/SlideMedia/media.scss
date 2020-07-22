@@ -9,7 +9,7 @@
   .fav {
     margin-left: 10rem;
     position: absolute;
-    color: $backMedia;   
+    color: $backMedia; 
     
     &.fav--is-favorite {
       fill: $backMedia;
@@ -17,13 +17,21 @@
       &:hover {
         fill: none;
       }
+
+      &:active {
+        fill: none;
+      }
     }
 
     &:hover {
       fill: $backMedia;
     }  
-  }
 
+    &:active {
+      fill: $backMedia;
+    }
+  }
+  
   .react-player {
     margin-left: -1rem;
     margin-bottom: 0.5rem;

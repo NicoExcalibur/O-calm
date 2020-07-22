@@ -14,6 +14,7 @@ import {
   SEND_FAVORITES,
   IMPORT_FAVORITES,
   saveFavorites,
+  importFavorites,
 } from 'src/actions/users';
 import { setErrors } from 'src/actions/errors';
 
@@ -120,18 +121,24 @@ const usersMiddleware = (store) => (next) => (action) => {
 
     case SEND_FAVORITES: {
       const token = sessionStorage.getItem('token');
+      const post_id = store.getState().users.addFav;
       const sendFav = new Promise((resolve, reject) => {
         axios({
           method: 'post',
           url: 'http://ec2-100-25-192-123.compute-1.amazonaws.com/o-calm/wp-json/ocalm-settings/v1/video/favorite',
           headers: { Authorization: `Bearer ${token}` },
+          data: { post_id },
         })
           .then(resolve)
           .catch(reject);
       });
       sendFav
-        .then(resolve)
-        .catch(reject);
+        .then(() => {
+          importFavorites();
+        })
+        .catch((error) => {
+          console.warn(error);
+        });
       next(action);
       break;
     }
@@ -141,7 +148,7 @@ const usersMiddleware = (store) => (next) => (action) => {
       const saveFav = new Promise((resolve, reject) => {
         axios({
           method: 'get',
-          url: 'http://ec2-100-25-192-123.compute-1.amazonaws.com/o-calm/wp-json/ocalm-settings/v1/video/favorite',
+          url: 'http://ec2-100-25-192-123.compute-1.amazonaws.com/o-calm/wp-json/ocalm-settings/v1/video/favorite?per_page=100',
           headers: { Authorization: `Bearer ${token}` },
         })
           .then(resolve)
