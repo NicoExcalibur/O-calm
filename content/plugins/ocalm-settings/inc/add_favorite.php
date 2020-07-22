@@ -26,36 +26,36 @@ class Add_favorite {
   public function get_favorite ()
   {
       // oui là on dois cherche tout les fav du user
-      
-      global $wpdb;
+      if (is_user_logged_in()) {
+          global $wpdb;
 
-      $this->wpdb = $wpdb;
-      $this->table = $wpdb->prefix . 'favorites';
-      $user_id = get_current_user_id();
+          $this->wpdb = $wpdb;
+          $this->table = $wpdb->prefix . 'favorites';
+          $user_id = get_current_user_id();
 
-      // on récupère un array d'objets
+          // on récupère un array d'objets
       $favs = $wpdb->get_results("SELECT * FROM {$this->table} WHERE user_id={$user_id}");  // ici on a une tab avec id, post_id, user_id ? ok
       //print_r($favs);
       $myFav = [];
-      // ici on filtre le post_id, donc on récupère le post_id
-      foreach ($favs as $fav){
-       $myFav[] = $fav->post_id; // la on a le post_id on veut rajouté le id dans oui c fabio on a fait ça hier fid      comment le ID fav on le rajouté là ici, oui style $fav->id faut juste rajouté le id. oui mais comment rajouter plusieurs entré non
-      }
+          // ici on filtre le post_id, donc on récupère le post_id
+          foreach ($favs as $fav) {
+              $myFav[] = $fav->post_id; // la on a le post_id on veut rajouté le id dans oui c fabio on a fait ça hier fid      comment le ID fav on le rajouté là ici, oui style $fav->id faut juste rajouté le id. oui mais comment rajouter plusieurs entré non
+          }
 
-      //print_r($myFav); die();
-      // on affiche les post qu'on veut avec leur id. 
-      $args = array(
+          //print_r($myFav); die();
+          // on affiche les post qu'on veut avec leur id.
+          $args = array(
         'posts_per_page' => 100,
-        'post_type' => 'video', 
-        'post__in' => $myFav); 
+        'post_type' => 'video',
+        'post__in' => $myFav);
     
-    $posts = get_posts($args);
-    return $posts; // on a que les post donc pas de id du fav. sinon il faut trouvé le moyen de cherche le user_id et post_id pour remonté au id. genre in_array en cherchant. ou faudrai le rajouté
+          $posts = get_posts($args);
+          return $posts; // on a que les post donc pas de id du fav. sinon il faut trouvé le moyen de cherche le user_id et post_id pour remonté au id. genre in_array en cherchant. ou faudrai le rajouté
 
     //$result = array_merge($favs, $fav);
 
     //print_r($result);
-   
+      }
   }
   
   public function add_favorite($request = null) {
@@ -66,15 +66,18 @@ class Add_favorite {
         $user_id = get_current_user_id();
         $post_id = intval($parameters['post_id']);
         $data = array( $user_id, $post_id);
+
         if ($post_id !== 0) {
-          $response = new WP_REST_Response($data);
+          $response = new WP_REST_Response($data, 200);
           $this->insert($user_id, $post_id, $response);
         }
         else{
-
-          $response = new WP_REST_Response(400); // pour que ça marche pour eux faux pull sur le serveur là on peut testé en local insomnia 
+        
+          $response = new WP_REST_Response('pas de post',400); // pour que ça marche pour eux faux pull sur le serveur là on peut testé en local insomnia 
         }
        
+   
+   
         return $response;
     } 
   }
