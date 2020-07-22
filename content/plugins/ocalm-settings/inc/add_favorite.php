@@ -18,7 +18,7 @@ class Add_favorite {
       'callback' => [$this, 'get_favorite']
     ]);
 
-    register_rest_route('ocalm-settings/v1', 'video/favorite/(?P\d+)', [
+    register_rest_route('ocalm-settings/v1', 'video/favorite', [
       'methods' => 'DELETE',
       'callback' => [$this, 'delete_favorite']
     ]);
@@ -34,30 +34,27 @@ class Add_favorite {
       $user_id = get_current_user_id();
 
       // on récupère un array d'objets
-      $favs = $wpdb->get_results("SELECT * FROM {$this->table} WHERE user_id={$user_id}");
-      
+      $favs = $wpdb->get_results("SELECT * FROM {$this->table} WHERE user_id={$user_id}");  // ici on a une tab avec id, post_id, user_id ? ok
+      print_r($favs);
       $myFav = [];
+      // ici on filtre le post_id, donc on récupère le post_id
       foreach ($favs as $fav){
-       $myFav[] = $fav->post_id;   
+       $myFav[] = $fav->post_id; // la on a le post_id on veut rajouté le id dans oui c fabio on a fait ça hier fid      comment le ID fav on le rajouté là ici, oui style $fav->id faut juste rajouté le id. oui mais comment rajouter plusieurs entré non
       }
 
-      //print_r($myFav); die();
-
+      print_r($myFav); die();
+      // on affiche les post qu'on veut avec leur id. oui
       $args = array(
         'post_type' => 'video',
         'post__in' => $myFav); 
     
     $posts = get_posts($args);
-    return $posts;
-      //$favPost = $wpdb->get_results("SELECT * FROM {$wpdb->prefix . 'posts'} WHERE id IN ($myFav)");
-      // oui mais je pense qui manque un gros truc lol
-      // get_results() renvoit un array
-      /*
-      $wpdb->get_results( '
-      SELECT * 
-      FROM wp_favoris 
-      WHERE user_id="get_current_user_id()"'
-    );  */   
+    return $posts; // on a que les post donc pas de id du fav. sinon il faut trouvé le moyen de cherche le user_id et post_id pour remonté au id. genre in_array en cherchant. ou faudrai le rajouté
+
+    //$result = array_merge($favs, $fav);
+
+    //print_r($result);
+   
   }
   
   public function add_favorite($request = null) {
@@ -68,10 +65,14 @@ class Add_favorite {
         $user_id = get_current_user_id();
         $post_id = intval($parameters['post_id']);
         $data = array( $user_id, $post_id);
-    
-        $response = new WP_REST_Response($data);
+        if ($post_id !== 0) {
+          $response = new WP_REST_Response($data);
+          $this->insert($user_id, $post_id, $response);
+        }
+        else{
 
-        $this->insert($user_id, $post_id, $response);
+          $response = new WP_REST_Response(400); // pour que ça marche pour eux faux pull sur le serveur là on peut testé en local insomnia 
+        }
         return $response;
     } 
   }
@@ -82,6 +83,7 @@ class Add_favorite {
     
     $this->wpdb = $wpdb;
     $this->table = $wpdb->prefix . 'favorites';
+    
     
     $wpdb->insert( 
       $this->table, 
@@ -97,19 +99,20 @@ class Add_favorite {
     return new WP_REST_Response($response, 200);
   }
 
-  public function delete_favorite($id)
+  public function delete_favorite($request = null)
   {
-    //il récupère pas le id,
-    print_r($id); die();
+    
+    $parameters = $request->get_json_params();
+    $post_id = intval($parameters['post_id']);
+
     global $wpdb;
     
     $this->wpdb = $wpdb;
     $this->table = $wpdb->prefix . 'favorites';
+    $user_id = get_current_user_id();
 
-    $wpdb->delete( 
-      $this->table, 
-      array ('id' => $id), 
-      $where_format = '%d');
+    $delFav = $wpdb->get_results("DELETE FROM {$this->table} WHERE user_id={$user_id} AND post_id={$post_id}");
+    return $delFav; 
   }
 
 
