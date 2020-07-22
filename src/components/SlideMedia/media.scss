@@ -1,7 +1,6 @@
 @import 'src/styles/vars';
 
 .media {
-
   display: flex;
   flex-direction: column;
 
@@ -24,20 +23,39 @@
 
   .play {
     display: block;
-    color: white;
     margin: auto;
     text-align: center;
-    background-color: $focus;
-    border-radius: 2rem;
 
-    .icon {
-      
+    span {
+      background-color: $backMedia;
+      padding: 0.2rem;
+      color: white;
+      font-weight: bold;
+      border-radius: 1rem;
+
+      &:hover {
+        border: 2px solid $backMedia;
+        background-color: white;
+        color: $backMedia;
+
+      }
+
+      &:active {
+        border: 2px solid $backMedia;
+        background-color: white;
+        color: $backMedia;
+
+      }
+
     }
 
-  }
+    }
+
 
   h3 {
     color: $mainColor;
+    text-transform: uppercase;
+    font-size: 0.8rem;
     font-weight: bold;
     margin: 1rem auto;
 
