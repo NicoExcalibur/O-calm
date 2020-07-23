@@ -6,7 +6,7 @@ import avatar from 'src/assets/images/avatar.png';
 import './account.scss';
 import EditUser from './EditUser';
 
-const Account = ({ token, userProfile }) => {
+const Account = ({ token, userProfile, currentUser }) => {
   const [editBool, setEditBool] = useState(false);
 
   userProfile();
@@ -18,6 +18,8 @@ const Account = ({ token, userProfile }) => {
   const closeEdit = () => {
     setEditBool(false);
   };
+
+  console.log(currentUser);
 
   return (
     <div className="account">
@@ -63,16 +65,14 @@ const Account = ({ token, userProfile }) => {
 };
 
 Account.propTypes = {
-  users: PropTypes.array.isRequired,
   userProfile: PropTypes.func.isRequired,
   token: PropTypes.objectOf(
     PropTypes.shape({
-      token: PropTypes.string.isRequired,
+      token: PropTypes.object.isRequired,
       user_email: PropTypes.string.isRequired,
       user_nicename: PropTypes.string.isRequired,
     }).isRequired,
   ).isRequired,
-  setUser: PropTypes.func.isRequired,
   currentUser: PropTypes.array.isRequired,
 };
 
