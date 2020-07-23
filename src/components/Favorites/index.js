@@ -14,7 +14,6 @@ const Favorites = ({
   importFavorites,
   deleteFavorite,
 }) => {
-  importFavorites();
   const favoriteMedia = [];
   const compareFavorites = () => {
     videos.forEach((video) => {

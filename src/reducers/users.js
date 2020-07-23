@@ -7,7 +7,9 @@ import {
   INSERT_SUBSCRIBE,
   SAVE_FAVORITES,
   ADD_FAVORITE,
+  ADD_UPDATE,
 } from 'src/actions/users';
+import { bindActionCreators } from 'redux';
 
 const initialState = {
   users: [],
@@ -18,6 +20,7 @@ const initialState = {
   subArray: {},
   favorites: [],
   addFav: {},
+  updateValue: {},
 };
 
 const users = (state = initialState, action = {}) => {
@@ -44,7 +47,7 @@ const users = (state = initialState, action = {}) => {
     case SET_USER:
       return {
         ...state,
-        currentUser: action.user,
+        currentUser: action.currentUser,
       };
 
     case IS_LOGGED:
@@ -69,6 +72,12 @@ const users = (state = initialState, action = {}) => {
       return {
         ...state,
         addFav: action.addFav,
+      };
+
+    case ADD_UPDATE:
+      return {
+        ...state,
+        updateValue: action.updateValue,
       };
 
     default: return state;

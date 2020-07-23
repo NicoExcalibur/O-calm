@@ -24,16 +24,12 @@ const App = ({
   fetchUsers,
   verifSession,
   isLogged,
-  importFavorites,
-  // errors,
 }) => {
   const [menuBool, setMenuBool] = useState(false);
 
   const openMenu = () => {
     setMenuBool(!menuBool);
   };
-
-  importFavorites();
 
   useEffect(() => {
     verifSession();
@@ -87,8 +83,6 @@ App.propTypes = {
   fetchUsers: PropTypes.func.isRequired,
   verifSession: PropTypes.func.isRequired,
   isLogged: PropTypes.bool.isRequired,
-  importFavorites: PropTypes.func.isRequired,
-  // errors: PropTypes.string.isRequired,
 };
 
 // == Export

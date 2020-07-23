@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 import { getRandomValue } from 'src/utils';
@@ -10,8 +10,9 @@ const Home = ({
   categories,
   users,
   token,
-  currentUser,
   setUser,
+  importFavorites,
+  userProfile,
 }) => {
   const arrayCompare = () => {
     users.forEach((user) => {
@@ -32,6 +33,10 @@ const Home = ({
       thirdSlide = getRandomValue(categories);
     }
   };
+  useEffect(() => {
+    userProfile();
+    importFavorites();
+  }, []);
   slideFunc();
   return (
     <div className="home">
@@ -58,10 +63,11 @@ const Home = ({
 };
 
 Home.propTypes = {
+  importFavorites: PropTypes.func.isRequired,
+  userProfile: PropTypes.func.isRequired,
   videos: PropTypes.array.isRequired,
   users: PropTypes.array.isRequired,
   token: PropTypes.object.isRequired,
-  currentUser: PropTypes.array.isRequired,
   setUser: PropTypes.func.isRequired,
   categories: PropTypes.arrayOf(
     PropTypes.shape({

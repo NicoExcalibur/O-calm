@@ -15,6 +15,8 @@ export const SAVE_FAVORITES = 'SAVE_FAVORITES';
 export const IMPORT_FAVORITES = 'IMPORT_FAVORITES';
 export const ADD_FAVORITE = 'ADD_FAVORITE';
 export const DELETE_FAVORITE = 'DELETE_FAVORITE';
+export const UPDATE_USER_PROFILE = 'UPDATE_USER_PROFILE';
+export const ADD_UPDATE = 'ADD_UPDATE';
 
 export const fetchUsers = () => ({
   type: FETCH_USERS,
@@ -44,9 +46,9 @@ export const isLogged = (value) => ({
   isLogged: value,
 });
 
-export const setUser = (user) => ({
+export const setUser = (currentUser) => ({
   type: SET_USER,
-  currentUser: user,
+  currentUser,
 });
 
 export const verifSession = () => ({
@@ -86,4 +88,13 @@ export const addFavorite = (addFav) => ({
 
 export const deleteFavorite = () => ({
   type: DELETE_FAVORITE,
+});
+
+export const updateUserProfile = () => ({
+  type: UPDATE_USER_PROFILE,
+});
+
+export const addUpdate = (updateValue) => ({
+  type: ADD_UPDATE,
+  updateValue,
 });

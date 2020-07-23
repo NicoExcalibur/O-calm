@@ -7,9 +7,10 @@ import {
   fetchDurations,
 } from 'src/actions/videos';
 
-import { fetchUsers, verifSession, importFavorites } from 'src/actions/users';
-
-import { getErrors } from 'src/actions/errors';
+import {
+  fetchUsers,
+  verifSession,
+} from 'src/actions/users';
 
 import App from 'src/components/App';
 
@@ -38,9 +39,6 @@ const mapDispatchToProps = (dispatch) => ({
   },
   verifSession: () => {
     dispatch(verifSession());
-  },
-  importFavorites: () => {
-    dispatch(importFavorites());
   },
 });
 

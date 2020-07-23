@@ -2,14 +2,14 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Edit } from 'react-feather';
 
-import avatar from 'src/assets/images/avatar.png';
+import UserAvatar from 'react-user-avatar';
 import './account.scss';
 import EditUser from './EditUser';
 
-const Account = ({ token, userProfile, currentUser }) => {
+const Account = ({ token, currentUser, updateValue }) => {
   const [editBool, setEditBool] = useState(false);
 
-  userProfile();
+  console.log(updateValue);
 
   const openEdit = () => {
     setEditBool(true);
@@ -19,8 +19,6 @@ const Account = ({ token, userProfile, currentUser }) => {
     setEditBool(false);
   };
 
-  console.log(currentUser);
-
   return (
     <div className="account">
       <div className="desktop">
@@ -28,8 +26,7 @@ const Account = ({ token, userProfile, currentUser }) => {
           Bonjour <em className="hey-you">{token.user_nicename}</em> !
         </h2>
         <div className="avatar-editor">
-
-          <img className="avatar" src={avatar} alt="avatar" />
+          <UserAvatar name={currentUser.name} src={currentUser.avatar_urls[96]} />
         </div>
       </div>
       <div className="edit-info">
@@ -65,15 +62,14 @@ const Account = ({ token, userProfile, currentUser }) => {
 };
 
 Account.propTypes = {
-  userProfile: PropTypes.func.isRequired,
   token: PropTypes.objectOf(
     PropTypes.shape({
-      token: PropTypes.object.isRequired,
       user_email: PropTypes.string.isRequired,
       user_nicename: PropTypes.string.isRequired,
     }).isRequired,
   ).isRequired,
-  currentUser: PropTypes.array.isRequired,
+  currentUser: PropTypes.object.isRequired,
+  updateValue: PropTypes.object.isRequired,
 };
 
 export default Account;
