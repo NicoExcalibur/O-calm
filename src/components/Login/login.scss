@@ -1,5 +1,24 @@
  @import 'src/styles/vars';
 
+ @keyframes move {
+  0% {
+    border-radius: 34% 66% 46% 54% / 63% 88% 12% 37% ;
+  }
+  25% {
+    border-radius: 68% 32% 14% 86% / 21% 21% 79% 79%;
+  }
+  50% {
+    border-radius: 68% 32% 65% 35% / 21% 52% 48% 79%;
+  }
+  75% {
+    border-radius: 75% 25% 89% 11% / 69% 70% 30% 31% ;
+  }
+  100% {
+    border-radius: 34% 66% 46% 54% / 63% 88% 12% 37% ;
+  }
+}
+
+
 .login {
   text-align: center;
 
@@ -12,6 +31,10 @@
   .right-login{
     width: 80%;
     margin: auto;
+    animation-name: move;
+    animation-duration: 15s;
+    animation-iteration-count: infinite ;
+    background: linear-gradient(41deg, rgba(94,193,190,1) 0%, rgba(145,213,211,1) 47%, rgba(213,235,234,1) 100%);
 
     h1 {
         font-size: 1.2rem;
@@ -20,7 +43,6 @@
     }
 
     form {
-      background-color: $backHeader;
       padding: 2rem;
       display: flex;
       flex-direction: column;
@@ -60,25 +82,25 @@
       .submit {
         font-family: $quicksand;
         margin: 1rem auto;
-        padding: 0.5rem;
+        padding: 1.5rem;
         width: 60%;
         border-style: none;
-        background-color: white;
-        border-radius: 2rem;
-        color: $mainBlue;
+        background-color: $backMedia;
+        border-radius: 28% 72% 55% 45% / 77% 57% 43% 23%;
+        color: white;
         font-size: 1rem;
         font-weight: bold;
 
         &:hover {
-          background-color: $backMedia;
-          color:white;
+          background-color: $mainBlue;
+          color: white;
 
         }
 
         &:active {
-          background-color: $backMedia;
+          background-color: $mainBlue;
           color:white;
-
+          
         }
         
       }
@@ -90,7 +112,7 @@
     flex-direction: column;
     
     .question {
-      color: $mainColor;
+      color: $darkerBlue;
       font-size: 0.8rem;
       font-style: italic;
       margin-bottom: 1rem;
@@ -98,9 +120,13 @@
     }
 
     .new-account {
-      color: $mainBlue;
+      color: $darkBlue;
+      background-color: $backMedia;
       font-weight: bold;
-      text-decoration: underline;
+      padding: 1rem;
+      width: 40%;
+      margin: auto;
+      border-radius: 2rem;
 
       &:hover {
         color:$backMedia;
@@ -155,7 +181,6 @@
     }
 
     .right-login {
-      border-left: 2px solid $darkBlue;
       margin: 20vh auto;
       width: 50%;
 

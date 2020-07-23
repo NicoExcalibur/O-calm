@@ -5,7 +5,7 @@ import ReactPlayer from 'react-player';
 import { Heart } from 'react-feather';
 import { NavLink } from 'react-router-dom';
 import classNames from 'classnames';
-import { convertHTML } from 'src/utils';
+import { convertHTML, shortTitle } from 'src/utils';
 
 import thumbnail from "src/assets/images/thumbnail.png";
 
@@ -29,6 +29,8 @@ const Media = ({ video, favorites }) => {
     }
   };
 
+  const title = convertHTML(video.title.rendered);
+
   return (
     <div className="media">
       <Heart className={cssClass} onClick={manageFavorites()} />
@@ -40,6 +42,7 @@ const Media = ({ video, favorites }) => {
         height={120}
         {...video}
       />
+       <h3>{shortTitle(title)}</h3>
       <NavLink
         className="play"
         to={`/player/${video.slug}`}
@@ -47,7 +50,6 @@ const Media = ({ video, favorites }) => {
       >
         <span>Lire la vidéo</span>
       </NavLink>
-      <h3>{convertHTML(video.title.rendered)}</h3>
     </div>
   );
 };
