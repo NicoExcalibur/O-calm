@@ -57,21 +57,14 @@ export const displayError = (response) => {
   }
 };
 
-/*
-  EN GROS
-  dans cette fonction
-  on ferait un rendu du Heart correspondant en fonction de si c'est favoris ou non
-  if (video.id === videoFav.id)
-  export const fav = (postId) => {
-    if (postId.fav === true ) {
-      render <Heart fill>
-    }
-    if (postId.fav === false) {
-      render <Heart pas fill>
-    }
+export const shortTitle = (string) => {
+  const comparedString = string.toString();
+  if (comparedString.length > 30) {
+    const newTitle = comparedString.substring(0, 30);
+    const finalTitle = `${newTitle}...`;
+    return finalTitle;
   }
-
-  render (
-  <Heart trucmuche="tamère" />
-  );
-*/
+  if (comparedString.length < 30) {
+    return string;
+  }
+};

@@ -1,9 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Route } from 'react-router-dom';
+import { ArrowLeftCircle } from 'react-feather';
 
 import logo from 'src/assets/images/logo.png';
+import avatar from 'src/assets/images/avatar.png';
 import './subscribe.scss';
 
 const Subscribe = ({ subArray, insertSubscribe, sendSubscribe }) => {
@@ -32,6 +34,13 @@ const Subscribe = ({ subArray, insertSubscribe, sendSubscribe }) => {
     }
   };
 
+  const redirectTo = () => (
+    <Route
+      exact
+      to="/"
+    />
+  );
+
   const subFormValue = {};
   const handleSub = (event) => {
     if (comparePassword() == true) {
@@ -53,44 +62,67 @@ const Subscribe = ({ subArray, insertSubscribe, sendSubscribe }) => {
             handleSub(event);
             insertSubscribe(subFormValue);
             sendSubscribe();
+            redirectTo();
             console.log(subArray);
           }}
         >
+
           <label htmlFor="avatar" className="choose-file">Choisissez une photo de profil
+
+          {/* <div className="avatar-container">
+            <img className="picture" src={avatar} alt="votre avatar" />
+          </div>
+          <label className="choose-file">Choisissez une photo de profil
             <input name="avatar" type="file" className="avatar" accept="image/png, image/jpeg" />
-          </label>
+          </label> */}
           <label htmlFor="email">Rentrez votre e-mail *
             <input
               name="email"
               type="mail"
               className="input-login"
-              placeholder="E-mail"
+              placeholder="votreadresse@mail.com"
               pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
               required
             />
+            <span className="error-mail"></span>
           </label>
           <label htmlFor="username">Choisissez un pseudo *
-            <input name="username" type="text" className="input-login" placeholder="Pseudo" required />
+            <input
+              name="username"
+              type="text"
+              className="input-login"
+              placeholder="votre-pseudo"
+              pattern="[a-z0-9._-]{3,15}"
+              required
+            />
+            <span className="error-pseudo"></span>
           </label>
           <label htmlFor="password">Rentrez votre mot de passe *
+            <strong className="required-elements">
+              Ce mot de passe doit contenir au moins <em className="required">8 caractères</em> dont 
+              une <em className="required">minuscule</em>, une <em className="required">majuscule</em> et
+              un <em className="required">chiffre</em>.
+            </strong>
             <input
               name="password"
               type="password"
               className="input-login"
-              placeholder="Mot de passe"
+              pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"
+              placeholder="votre mot de passe"
               required
               onBlur={(event) => {
                 getPassword(event);
                 console.log(inputValue);
               }}
             />
+            <span className="error-pass"></span>
           </label>
           <label htmlFor="confirmation">Confirmez votre mot de passe *
             <input
               name="confirmation"
               type="password"
               className="input-login validation"
-              placeholder="Validation du mot de passe"
+              placeholder="validez votre mot de passe"
               required
               onBlur={(event) => {
                 getConfirmation(event);
@@ -98,8 +130,10 @@ const Subscribe = ({ subArray, insertSubscribe, sendSubscribe }) => {
               }}
             />
           </label>
+
           <div id="wrong-pass" />
           <div className="required">* veuillez impérativement remplir ces champs</div>
+
           <button type="submit" className="submit">Entrer dans le zen</button>
         </form>
         <div className="back">
@@ -110,7 +144,7 @@ const Subscribe = ({ subArray, insertSubscribe, sendSubscribe }) => {
             to="/"
             exact
           >
-            <p className="go-back-link">Retour à la page de connexion</p>
+            <ArrowLeftCircle className="go-back-link" size={50} />
           </NavLink>
         </div>
       </div>

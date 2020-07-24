@@ -21,11 +21,11 @@ const Header = ({ openMenu, menuBool }) => (
       to="/"
       exact
     >
-       <img
-      src={logo}
-      alt="logocalm"
-      className="logo-header"
-    />
+      <img
+        src={logo}
+        alt="logocalm"
+        className="logo-header"
+      />
     </NavLink>
   </header>
 );
