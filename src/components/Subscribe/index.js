@@ -45,7 +45,6 @@ const Subscribe = ({ subArray, insertSubscribe, sendSubscribe }) => {
   const handleSub = (event) => {
     if (comparePassword() == true) {
       const loginFormData = new FormData(event.currentTarget);
-      // subFormValue.confirmation = loginFormData.get('confirmation');
       subFormValue.password = loginFormData.get('password');
       subFormValue.avatar = loginFormData.get('avatar');
       subFormValue.email = loginFormData.get('email');
@@ -67,6 +66,9 @@ const Subscribe = ({ subArray, insertSubscribe, sendSubscribe }) => {
             console.log(subArray);
           }}
         >
+
+          <label htmlFor="avatar" className="choose-file">Choisissez une photo de profil
+
           {/* <div className="avatar-container">
             <img className="picture" src={avatar} alt="votre avatar" />
           </div>
@@ -125,12 +127,13 @@ const Subscribe = ({ subArray, insertSubscribe, sendSubscribe }) => {
               onBlur={(event) => {
                 getConfirmation(event);
                 comparePassword(event);
-                console.log(errorMessage);
               }}
             />
           </label>
-          <div id="wrong-pass"></div>
-          <div className="required-star">* veuillez impérativement remplir ces champs</div>
+
+          <div id="wrong-pass" />
+          <div className="required">* veuillez impérativement remplir ces champs</div>
+
           <button type="submit" className="submit">Entrer dans le zen</button>
         </form>
         <div className="back">

@@ -14,16 +14,17 @@ const Favorites = ({
   importFavorites,
   deleteFavorite,
 }) => {
-  importFavorites();
   const favoriteMedia = [];
   const compareFavorites = () => {
-    videos.forEach((video) => {
-      favorites.forEach((favorite) => {
-        if (video.id === favorite.ID) {
-          favoriteMedia.push(video);
-        }
+    if (favorites.length > 0) {
+      videos.forEach((video) => {
+        favorites.forEach((favorite) => {
+          if (video.id === favorite.ID) {
+            favoriteMedia.push(video);
+          }
+        });
       });
-    });
+    }
   };
   compareFavorites();
   return (

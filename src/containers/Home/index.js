@@ -1,6 +1,10 @@
 import { connect } from 'react-redux';
 
-import { setUser } from 'src/actions/users';
+import {
+  setUser,
+  importFavorites,
+  userProfile,
+} from 'src/actions/users';
 
 import Home from 'src/components/Home';
 
@@ -15,6 +19,12 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   setUser: (user) => {
     dispatch(setUser(user));
+  },
+  importFavorites: () => {
+    dispatch(importFavorites());
+  },
+  userProfile: () => {
+    dispatch(userProfile());
   },
 });
 
