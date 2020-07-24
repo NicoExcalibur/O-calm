@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import ReactDOM from 'react-dom';
 import ReactPlayer from 'react-player';
 import { Heart } from 'react-feather';
 import { NavLink } from 'react-router-dom';
@@ -11,29 +10,43 @@ import thumbnail from "src/assets/images/thumbnail.png";
 
 import './media.scss';
 
-const Media = ({ video, favorites }) => {
+const Media = ({
+  video,
+  favorites,
+  addFavorite,
+  sendFavorites,
+  importFavorites,
+  deleteFavorite,
+}) => {
   let isFavorite = false;
   favorites.forEach((favorite) => {
     if (video.id === favorite.ID) {
       isFavorite = true;
     }
   });
-  const cssClass = classNames('fav', {
+  let cssClass = classNames('fav', {
     'fav--is-favorite': isFavorite,
   });
   const manageFavorites = () => {
-    if (isFavorite === false) {
-      isFavorite = true;
-    } if (isFavorite === true) {
-      isFavorite = false;
+    if (isFavorite === true) {
+      cssClass = 'fav fav--is-favorite';
+    } if (isFavorite === false) {
+      cssClass = 'fav';
     }
+    addFavorite(video.id);
+    if (isFavorite === true) {
+      deleteFavorite();
+    } if (isFavorite === false) {
+      sendFavorites();
+    }
+    importFavorites();
   };
 
   const title = convertHTML(video.title.rendered);
 
   return (
     <div className="media">
-      <Heart className={cssClass} onClick={manageFavorites()} />
+      <Heart className={cssClass} onClick={manageFavorites} />
       <ReactPlayer
         className="react-player"
         url={video.content.rendered}
@@ -55,6 +68,10 @@ const Media = ({ video, favorites }) => {
 };
 
 Media.propTypes = {
+  deleteFavorite: PropTypes.func.isRequired,
+  importFavorites: PropTypes.func.isRequired,
+  sendFavorites: PropTypes.func.isRequired,
+  addFavorite: PropTypes.func.isRequired,
   favorites: PropTypes.array.isRequired,
   video: PropTypes.shape({
     id: PropTypes.number.isRequired,

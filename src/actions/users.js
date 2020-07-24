@@ -13,6 +13,8 @@ export const USER_PROFILE = 'USER_PROFILE';
 export const SEND_FAVORITES = 'SEND_FAVORITES';
 export const SAVE_FAVORITES = 'SAVE_FAVORITES';
 export const IMPORT_FAVORITES = 'IMPORT_FAVORITES';
+export const ADD_FAVORITE = 'ADD_FAVORITE';
+export const DELETE_FAVORITE = 'DELETE_FAVORITE';
 
 export const fetchUsers = () => ({
   type: FETCH_USERS,
@@ -75,4 +77,13 @@ export const saveFavorites = (favorites) => ({
 
 export const importFavorites = () => ({
   type: IMPORT_FAVORITES,
+});
+
+export const addFavorite = (addFav) => ({
+  type: ADD_FAVORITE,
+  addFav,
+});
+
+export const deleteFavorite = () => ({
+  type: DELETE_FAVORITE,
 });

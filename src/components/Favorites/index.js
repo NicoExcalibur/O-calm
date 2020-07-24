@@ -6,7 +6,15 @@ import { returnResults } from 'src/utils';
 import Media from 'src/components/SlideMedia/Media';
 import './favorites.scss';
 
-const Favorites = ({ videos, favorites }) => {
+const Favorites = ({
+  videos,
+  favorites,
+  sendFavorites,
+  addFavorite,
+  importFavorites,
+  deleteFavorite,
+}) => {
+  importFavorites();
   const favoriteMedia = [];
   const compareFavorites = () => {
     videos.forEach((video) => {
@@ -28,7 +36,15 @@ const Favorites = ({ videos, favorites }) => {
       </p>
       <div className="media-container">
         {favoriteMedia.map((video) => (
-          <Media key={video.id} favorites={favorites} video={video} />
+          <Media
+            key={video.id}
+            importFavorites={importFavorites}
+            deleteFavorite={deleteFavorite}
+            favorites={favorites}
+            sendFavorites={sendFavorites}
+            addFavorite={addFavorite}
+            video={video}
+          />
         ))}
       </div>
     </div>
@@ -36,6 +52,10 @@ const Favorites = ({ videos, favorites }) => {
 };
 
 Favorites.propTypes = {
+  deleteFavorite: PropTypes.func.isRequired,
+  importFavorites: PropTypes.func.isRequired,
+  sendFavorites: PropTypes.func.isRequired,
+  addFavorite: PropTypes.func.isRequired,
   videos: PropTypes.array.isRequired,
   favorites: PropTypes.array.isRequired,
 };
