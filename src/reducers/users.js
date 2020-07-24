@@ -9,7 +9,6 @@ import {
   ADD_FAVORITE,
   ADD_UPDATE,
 } from 'src/actions/users';
-import { bindActionCreators } from 'redux';
 
 const initialState = {
   users: [],

@@ -33,17 +33,13 @@ const EditUser = ({
 
   const subFormValue = {};
   const handleSub = (event) => {
-    if (comparePassword() === true) {
+    if (comparePassword() == true || new FormData(event.currentTarget).get('username') > 0) {
       const loginFormData = new FormData(event.currentTarget);
-      if (loginFormData.get('password') > 0) {
-        subFormValue.password = loginFormData.get('password');
-      } if (loginFormData.get('avatar') > 0) {
-        subFormValue.avatar = loginFormData.get('avatar');
-      } if (loginFormData.get('username') > 0) {
-        subFormValue.username = loginFormData.get('username');
-      }
+      subFormValue.password = loginFormData.get('password');
+      subFormValue.username = loginFormData.get('username');
     }
   };
+
   return (
     <div className="edit-user">
       <div
@@ -57,14 +53,13 @@ const EditUser = ({
           event.preventDefault();
           handleSub(event);
           addUpdate(subFormValue);
-          // updateUserProfile();
-          console.log(updateValue);
+          updateUserProfile();
         }}
       >
         <span className="edit-my-info">Modifier mes informations</span>
-        <label htmlFor="avatar" className="choose-file">Changer ma photo de profil
+        {/* <label htmlFor="avatar" className="choose-file">Changer ma photo de profil
           <input name="avatar" type="file" className="avatar" accept="image/png, image/jpeg" />
-        </label>
+        </label> */}
         <label htmlFor="username">Changer mon pseudo
           <input name="username" type="text" className="input-login" placeholder="Pseudo" />
         </label>

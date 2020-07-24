@@ -16,7 +16,6 @@ const Home = ({
 }) => {
   const arrayCompare = () => {
     users.forEach((user) => {
-      console.log(user);
       if (user.name == token.user_nicename) {
         setUser(user);
       }

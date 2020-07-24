@@ -5,7 +5,6 @@ import { NavLink, Route } from 'react-router-dom';
 import { ArrowLeftCircle } from 'react-feather';
 
 import logo from 'src/assets/images/logo.png';
-import avatar from 'src/assets/images/avatar.png';
 import './subscribe.scss';
 
 const Subscribe = ({ subArray, insertSubscribe, sendSubscribe }) => {
@@ -34,12 +33,12 @@ const Subscribe = ({ subArray, insertSubscribe, sendSubscribe }) => {
     }
   };
 
-  const redirectTo = () => (
-    <Route
+  const redirectTo = () => {
+    <NavLink
       exact
       to="/"
     />
-  );
+  };
 
   const subFormValue = {};
   const handleSub = (event) => {
@@ -67,7 +66,7 @@ const Subscribe = ({ subArray, insertSubscribe, sendSubscribe }) => {
           }}
         >
 
-          <label htmlFor="avatar" className="choose-file">Choisissez une photo de profil
+          {/* <label htmlFor="avatar" className="choose-file">Choisissez une photo de profil */}
 
           {/* <div className="avatar-container">
             <img className="picture" src={avatar} alt="votre avatar" />
@@ -84,7 +83,7 @@ const Subscribe = ({ subArray, insertSubscribe, sendSubscribe }) => {
               pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
               required
             />
-            <span className="error-mail"></span>
+            <span className="error-mail" />
           </label>
           <label htmlFor="username">Choisissez un pseudo *
             <input
@@ -95,7 +94,7 @@ const Subscribe = ({ subArray, insertSubscribe, sendSubscribe }) => {
               pattern="[a-z0-9._-]{3,15}"
               required
             />
-            <span className="error-pseudo"></span>
+            <span className="error-pseudo" />
           </label>
           <label htmlFor="password">Rentrez votre mot de passe *
             <strong className="required-elements">
@@ -115,7 +114,7 @@ const Subscribe = ({ subArray, insertSubscribe, sendSubscribe }) => {
                 console.log(inputValue);
               }}
             />
-            <span className="error-pass"></span>
+            <span className="error-pass" />
           </label>
           <label htmlFor="confirmation">Confirmez votre mot de passe *
             <input

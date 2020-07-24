@@ -5,8 +5,8 @@ import PropTypes from 'prop-types';
 import logo from 'src/assets/images/logo.png';
 
 import Input from 'src/containers/Header/Input';
-import ButtonMenu from './ButtonMenu';
-import Menu from './Menu';
+import ButtonMenu from 'src/containers/Header/ButtonMenu';
+import Menu from 'src/containers/Header/Menu';
 
 import './header.scss';
 

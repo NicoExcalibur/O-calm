@@ -17,6 +17,7 @@ const ButtonMenu = ({ openMenu, menuBool }) => (
           to="/"
           exact
           activeClassName="nav-active"
+          onClick={openMenu}
         >
           Accueil
         </NavLink>
@@ -25,6 +26,7 @@ const ButtonMenu = ({ openMenu, menuBool }) => (
           to="/research"
           exact
           activeClassName="nav-active"
+          onClick={openMenu}
         >
           Parcourir
         </NavLink>
@@ -33,6 +35,7 @@ const ButtonMenu = ({ openMenu, menuBool }) => (
           to="/favorites"
           exact
           activeClassName="nav-active"
+          onClick={openMenu}
         >
           Favoris
         </NavLink>
@@ -41,6 +44,7 @@ const ButtonMenu = ({ openMenu, menuBool }) => (
           to="/account"
           exact
           activeClassName="nav-active"
+          onClick={openMenu}
         >
           Profil
         </NavLink>

@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-import Account from 'src/components/Account';
+import EditUser from 'src/components/Account/EditUser';
 import { addUpdate, updateUserProfile } from '../../actions/users';
 
 const mapStateToProps = (state) => ({
@@ -11,9 +11,9 @@ const mapDispatchToProps = (dispatch) => ({
   updateUserProfile: (subArray) => {
     dispatch(updateUserProfile(subArray));
   },
-  addUpdate: () => {
-    dispatch(addUpdate());
+  addUpdate: (updateValue) => {
+    dispatch(addUpdate(updateValue));
   },
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Account);
+export default connect(mapStateToProps, mapDispatchToProps)(EditUser);

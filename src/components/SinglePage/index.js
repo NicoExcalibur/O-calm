@@ -45,7 +45,6 @@ const SinglePage = ({ videos }) => {
           {videoExcerpt}
         </p>
       </div>
-      <button type="button" className="fav">Ajouter à mes favoris</button>
     </div>
   );
 };

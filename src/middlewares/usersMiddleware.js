@@ -17,6 +17,7 @@ import {
   importFavorites,
   DELETE_FAVORITE,
   setUser,
+  UPDATE_USER_PROFILE,
 } from 'src/actions/users';
 import { setErrors } from 'src/actions/errors';
 
@@ -97,7 +98,7 @@ const usersMiddleware = (store) => (next) => (action) => {
       const verifySession = new Promise((resolve, reject) => {
         if (localStorage.token) {
           axios({
-            method: 'get',
+            method: 'post',
             url: 'http://ec2-100-25-192-123.compute-1.amazonaws.com/o-calm/wp-json/wp/v2/users/me',
             headers: { Authorization: `Bearer ${token}` },
           })
@@ -194,34 +195,32 @@ const usersMiddleware = (store) => (next) => (action) => {
       break;
     }
 
-    // case UPDATE_USER_PROFILE: {
-    //   const token = localStorage.getItem('token');
-    //   const verifySession = new Promise((resolve, reject) => {
-    //     if (localStorage.token) {
-    //       axios({
-    //         method: 'post',
-    //         url: 'http://ec2-100-25-192-123.compute-1.amazonaws.com/o-calm/wp-json/wp/v2/users/me',
-    //         headers: { Authorization: `Bearer ${token}` },
-    //       })
-    //         .then(resolve)
-    //         .catch(reject);
-    //     }
-    //     else {
-    //       reject();
-    //     }
-    //   });
-    //   verifySession
-    //     .then((response) => {
-    //       store.dispatch(setUser(response.data));
-    //     })
-    //     .catch((error) => {
-    //       console.warn(error);
-    //       store.dispatch(setErrors(error));
-    //     });
+    case UPDATE_USER_PROFILE: {
+      const token = localStorage.getItem('token');
+      const { updateValue } = store.getState().users;
+      const verifySession = new Promise((resolve, reject) => {
+          axios({
+            method: 'post',
+            url: 'http://ec2-100-25-192-123.compute-1.amazonaws.com/o-calm/wp-json/wp/v2/users/me',
+            headers: { Authorization: `Bearer ${token}` },
+            data: { updateValue },
+          })
+            .then(resolve)
+            .catch(reject);
+      });
+      verifySession
+        .then((response) => {
+          console.log(response);
+          // store.dispatch(setUser(response.data));
+        })
+        .catch((error) => {
+          console.warn(error);
+          store.dispatch(setErrors(error));
+        });
 
-    //   next(action);
-    //   break;
-    // }
+      next(action);
+      break;
+    }
 
     default:
       next(action);
