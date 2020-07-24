@@ -19,11 +19,13 @@ const Media = ({
   deleteFavorite,
 }) => {
   let isFavorite = false;
-  favorites.forEach((favorite) => {
-    if (video.id === favorite.ID) {
-      isFavorite = true;
-    }
-  });
+  if (favorites.length > 0) {
+    favorites.forEach((favorite) => {
+      if (video.id === favorite.ID) {
+        isFavorite = true;
+      }
+    });
+  }
   let cssClass = classNames('fav', {
     'fav--is-favorite': isFavorite,
   });
