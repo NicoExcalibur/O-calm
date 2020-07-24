@@ -1,55 +1,105 @@
 @import 'src/styles/vars';
 
+@keyframes move {
+  0% {
+    border-radius: 71% 29% 38% 62% / 45% 23% 77% 55% ;
+  }
+  25% {
+    border-radius: 68% 32% 14% 86% / 21% 21% 79% 79%;
+  }
+  50% {
+    border-radius: 68% 32% 65% 35% / 21% 52% 48% 79%;
+  }
+  75% {
+    border-radius: 75% 25% 89% 11% / 69% 70% 30% 31% ;
+  }
+  100% {
+    border-radius: 71% 29% 38% 62% / 45% 23% 77% 55% ;
+  }
+}
+
 .subscribe {
   display: flex;
   flex-direction: column-reverse;
   text-align: center;
 
+
   .left-subscribe {
     width: 80%;
     margin: auto;
+    // border-radius: 71% 29% 38% 62% / 45% 23% 77% 55% ;
+    animation-name: move;
+    animation-iteration-count: infinite;
+    animation-duration: 20s;
+    background: linear-gradient(41deg, rgba(213,235,234,1) 0%, rgba(213,235,234,1) 61%, rgba(145,213,211,1) 79%);
+    height: 100vh;
     
-    h1 {
+    h1 { 
       font-size: 1.2rem;
       font-weight: bold;
       color: $darkBlue;
 
     }
-    input{
+
+    // .avatar-container {
+    //   .picture {
+    //     border: 3px solid $backMedia;
+    //     border-radius: 50%;
+    //     width: 30%;
+        
+    //   }
+    // }
+
+    input {
       width:95%;
+
     }
 
     form {
-      background-color: $backHeader;
       padding: 2rem;
       display: flex;
       flex-direction: column;
       margin: 2rem auto;
       padding-left: 2rem;
       padding-right: 2rem;
-      border-radius: 2rem;
       
       label {
-        color: $darkBlue;
+        color: $darkerBlue;
         font-size: 0.9rem;
         font-weight: bold;
         text-align: left;
-        margin-top: 0.5rem;
+        margin-top: 1.5rem;
 
+        .required-elements {
+          display: block;
+          margin-top: 0.2rem;
+          font-size: 0.8rem;
+          color: $mainColor;
+
+          .required {
+            color: $darkBlue;
+
+          }
+
+        }
+    
       }
 
       .choose-file {
-        background-color: white;
-        border-radius: 2rem;
-        color: $mainBlue;
+        text-align: center;
         padding: 0.3rem;
-        padding-left: 0.5rem;
         margin-bottom: 0.5rem;
-        margin-right: 20%;
+        border-bottom: 2px solid $backMedia;
+        margin-left: 5rem;
+        margin-right: 5rem;
 
         &:hover {
-          background-color: $backMedia;
-          color: white;
+          border-bottom: 2px solid $ok;
+
+        }
+
+        &:active {
+          border-bottom: 2px solid $ok;
 
         }
 
@@ -62,23 +112,62 @@
           
         }
 
+        span {
+          display: block;
+          margin-top: 0.2rem;
+          color: $redIsDead;
+          font-size: 0.8rem;
+          margin-left: 0.6rem;
+          margin-right: 0.2rem;
+
+        }
+
+        .error-mail {
+          margin-left: 0.6rem;
+
+        }
+
 
       .input-login {
         font-family: $quicksand;
         margin-top: 1rem;
         padding: 0.5rem;
         border-style: none;
-        
+        background-color: white;
+        margin-left: 0.3rem;
+
         &::placeholder {
-          color: $mainBlue;
+          color: $mainColor;
 
         }
 
-        &:focus {
+        &:focus:invalid {
           outline: 0;
-          border: 2px solid $backMedia;
-          border-radius: 3rem;
-          color: $mainColor;
+          border: 2px solid $redIsDead;
+          border-radius: 2rem;
+
+        }
+
+        &:focus:valid {
+          outline: 0;
+          border: 2px solid $ok;
+          border-radius: 2rem;
+
+        }
+
+        &:invalid+.error-mail:before {
+          content: 'Ce format n\'est pas valide';
+
+        }
+
+        &:invalid+.error-pseudo:before {
+          content: 'Votre pseudo doit contenir au moins 3 caractères';
+          
+        }
+
+        &:invalid+.error-pass:before {
+          content: 'Vérifiez bien que votre mot de passe corresponde aux critères énumérés plus haut';
+          
         }
 
       }
@@ -92,8 +181,8 @@
         text-align: left;
       }
 
-      .required {
-        color: $darkBlue;
+      .required-star {
+        color: $darkerBlue;
         font-size: 0.8rem;
         text-align: left;
       }
@@ -101,12 +190,12 @@
       .submit {
         font-family: $quicksand;
         margin: 1rem auto;
-        padding: 0.5rem;
+        padding: 1.5rem;
         width: 60%;
         border-style: none;
-        background-color: white;
-        border-radius: 2rem;
-        color: $mainBlue;
+        background-color: $mainBlue;
+        border-radius: 28% 72% 55% 45% / 77% 57% 43% 23%;
+        color: white;
         font-size: 1rem;
         font-weight: bold;
 
@@ -129,25 +218,28 @@
       margin-bottom: 4rem;
 
       .go-back {
-        color: $mainColor;
+        color: $darkerBlue;
         font-size: 0.8rem;
         font-style: italic;
 
       }
 
       .go-back-link {
-        color: $mainBlue;
         font-weight: bold;
         text-decoration: underline;
         margin-top: 1rem;
+        fill: $backMedia;
+        color: white;
 
         &:hover {
-          color: $backMedia;
+          fill: $backHeader;
+          color: $darkBlue;
 
         }
 
         &:active {
-          color: $backMedia;
+          fill: $backHeader;
+          color: $darkBlue;
           
         }
 
@@ -156,7 +248,7 @@
   }
   
   img {
-    width: 70%;
+    width: 50%;
     margin: auto;
 
   }
@@ -202,7 +294,13 @@
       form {
         width: 90%;
 
+        .error-mail {
+          margin-left: 0.6rem;
+          
+        }
+
       }
+
     }
 
     img{
@@ -217,10 +315,14 @@
   .subscribe {
 
     .left-subscribe {
-      border-right: 2px solid $mainBlue;
+
 
       form {
         width: 80%;
+
+        .submit {
+          padding: 2rem;
+        }
 
       }
     }
@@ -235,6 +337,14 @@
 
       form {
         width: 70%;
+
+        .avatar-container {
+
+          .picture {
+            width: 50%;
+
+          }
+        }
 
       }
     }
@@ -255,7 +365,9 @@
       width: 50%;
 
       form {
-        width: 40%;
+        width: 60%;
+        
+        }
 
       }
     }
@@ -266,5 +378,4 @@
 
     }
 
-  }
 }
