@@ -37,9 +37,10 @@
     background: linear-gradient(41deg, rgba(94,193,190,1) 0%, rgba(145,213,211,1) 47%, rgba(213,235,234,1) 100%);
 
     h1 {
-        font-size: 1.2rem;
-        font-weight: bold;
-        color: $darkBlue;
+      margin-top: 2rem;
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: $darkBlue;
     }
 
     form {
@@ -140,6 +141,17 @@
 
     }
   }
+
+  .what {
+    background-color: $backMedia;
+    padding: 1rem;
+    font-size: 0.9rem;
+    margin-top: 5rem;
+    display: block;
+    margin-left: 10rem;
+    margin-right: 10rem;
+
+   }
 }
 
 @media screen and (min-width: 500px) {
