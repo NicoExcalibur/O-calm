@@ -1,0 +1,47 @@
+@import 'src/styles/vars';
+
+.about {
+  margin: auto;
+  text-align: center;
+
+  .right-part {
+
+    .video {
+      margin: auto;
+    }
+  }
+
+  .left-part {
+
+    h1 {
+      font-size: 2rem;
+      color: $mainBlue;
+      font-weight: bold;
+
+    }
+
+    p {
+      color: $mainColor;
+      font-size: 1.2rem;
+      margin: 1rem;
+    }
+
+    h2 {
+      color: $backMedia;
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    h3 {
+      color: $mainBlue;
+      font-weight: bold;
+      font-size: 1.5rem;
+    }
+
+    .goback {
+      color: $backMedia;
+      
+    }
+
+  }
+}

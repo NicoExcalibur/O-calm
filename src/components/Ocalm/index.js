@@ -1,12 +1,21 @@
 import React from 'react';
+import ReactPlayer from 'react-player';
+import { NavLink } from 'react-router-dom';
+import { ArrowLeftCircle } from 'react-feather';
 
 import './ocalm.scss';
-import { NavLink } from 'react-router-dom';
+import anim from 'src/assets/videos/animwelcome.mp4';
 
 const Ocalm = () => (
   <div className="about">
     <div className="right-part">
-      ici une vidéo
+      <ReactPlayer
+        className="video"
+        url={anim}
+        width="100%"
+        height="100%"
+        playing={true}
+      />
     </div>
     <div className="left-part">
       <h1>Pourquoi s'inscrire à O'Calm</h1>
@@ -33,9 +42,10 @@ const Ocalm = () => (
         il faut rester à l'écoute...
       </p>
       <NavLink
+        className="goback"
         to="/"
       >
-        retour
+        <ArrowLeftCircle size={50} />
       </NavLink>
     </div>
   </div>
