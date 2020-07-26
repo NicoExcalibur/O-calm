@@ -5,7 +5,7 @@ class Ocalm_role
     public function __construct()
     {
         // Add simple_role capabilities, priority must be after the initial role definition.
-        add_action( 'init', [$this,'wporg_simple_role_caps'], 11 );
+        add_action('init', [$this, 'removeDefaultRoles']);
     }
     public function addRole()
     {
@@ -21,30 +21,24 @@ class Ocalm_role
         // Edit post
         $role->add_cap('edit_posts');
     }
-   
-    public function wporg_simple_role_caps() {
-        // Gets the role object.
-       // $user_can = $_POST; oui
-
-     //   print_r($user_can); die();
-        // if()
-        // {}
-        $role = get_role( 'subscriber' ); // manque un ti truuuuc Vincent
-        // Add a new capability.
-        $role->add_cap( 'delete_users', false );
-
-    }
-   
-
+    
     public function removeRole()
     {
-        remove_role('oclockien');
-        
+        remove_role('oclockien');    
     }
-
+    
+    // Removes the default roles we do not need
+    function removeDefaultRoles() {
+        
+        remove_role( 'contributor' );
+        remove_role( 'editor' );
+        remove_role( 'author' );  
+    } 
+    
     public function activation()
     {
         $this->addRole();
+       // $this->removeDefaultRoles();
     }
 
     public function deactivation()

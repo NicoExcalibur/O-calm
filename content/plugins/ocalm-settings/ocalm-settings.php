@@ -41,5 +41,5 @@ register_activation_hook( __FILE__,[$add_favorite, 'activation']);
 register_deactivation_hook( __FILE__,[$add_favorite, 'deactivation']); 
 
 // Delete user account 
-//$delete_account = new Delete_account();
+$delete_account = new Delete_account();
 

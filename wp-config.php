@@ -79,7 +79,7 @@ $table_prefix = 'wp_';
  */
 
 // https://www.php.net/manual/fr/function.rtrim.php
-define( 'WP_HOME', rtrim('http://localhost/site/o-calm/', '/'));
+define( 'WP_HOME', rtrim('http://localhost/project-ocalm/o-calm/', '/'));
 define( 'WP_SITEURL', WP_HOME . '/wp');
 define( 'WP_CONTENT_URL', WP_HOME . '/content');
 define( 'WP_CONTENT_DIR', dirname( ABSPATH ) . '/content');
