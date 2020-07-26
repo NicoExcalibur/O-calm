@@ -4,7 +4,7 @@ class Ocalm_role
 {
     public function __construct()
     {
-        // Add simple_role capabilities, priority must be after the initial role definition.
+        // removes the useless default roles
         add_action('init', [$this, 'removeDefaultRoles']);
     }
     public function addRole()
@@ -15,10 +15,9 @@ class Ocalm_role
         ]);
         
         $role = get_role('oclockien');
-        
-        // Creat post
+    
+        // capabilities
         $role->add_cap('create_posts');
-        // Edit post
         $role->add_cap('edit_posts');
     }
     
@@ -38,7 +37,6 @@ class Ocalm_role
     public function activation()
     {
         $this->addRole();
-       // $this->removeDefaultRoles();
     }
 
     public function deactivation()

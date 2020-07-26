@@ -15,8 +15,7 @@ class Delete_account {
             'callback' => [$this, 'delete']
         ]);
     }
-    //https://stackoverflow.com/questions/22734910/wp-delete-user-function-to-delete-the-user-from-front-end-is-not-working/29542513
-
+   
     public function delete(){
         if (is_user_logged_in()) {
             add_action('init', [$this, 'delete2']);
@@ -25,8 +24,9 @@ class Delete_account {
     }
     
     public function delete2(){
+       
         if (is_user_logged_in()) {
-            //$user_id = get_current_user_id();
+            
             require_once(ABSPATH.'wp-admin/includes/user.php');
         
             $current_user = wp_get_current_user();
