@@ -45,3 +45,35 @@
 
   }
 }
+
+@media screen and (min-width: 900px) {
+  .about {
+    display: flex;
+    flex-direction: row-reverse;
+    margin-top: 15rem;
+
+    .right-part {
+      
+      .video {
+        margin: auto;
+      }
+
+    }
+  
+    .left-part {
+  
+     
+    }
+  }
+}
+
+@media screen and (min-width: 1300px) {
+  .about {
+    .right-part {
+      margin-top: -10rem;
+    }
+    .left-part {
+
+    }
+  }
+}
