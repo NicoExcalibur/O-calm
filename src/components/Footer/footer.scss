@@ -66,3 +66,17 @@
     }
   }
 }
+
+@media screen and (min-width: 900px) {
+  .footer {
+    .logo-footer {
+      width: 10%;
+    }
+
+    .links{
+      display: flex;
+      justify-content: center;
+
+    }
+  }
+}

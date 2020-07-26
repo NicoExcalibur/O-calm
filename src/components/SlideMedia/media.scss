@@ -4,11 +4,13 @@
   position: relative;
   display: flex;
   flex-direction: column;
+  z-index: 1;
 
   .fav {
     margin-left: 10.4rem;
     margin-top: -0.5rem;
     position: absolute;
+    z-index: 2;
     color: $redIsDead;
     fill: white;
     
