@@ -108,9 +108,11 @@
         width: 60%;
         border-style: none;
         background: none;
-        color: white;
 
         .connect {
+          fill: $backMedia;
+          color: white;
+
           &:hover {
             fill: white;
             color: $backMedia;
@@ -118,8 +120,8 @@
           }
   
           &:active {
-            fill: white;
-            color: $backMedia;
+            fill: $backMedia;
+            color: white;
             
           }
 

@@ -1,0 +1,20 @@
+@import 'src/styles/vars';
+
+.home {
+
+  .hey {
+    font-size: 2.5rem;
+    text-align: center;
+    margin: 2rem;
+    color: $mainBlue;
+    font-style: italic;
+    margin-bottom: 5rem;
+
+    em {
+      color: $backMedia;
+      font-weight: bold;
+      font-style: normal;
+
+    }
+  }
+}

@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { getRandomValue } from 'src/utils';
 
 import SlideMedia from 'src/containers/SlideMedia';
+import './home.scss';
 
 const Home = ({
   videos,
@@ -39,6 +40,7 @@ const Home = ({
   slideFunc();
   return (
     <div className="home">
+      <h1 className="hey">Qu'allez-vous écouter aujourd'hui <em>{token.user_nicename}</em> ?</h1>
       <SlideMedia
         key={firstSlide.id}
         categoryId={firstSlide.id}
@@ -66,7 +68,11 @@ Home.propTypes = {
   userProfile: PropTypes.func.isRequired,
   videos: PropTypes.array.isRequired,
   users: PropTypes.array.isRequired,
-  token: PropTypes.object.isRequired,
+  token: PropTypes.objectOf(
+    PropTypes.shape({
+      user_nicename: PropTypes.string.isRequired,
+    }).isRequired,
+  ).isRequired,
   setUser: PropTypes.func.isRequired,
   categories: PropTypes.arrayOf(
     PropTypes.shape({

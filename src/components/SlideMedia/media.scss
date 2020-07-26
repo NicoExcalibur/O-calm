@@ -6,22 +6,17 @@
   flex-direction: column;
 
   .fav {
-    margin-left: 10rem;
+    margin-left: 10.4rem;
+    margin-top: -0.5rem;
     position: absolute;
-    color: $backMedia;
+    color: $redIsDead;
+    fill: white;
     
     &.fav--is-favorite {
-      fill: $backMedia;
-
-      &:hover {
-        fill: none;
-      }
+      fill: $redIsDead;
 
     }
 
-    &:hover {
-      fill: $backMedia;
-    }  
   }
   
   .react-player {
