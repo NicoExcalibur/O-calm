@@ -18,26 +18,21 @@
   }
 }
 
-@keyframes pound {
+@keyframes focus-input {
   0% {
-    width: 7rem;
-    height: 7rem;
+    border-left: 2px solid $backMedia;
   }
   25% {
-    width: 8rem;
-    height: 8rem;
+    border-top: 2px solid $backMedia;
   }
   50% {
-    width: 9rem;
-    height: 9rem;
+    border-right: 2px solid $backMedia;
   }
   75% {
-    width: 8rem;
-    height: 8rem;
+    border-bottom: 2px solid $backMedia;
   }
   100% {
-    width: 7rem;
-    height: 7rem;
+    border: 2px solid $backMedia;
   }
 }
 
@@ -91,8 +86,9 @@
         margin-bottom: 0.5rem;
 
         &:focus {
-          border: 2px solid $backMedia;
-          border-radius: 3rem;
+          animation-name: focus-input;
+          animation-duration: 2s;
+          border-radius: 2rem;
 
         }
         
