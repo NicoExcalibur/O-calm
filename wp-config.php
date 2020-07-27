@@ -80,7 +80,15 @@ $table_prefix = 'wp_';
 
 // https://www.php.net/manual/fr/function.rtrim.php
 define( 'WP_HOME', rtrim('http://localhost/site/o-calm/', '/'));
+define( 'WP_SITEURL', WP_HOME . '/wp');
+define( 'WP_CONTENT_URL', WP_HOME . '/content');
+define( 'WP_CONTENT_DIR', dirname( ABSPATH ) . '/content');
 
+define('WP_DEBUG', false);
+
+/*
+Sachant que WordPress ne nous permet pas de gérer l'environnement dans lequel est exécuté notre WordPress, nous mettons la fonctionnalité en place nous-même en créant une constante qui n'est comprise que pas notre code.
+*/
 define( 'ENVIRONMENT', 'development' );
 // define( 'ENVIRONMENT', 'staging' );
 // define('ENVIRONMENT', 'production');
