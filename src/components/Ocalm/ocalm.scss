@@ -1,6 +1,6 @@
 @import 'src/styles/vars';
 
-.about {
+.ocalm {
   margin: auto;
   text-align: center;
 
@@ -48,7 +48,7 @@
 }
 
 @media screen and (min-width: 900px) {
-  .about {
+  .ocalm {
     display: flex;
     flex-direction: row-reverse;
     margin-top: 15rem;
@@ -69,7 +69,7 @@
 }
 
 @media screen and (min-width: 1300px) {
-  .about {
+  .ocalm {
     .right-part {
       margin-top: -10rem;
     }

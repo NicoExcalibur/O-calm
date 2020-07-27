@@ -1,4 +1,7 @@
-import React from 'react';
+
+import React, { useEffect } from 'react';
+import PropTypes from 'prop-types';
+import { Power } from 'react-feather';
 import { NavLink } from 'react-router-dom';
 
 const Menu = () => (
@@ -35,7 +38,10 @@ const Menu = () => (
     >
       Profil
     </NavLink>
-    <a href="/" className="logout">Déconnexion</a>
+    <a href="/" className="logout">
+      Déconnexion
+      <Power />
+    </a>
   </nav>
 );
 

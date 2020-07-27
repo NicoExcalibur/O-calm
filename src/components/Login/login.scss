@@ -18,25 +18,6 @@
   }
 }
 
-@keyframes focus-input {
-  0% {
-    border-left: 2px solid $backMedia;
-  }
-  25% {
-    border-top: 2px solid $backMedia;
-  }
-  50% {
-    border-right: 2px solid $backMedia;
-  }
-  75% {
-    border-bottom: 2px solid $backMedia;
-  }
-  100% {
-    border: 2px solid $backMedia;
-  }
-}
-
-
 .login {
   text-align: center;
 
@@ -86,8 +67,7 @@
         margin-bottom: 0.5rem;
 
         &:focus {
-          animation-name: focus-input;
-          animation-duration: 2s;
+          border: 2px solid $backMedia;
           border-radius: 2rem;
 
         }
@@ -140,25 +120,23 @@
     }
 
     .new-account {
-      color: $darkerBlue;
+      color: white;
       font-family: $questrial;
       font-size: 1.2rem;
-      background: none;
-      border-bottom: 3px solid $darkerBlue;
+      background-color: $darkBlue;
+      border-radius: 0.5rem;
       font-weight: bold;
       padding: 0.5rem;
       width: 40%;
       margin: auto;
 
       &:hover {
-        color:$backMedia;
-        border-bottom: 3px solid $backMedia;
+        background-color:$backMedia;
 
       }
 
       &:active {
-        color:$backMedia;
-        border-bottom: 3px solid $backMedia;
+        background-color:$backMedia;
 
       }
 
@@ -167,17 +145,27 @@
 
   .what {
     display: block;
-    margin-top: 5rem;
+    margin-top: 4.5rem;
     margin-right: 1rem;
     padding-top: 2.5rem;
     background: linear-gradient(41deg, rgba(94,193,190,1) 0%, rgba(145,213,211,1) 47%, rgba(213,235,234,1) 100%);
-    width: 7rem;
-    height: 7rem;
+    width: 6rem;
+    height: 6rem;
     border-radius: 50%;
     margin-left: 18rem;
     color: white;
     font-weight: bold;
     margin-bottom: 2rem;
+
+    &:hover {
+      background: $darkBlue;
+
+    }
+
+    &:active {
+      background: $darkBlue;
+
+    }
 
    }
 }
@@ -311,7 +299,8 @@
 
     .what {
       margin-left: 92rem;
-      
+      padding-top: 2rem;
+
     }
   }
 }

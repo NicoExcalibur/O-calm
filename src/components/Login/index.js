@@ -43,7 +43,7 @@ const Login = ({ saveLogin, verifLogin, token }) => {
             to="/subscribe"
             exact
           >
-            <p className="new-account">Créer mon compte</p>
+            <p className="new-account"> + créer un compte</p>
           </NavLink>
         </div>
       </div>

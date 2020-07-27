@@ -1,12 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
-import {
-  NavLink,
-} from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { ArrowLeftCircle } from 'react-feather';
 
 import logo from 'src/assets/images/logo.png';
+import lotus from 'src/assets/images/white.png';
 import './subscribe.scss';
 
 const Subscribe = ({ subArray, insertSubscribe, sendSubscribe }) => {
@@ -136,6 +135,7 @@ const Subscribe = ({ subArray, insertSubscribe, sendSubscribe }) => {
             className="submit"
           >
             Entrer dans le zen
+            <img src={lotus} alt="lotus" className="lotus" />
           </button>
         </form>
         <div className="back">

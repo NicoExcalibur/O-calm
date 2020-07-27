@@ -5,7 +5,7 @@
     border-radius: 58% 42% 69% 31% / 61% 21% 79% 39% ;
   }
   25% {
-    border-radius:66% 34% 59% 41% / 31% 43% 57% 69% ;
+    border-radius: 66% 34% 59% 41% / 31% 43% 57% 69% ;
   }
   50% {
     border-radius: 30% 70% 19% 81% / 31% 43% 57% 69% ;
@@ -23,7 +23,7 @@
   position: absolute;
   background: linear-gradient(41deg, rgba(254,255,255,1) 0%, rgba(213,235,234,1) 43%, rgba(213,235,234,1) 61%, rgba(145,213,211,1) 79%);
   animation-name: move;
-  animation-duration: 10s;
+  animation-duration: 20s;
   animation-iteration-count: infinite;
   border-radius: 1rem;
   z-index: 0;
@@ -164,9 +164,11 @@
 
 @media screen and (min-width: 900px) {
   .edit-user {
+    margin-left: -1rem;
 
     .close {
       margin-left: 95%;
+      
     }
   }
 }
