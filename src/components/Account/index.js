@@ -32,7 +32,7 @@ const Account = ({ token, currentUser, updateValue }) => {
   adminBool();
 
   let boolEdit = false;
-  
+
   const editResp = () => { 
     if (editMobile === true) {
       boolEdit = true;

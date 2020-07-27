@@ -18,6 +18,24 @@
   }
 }
 
+@keyframes focus-input {
+  0% {
+    border-left: 2px solid $backMedia;
+  }
+  25% {
+    border-top: 2px solid $backMedia;
+  }
+  50% {
+    border-right: 2px solid $backMedia;
+  }
+  75% {
+    border-bottom: 2px solid $backMedia;
+  }
+  100% {
+    border: 2px solid $backMedia;
+  }
+}
+
 
 .login {
   text-align: center;
@@ -37,9 +55,10 @@
     background: linear-gradient(41deg, rgba(94,193,190,1) 0%, rgba(145,213,211,1) 47%, rgba(213,235,234,1) 100%);
 
     h1 {
-        font-size: 1.2rem;
-        font-weight: bold;
-        color: $darkBlue;
+      margin-top: 2rem;
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: $darkBlue;
     }
 
     form {
@@ -67,8 +86,9 @@
         margin-bottom: 0.5rem;
 
         &:focus {
-          border: 2px solid $backMedia;
-          border-radius: 3rem;
+          animation-name: focus-input;
+          animation-duration: 2s;
+          border-radius: 2rem;
 
         }
         
@@ -80,27 +100,27 @@
       }
 
       .submit {
-        font-family: $quicksand;
         margin: 1rem auto;
-        padding: 1.5rem;
         width: 60%;
         border-style: none;
-        background-color: $backMedia;
-        border-radius: 28% 72% 55% 45% / 77% 57% 43% 23%;
-        color: white;
-        font-size: 1rem;
-        font-weight: bold;
+        background: none;
 
-        &:hover {
-          background-color: $mainBlue;
+        .connect {
+          fill: $backMedia;
           color: white;
 
-        }
+          &:hover {
+            fill: white;
+            color: $backMedia;
+  
+          }
+  
+          &:active {
+            fill: $backMedia;
+            color: white;
+            
+          }
 
-        &:active {
-          background-color: $mainBlue;
-          color:white;
-          
         }
         
       }
@@ -113,16 +133,18 @@
     
     .question {
       color: $darkerBlue;
-      font-size: 0.8rem;
+      font-size: 0.9rem;
       font-style: italic;
       margin-bottom: 1rem;
 
     }
 
     .new-account {
-      color: $backMedia;
-      background-color: white;
-      border: 2px solid $backMedia;
+      color: $darkerBlue;
+      font-family: $questrial;
+      font-size: 1.2rem;
+      background: none;
+      border-bottom: 3px solid $darkerBlue;
       font-weight: bold;
       padding: 0.5rem;
       width: 40%;
@@ -130,16 +152,34 @@
 
       &:hover {
         color:$backMedia;
+        border-bottom: 3px solid $backMedia;
 
       }
 
       &:active {
         color:$backMedia;
+        border-bottom: 3px solid $backMedia;
 
       }
 
     }
   }
+
+  .what {
+    display: block;
+    margin-top: 5rem;
+    margin-right: 1rem;
+    padding-top: 2.5rem;
+    background: linear-gradient(41deg, rgba(94,193,190,1) 0%, rgba(145,213,211,1) 47%, rgba(213,235,234,1) 100%);
+    width: 7rem;
+    height: 7rem;
+    border-radius: 50%;
+    margin-left: 18rem;
+    color: white;
+    font-weight: bold;
+    margin-bottom: 2rem;
+
+   }
 }
 
 @media screen and (min-width: 500px) {
@@ -151,6 +191,10 @@
       form {
         width: 65%;
       }
+    }
+
+    .what {
+      margin-left: 22rem;
     }
   }
 }
@@ -165,12 +209,26 @@
         width: 60%;
       }
     }
+
+    .what {
+      margin-left: 30rem;
+
+    }
   }
 }
 
 @media screen and (min-width: 700px) {
   .login {
+    .what {
+      margin-left: 35rem;
+    }
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .login {
     display: flex;
+    flex-wrap: wrap;
     width: 100%;
 
     .logo {
@@ -192,20 +250,12 @@
         }
       }
     }
-  }
-}
 
-@media screen and (min-width: 900px) {
-  .login {
-
-    .logo {
-      
-      width: 45%;
-    }
-
-    .right-login {
-      
-    }
+    .what {
+        margin-left: 45rem;
+        margin-top: -8rem;
+  
+     }
   }
 }
 
@@ -219,6 +269,11 @@
     .right-login {
       width: 45%;
     }
+
+    .what {
+      margin-left: 60rem;
+
+    }
   }
 }
 
@@ -231,6 +286,10 @@
 
     .right-login {
       width: 40%;
+    }
+
+    .what {
+      margin-left: 78rem;
     }
   }
 }
@@ -248,6 +307,11 @@
       form {
         
       }
+    }
+
+    .what {
+      margin-left: 92rem;
+      
     }
   }
 }

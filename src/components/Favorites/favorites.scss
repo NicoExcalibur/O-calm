@@ -22,13 +22,16 @@
   }
 
   .media-container {
+    margin-top: 0.5rem;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
+    justify-content: center;
     
     .media {
       text-align: center;
       width: 200px;
+      margin: 0.5rem;
 
       h3 {
         color: $mainColor;

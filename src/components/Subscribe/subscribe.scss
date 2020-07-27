@@ -35,9 +35,9 @@
     height: 100vh;
     
     h1 { 
-      font-size: 1.2rem;
+      font-size: 2rem;
       font-weight: bold;
-      color: $darkBlue;
+      color: $darkerBlue;
 
     }
 
@@ -174,11 +174,13 @@
 
 
       #wrong-pass {
-        color: $delete;
+        color: $redIsDead;
         font-weight: bold;
-        font-size: 1rem;
+        font-size: 0.8rem;
         height: 2rem;
         text-align: left;
+        margin-left: 0.6rem;
+
       }
 
       .required-star {
@@ -188,15 +190,13 @@
       }
 
       .submit {
-        font-family: $quicksand;
+        font-family: $questrial;
         margin: 1rem auto;
-        padding: 1.5rem;
         width: 60%;
         border-style: none;
         background-color: $mainBlue;
-        border-radius: 28% 72% 55% 45% / 77% 57% 43% 23%;
         color: white;
-        font-size: 1rem;
+        font-size: 1.3rem;
         font-weight: bold;
 
         &:hover {

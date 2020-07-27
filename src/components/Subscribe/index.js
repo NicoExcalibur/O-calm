@@ -1,7 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
-import { NavLink, Route } from 'react-router-dom';
+import {
+  NavLink,
+} from 'react-router-dom';
 import { ArrowLeftCircle } from 'react-feather';
 
 import logo from 'src/assets/images/logo.png';
@@ -33,13 +35,6 @@ const Subscribe = ({ subArray, insertSubscribe, sendSubscribe }) => {
     }
   };
 
-  const redirectTo = () => {
-    <NavLink
-      exact
-      to="/"
-    />
-  };
-
   const subFormValue = {};
   const handleSub = (event) => {
     if (comparePassword() == true) {
@@ -49,6 +44,10 @@ const Subscribe = ({ subArray, insertSubscribe, sendSubscribe }) => {
       subFormValue.email = loginFormData.get('email');
       subFormValue.username = loginFormData.get('username');
     }
+  };
+
+  const goBack = () => {
+    window.history.back();
   };
 
   return (
@@ -61,7 +60,7 @@ const Subscribe = ({ subArray, insertSubscribe, sendSubscribe }) => {
             handleSub(event);
             insertSubscribe(subFormValue);
             sendSubscribe();
-            redirectTo();
+            goBack();
             console.log(subArray);
           }}
         >
@@ -131,9 +130,13 @@ const Subscribe = ({ subArray, insertSubscribe, sendSubscribe }) => {
           </label>
 
           <div id="wrong-pass" />
-          <div className="required">* veuillez impérativement remplir ces champs</div>
-
-          <button type="submit" className="submit">Entrer dans le zen</button>
+          <div className="required">* veuillez remplir ces champs</div>
+          <button
+            type="submit"
+            className="submit"
+          >
+            Entrer dans le zen
+          </button>
         </form>
         <div className="back">
           <p className="go-back">

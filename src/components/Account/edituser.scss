@@ -1,14 +1,35 @@
 @import 'src/styles/vars';
   
+@keyframes move {
+  0% {
+    border-radius: 58% 42% 69% 31% / 61% 21% 79% 39% ;
+  }
+  25% {
+    border-radius:66% 34% 59% 41% / 31% 43% 57% 69% ;
+  }
+  50% {
+    border-radius: 30% 70% 19% 81% / 31% 43% 57% 69% ;
+  }
+  75% {
+    border-radius: 34% 66% 53% 47% / 66% 81% 19% 34% ;
+  }
+  100% {
+    border-radius: 58% 42% 69% 31% / 61% 21% 79% 39% ;
+  }
+}
+
 .edit-user {
 
   position: absolute;
-  background-color: $backHeader;
+  background: linear-gradient(41deg, rgba(254,255,255,1) 0%, rgba(213,235,234,1) 43%, rgba(213,235,234,1) 61%, rgba(145,213,211,1) 79%);
+  animation-name: move;
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
   border-radius: 1rem;
-  z-index: 80;
-  margin-left: -3rem;
+  z-index: 0;
+  margin-left: -4rem;
   margin-right: 5rem;
-  margin-top: -28rem;
+  margin-top: -27rem;
   box-shadow: 1rem 1rem 1rem $altColor;
 
   .close {
@@ -38,11 +59,10 @@
     flex-direction: column;
     text-align: left;
     font-size: 1.1rem;
-    margin: 2rem;
+    margin: 4rem;
 
     .edit-my-info {
       text-align: center;
-      border-bottom: solid 2px $darkBlue;
       padding-bottom: 1rem;
       margin-bottom: 2rem;
 
@@ -116,7 +136,7 @@
       font-weight: bold;
       border-radius: 2rem;
       font-size: 1.2rem;
-      padding: 1rem;
+      padding: 0.3rem;
 
       &:hover {
         background-color: $ok;

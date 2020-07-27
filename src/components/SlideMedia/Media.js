@@ -29,6 +29,7 @@ const Media = ({
   let cssClass = classNames('fav', {
     'fav--is-favorite': isFavorite,
   });
+
   const manageFavorites = () => {
     if (isFavorite === true) {
       cssClass = 'fav fav--is-favorite';

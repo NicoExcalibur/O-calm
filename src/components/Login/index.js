@@ -1,8 +1,10 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Route } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { ArrowRightCircle } from 'react-feather';
 
 import './login.scss';
+import Ocalm from '../Ocalm';
 import logo from 'src/assets/images/logo.png';
 
 const Login = ({ saveLogin, verifLogin, token }) => {
@@ -29,7 +31,9 @@ const Login = ({ saveLogin, verifLogin, token }) => {
           <input name="username" type="text" className="input-login" placeholder="Pseudo" />
           <label htmlFor="password">Votre mot de passe</label>
           <input name="password" type="password" className="input-login" placeholder="Mot de passe" />
-          <button type="submit" className="submit">Entrer dans le zen</button>
+          <button type="submit" className="submit">
+            <ArrowRightCircle className="connect" size={60} />
+          </button>
         </form>
         <div className="subscribe">
           <p className="question">
@@ -43,6 +47,13 @@ const Login = ({ saveLogin, verifLogin, token }) => {
           </NavLink>
         </div>
       </div>
+      <NavLink
+        className="what"
+        to="/about-ocalm"
+        exact
+      >
+        C'est quoi, O'Calm ?
+      </NavLink>
     </div>
   );
 };

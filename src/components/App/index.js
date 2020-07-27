@@ -11,9 +11,9 @@ import Subscribe from 'src/containers/Subscribe';
 import Header from '../Header';
 import Footer from '../Footer';
 import Page from '../Page';
-import Error403 from '../Error403';
 import Error404 from '../Error404';
-import Error500 from '../Error500';
+import Ocalm from '../Ocalm';
+
 import './styles.scss';
 
 const App = ({
@@ -56,6 +56,9 @@ const App = ({
           exact
         >
           <Subscribe />
+        </Route>
+        <Route exact path="/about-ocalm">
+          <Ocalm />
         </Route>
         {isLogged && (
         <div className="app">
