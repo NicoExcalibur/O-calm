@@ -19,6 +19,7 @@ const Input = ({
         event.preventDefault();
         saveCompare(setSearch(searchValue, videos));
         history.push('/research');
+        saveSearch('');
       }}
     >
       <input
@@ -36,6 +37,7 @@ const Input = ({
 };
 
 Input.propTypes = {
+  videos: PropTypes.array.isRequired,
   searchValue: PropTypes.string.isRequired,
   saveSearch: PropTypes.func.isRequired,
   saveCompare: PropTypes.func.isRequired,

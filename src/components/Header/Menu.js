@@ -1,8 +1,7 @@
-import React, { useEffect } from 'react';
-import PropTypes from 'prop-types';
+import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-const Menu = ({ currentUser, userProfile }) => (
+const Menu = () => (
   <nav className="menu">
     <NavLink
       className="nav"
@@ -39,15 +38,5 @@ const Menu = ({ currentUser, userProfile }) => (
     <a href="/" className="logout">Déconnexion</a>
   </nav>
 );
-
-
-Menu.propTypes = {
-  userProfile: PropTypes.func.isRequired,
-  currentUser: PropTypes.arrayOf(
-    PropTypes.shape({
-      roles: PropTypes.array.isRequired,
-    }).isRequired,
-  ).isRequired,
-};
 
 export default Menu;

@@ -44,7 +44,6 @@ const usersMiddleware = (store) => (next) => (action) => {
       axios.post(`http://ec2-100-25-192-123.compute-1.amazonaws.com/o-calm/wp-json/jwt-auth/v1/token?username=${username}&password=${password}`)
         .then((response) => {
           localStorage.setItem('token', response.data.token);
-          console.log(localStorage);
           store.dispatch(saveToken(response.data));
         })
         .then((error) => {
@@ -159,7 +158,6 @@ const usersMiddleware = (store) => (next) => (action) => {
       });
       saveFav
         .then((response) => {
-          console.log(response.data);
           store.dispatch(saveFavorites(response.data));
         })
         .catch((error) => {
@@ -199,14 +197,14 @@ const usersMiddleware = (store) => (next) => (action) => {
       const token = localStorage.getItem('token');
       const { updateValue } = store.getState().users;
       const verifySession = new Promise((resolve, reject) => {
-          axios({
-            method: 'post',
-            url: 'http://ec2-100-25-192-123.compute-1.amazonaws.com/o-calm/wp-json/wp/v2/users/me',
-            headers: { Authorization: `Bearer ${token}` },
-            data: { updateValue },
-          })
-            .then(resolve)
-            .catch(reject);
+        axios({
+          method: 'post',
+          url: 'http://ec2-100-25-192-123.compute-1.amazonaws.com/o-calm/wp-json/wp/v2/users/me',
+          headers: { Authorization: `Bearer ${token}` },
+          data: { updateValue },
+        })
+          .then(resolve)
+          .catch(reject);
       });
       verifySession
         .then((response) => {

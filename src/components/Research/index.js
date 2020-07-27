@@ -16,38 +16,24 @@ const Research = ({
   saveSearch,
   videos,
   saveCompare,
-  saveSelect,
-  select,
   favorites,
   sendFavorites,
   addFavorite,
   deleteFavorite,
   importFavorites,
+  sendResearch,
+  saveResearch,
+  researchResult,
 }) => {
-  let categoryId = '';
-  let authorId = '';
-  let durationId = '';
-  let videoDisplay = researchVideoDisplay(compare, select);
-  const provArray = [];
-  const startResearch = () => {
-    videos.map((video) => {
-      video.video_categorie.forEach((element) => {
-        if (categoryId == element) {
-          provArray.push(video);
-        } 
-      });
-      video.video_auteur.forEach((element) => {
-        if (authorId == element) {
-          provArray.push(video);
-        }
-      });
-      video.video_duree.forEach((element) => {
-        if (durationId == element) {
-          provArray.push(video);
-        }
-      });
-    });
-    saveSelect(provArray);
+  const research = {};
+  research.category = '';
+  research.author = '';
+  research.duration = '';
+
+  const reset = () => {
+    document.getElementById('categories').value = '';
+    document.getElementById('duration').value = '';
+    document.getElementById('author').value = '';
   };
 
   return (
@@ -59,11 +45,12 @@ const Research = ({
           onSubmit={(event) => {
             event.preventDefault();
             saveCompare(setSearch(searchValue, videos));
-            let videoDisplay = compare;
+            saveSearch('');
           }}
         >
           <input
             type="search"
+            id="search"
             className="search-home"
             placeholder="Rechercher un media"
             value={searchValue}
@@ -80,15 +67,17 @@ const Research = ({
           className="filters"
           onSubmit={(event) => {
             event.preventDefault();
-            startResearch();
-            let videoDisplay = select;
-            console.log(select);
+            saveCompare('');
+            saveResearch(research);
+            sendResearch();
+            reset();
           }}
         >
           <select
             className="categories"
+            id="categories"
             onChange={(event) => {
-              categoryId = event.currentTarget.value;
+              research.category = event.currentTarget.value;
             }}
           >
             <option value="">
@@ -102,8 +91,9 @@ const Research = ({
           </select>
           <select
             className="duration"
+            id="duration"
             onChange={(event) => {
-              durationId = event.currentTarget.value;
+              research.duration = event.currentTarget.value;
             }}
           >
             <option value="">
@@ -117,8 +107,9 @@ const Research = ({
           </select>
           <select
             className="author"
+            id="author"
             onChange={(event) => {
-              authorId = event.currentTarget.value;
+              research.author = event.currentTarget.value;
             }}
           >
             <option value="">
@@ -138,13 +129,13 @@ const Research = ({
       <div className="result-container">
         <h2 className="results">
           <em className="number">
-            {returnResults(videoDisplay)}
+            {returnResults(researchVideoDisplay(compare, researchResult))}
           </em>
           <br />
           résultats trouvés
         </h2>
         <div className="medias-results">
-          {videoDisplay.map((video) => (
+          {researchVideoDisplay(compare, researchResult).map((video) => (
             <Media
               key={video.id}
               importFavorites={importFavorites}
@@ -162,6 +153,9 @@ const Research = ({
 };
 
 Research.propTypes = {
+  researchResult: PropTypes.array.isRequired,
+  saveResearch: PropTypes.func.isRequired,
+  sendResearch: PropTypes.func.isRequired,
   importFavorites: PropTypes.func.isRequired,
   deleteFavorite: PropTypes.func.isRequired,
   sendFavorites: PropTypes.func.isRequired,
