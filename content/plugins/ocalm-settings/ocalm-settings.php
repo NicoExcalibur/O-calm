@@ -41,3 +41,12 @@ register_deactivation_hook( __FILE__,[$add_favorite, 'deactivation']);
 // Delete user account 
 $delete_account = new Delete_account();
 
+
+add_action ('template_redirect', 'my_custom_redirect');
+function my_custom_redirect() {
+    //if ( isset( $_POST['subscribe'] ) ) {
+        $redirect = 'http://34.239.127.180/';
+        wp_redirect($redirect);
+        exit;
+    //}
+}      
