@@ -118,11 +118,14 @@
       }
       .medias-results {
         width: 100%;
+        padding-top: 1rem;
+        padding-right: 0.5rem;
+        padding-left: 0.5rem;
 
         .media {
           text-align: center;
           width: 200px;
-          margin: 0.5rem;
+          margin: auto;
         
         .react-player {
 
