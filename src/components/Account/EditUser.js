@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import ReactDOM from 'react-dom';
+import { CheckCircle, Trash2 } from 'react-feather';
 
 import './edituser.scss';
 
@@ -86,8 +87,14 @@ const EditUser = ({
             }}
           />
         </label>
-        <button type="submit" className="submit">valider</button>
+        <button type="submit" className="submit">
+          <CheckCircle />
+        </button>
       </form>
+      <button type="button" className="delete-user">
+        <Trash2 />
+        Supprimer mon compte
+      </button>
     </div>
   );
 };

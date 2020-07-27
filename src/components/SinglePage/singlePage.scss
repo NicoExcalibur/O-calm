@@ -12,33 +12,39 @@
   }
 
   .media-infos {
+    border-radius: 80% 20% 74% 26% / 39% 53% 47% 61% ;
+    background: linear-gradient(41deg, rgba(213,235,234,1) 0%, rgba(213,235,234,1) 61%, rgba(145,213,211,1) 79%);
     text-align: center;
     margin-top: 0.5rem;
+    padding-top: 8rem;
+
+    .fav {
+      margin-right: 32rem;
+      margin-top: 5rem;
+      position: absolute;
+      z-index: 2;
+      color: $redIsDead;
+      fill: white;
+      
+      &.fav--is-favorite {
+        fill: $redIsDead;
+      }
+  
+      &:hover {
+        cursor: pointer;
+      }
+    }
 
     .title {
       font-size: 1.5rem;
-      color: $mainBlue;
+      color: $darkBlue;
       font-weight: bold;
 
     }
 
-    .categories {
-      margin-top: 0.5rem;
-      display: flex;
-      justify-content: space-evenly;
-
-      .category {
-        background-color: $backHeader;
-        padding: 0.2rem;
-        border-radius: 1rem;
-        color: $mainColor;
-
-      }
-    }
-
     .author {
       margin-top: 0.5rem;
-      color: $mainColor;
+      color: $darkerBlue;
       font-weight: bold;
 
     }
@@ -52,17 +58,6 @@
     }
   }
 
-  .fav {
-    background-color: $fav;
-    border-style: none;
-    font-family: $quicksand;
-    color: white;
-    padding: 0.5rem;
-    display: block;
-    margin: auto;
-    border-radius: 1rem;
-
-  }
 }
 
 @media screen and (min-width: 1200px) {

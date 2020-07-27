@@ -32,16 +32,13 @@ const Media = ({
 
   const manageFavorites = () => {
     if (isFavorite === true) {
+      deleteFavorite();
       cssClass = 'fav fav--is-favorite';
     } if (isFavorite === false) {
+      sendFavorites();
       cssClass = 'fav';
     }
     addFavorite(video.id);
-    if (isFavorite === true) {
-      deleteFavorite();
-    } if (isFavorite === false) {
-      sendFavorites();
-    }
     importFavorites();
   };
 

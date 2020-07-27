@@ -1,6 +1,11 @@
 import { connect } from 'react-redux';
 
-import { addFavorite, sendFavorites, importFavorites, deleteFavorite } from 'src/actions/users';
+import {
+  addFavorite,
+  sendFavorites,
+  importFavorites,
+  deleteFavorite,
+} from 'src/actions/users';
 
 import Media from 'src/components/SlideMedia/Media';
 

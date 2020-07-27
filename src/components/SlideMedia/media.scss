@@ -19,6 +19,9 @@
       fill: $redIsDead;
     }
 
+    &:hover {
+      cursor: pointer;
+    }
   }
   
   .react-player {

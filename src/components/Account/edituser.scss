@@ -60,6 +60,7 @@
     text-align: left;
     font-size: 1.1rem;
     margin: 4rem;
+    margin-bottom: 2rem;
 
     .edit-my-info {
       text-align: center;
@@ -127,8 +128,8 @@
 
     .submit {
       border-style: none;
-      margin-left: 6rem;
-      margin-right: 6rem;
+      margin-left: 10rem;
+      margin-right: 10rem;
       color: $focus;
       background-color: white;
       font-family: $questrial;
@@ -151,6 +152,17 @@
       }
 
     }
+  }
+
+  .delete-user {
+    color: $delete;
+    background: none;
+    border: none;
+    font-family: $questrial;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+
   }
 }
 
