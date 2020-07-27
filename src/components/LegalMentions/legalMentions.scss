@@ -1,22 +1,47 @@
 @import 'src/styles/vars';
 
+@keyframes move {
+  0% {
+    border-radius: 68% 32% 53% 47% / 43% 21% 79% 57%;
+  }
+  25% {
+    border-radius: 25% 75% 14% 86% / 43% 37% 63% 57%;
+  }
+  50% {
+    border-radius: 80% 20% 75% 25% / 43% 37% 63% 57%;
+  }
+  75% {
+    border-radius: 21% 79% 33% 67% / 18% 70% 30% 82%;
+  }
+  100% {
+    border-radius: 68% 32% 53% 47% / 43% 21% 79% 57%;
+  }
+}
+
 .legal {
   text-align: center;
   margin: 1rem;
+  animation-name: move;
+  animation-duration: 20s;
+  animation-iteration-count: infinite;
+  background: linear-gradient(153deg, rgba(250,236,189,1) 0%, rgba(250,236,189,1) 34%, rgba(242,204,121,1) 59%, rgba(255,200,69,1) 98%);
 
   h1 {
     color: $darkBlue;
     font-weight: bold;
+    margin-bottom: 2rem;
 
   }
 
   h2 {
     color: $darkBlue;
     font-weight: bold;
+
   }
 
   p {
     margin-bottom: 5%;
+
   }
 }
 

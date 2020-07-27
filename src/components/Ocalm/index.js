@@ -7,7 +7,7 @@ import './ocalm.scss';
 import anim from 'src/assets/videos/animwelcome.mp4';
 
 const Ocalm = () => (
-  <div className="about">
+  <div className="ocalm">
     <div className="right-part">
       <ReactPlayer
         className="video"

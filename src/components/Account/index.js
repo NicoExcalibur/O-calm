@@ -33,7 +33,7 @@ const Account = ({ token, currentUser, updateValue }) => {
 
   let boolEdit = false;
 
-  const editResp = () => { 
+  const editResp = () => {
     if (editMobile === true) {
       boolEdit = true;
     }
@@ -46,17 +46,17 @@ const Account = ({ token, currentUser, updateValue }) => {
         <h2 className="account-name">
           Bonjour <em className="hey-you">{token.user_nicename}</em> !
         </h2>
-        {admin && (
-          <NavLink
-            to="/"
-            className="back"
-          >
-            Back Office
-          </NavLink>
-        )}
         <div className="avatar-editor">
           <UserAvatar className="avatar" name={currentUser.name} src={currentUser.avatar_urls[96]} size="10rem" />
         </div>
+        {admin && (
+          <a
+            href="http://ec2-100-25-192-123.compute-1.amazonaws.com/o-calm/wp/wp-admin/"
+            className="back"
+          >
+            Back Office
+          </a>
+        )}
       </div>
       <div className="edit-info">
         <h1 className="edit-title">Mes informations</h1>

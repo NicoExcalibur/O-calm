@@ -53,87 +53,89 @@ const Research = ({
   return (
     <div className="research">
       <div className="input-research">
-        <h2 className="research-title">Vous voulez rechercher par nom?</h2>
-        <form
-          className="input"
-          onSubmit={(event) => {
-            event.preventDefault();
-            saveCompare(setSearch(searchValue, videos));
-            let videoDisplay = compare;
-          }}
-        >
-          <input
-            type="search"
-            className="search-home"
-            placeholder="Rechercher un media"
-            value={searchValue}
-            onChange={(event) => {
-              saveSearch(event.currentTarget.value);
-            }}
-          />
-          <button type="submit" className="submit-search">
-            <Search />
-          </button>
-        </form>
-        <h2 className="research-title">Ou par catégorie, durée ou auteur?</h2>
-        <form
-          className="filters"
-          onSubmit={(event) => {
-            event.preventDefault();
-            startResearch();
-            let videoDisplay = select;
-            console.log(select);
-          }}
-        >
-          <select
-            className="categories"
-            onChange={(event) => {
-              categoryId = event.currentTarget.value;
+        <div className="bubble">
+          <h2 className="research-title">Vous voulez rechercher par nom?</h2>
+          <form
+            className="input"
+            onSubmit={(event) => {
+              event.preventDefault();
+              saveCompare(setSearch(searchValue, videos));
+              let videoDisplay = compare;
             }}
           >
-            <option value="">
-              Choisissez une catégorie
-            </option>
-            {categories.map((category) => (
-              <option key={category.id} value={category.id}>
-                {category.name}
-              </option>
-            ))}
-          </select>
-          <select
-            className="duration"
-            onChange={(event) => {
-              durationId = event.currentTarget.value;
+            <input
+              type="search"
+              className="search-home"
+              placeholder="Rechercher un media"
+              value={searchValue}
+              onChange={(event) => {
+                saveSearch(event.currentTarget.value);
+              }}
+            />
+            <button type="submit" className="submit-search">
+              <Search />
+            </button>
+          </form>
+          <h2 className="research-title">Ou par catégorie, durée ou auteur?</h2>
+          <form
+            className="filters"
+            onSubmit={(event) => {
+              event.preventDefault();
+              startResearch();
+              let videoDisplay = select;
+              console.log(select);
             }}
           >
-            <option value="">
-              Choisissez la durée de votre séance
-            </option>
-            {durations.map((duration) => (
-              <option key={duration.id} value={duration.id}>
-                {duration.name}
+            <select
+              className="categories"
+              onChange={(event) => {
+                categoryId = event.currentTarget.value;
+              }}
+            >
+              <option value="">
+                Choisissez une catégorie
               </option>
-            ))}
-          </select>
-          <select
-            className="author"
-            onChange={(event) => {
-              authorId = event.currentTarget.value;
-            }}
-          >
-            <option value="">
-              Choisissez l'auteur de votre choix
-            </option>
-            {authors.map((author) => (
-              <option key={author.id} value={author.id}>
-                {author.name}
+              {categories.map((category) => (
+                <option key={category.id} value={category.id}>
+                  {category.name}
+                </option>
+              ))}
+            </select>
+            <select
+              className="duration"
+              onChange={(event) => {
+                durationId = event.currentTarget.value;
+              }}
+            >
+              <option value="">
+                Choisissez la durée de votre séance
               </option>
-            ))}
-          </select>
-          <button type="submit" className="submit-filters">
-            Filtrer ma recherche
-          </button>
-        </form>
+              {durations.map((duration) => (
+                <option key={duration.id} value={duration.id}>
+                  {duration.name}
+                </option>
+              ))}
+            </select>
+            <select
+              className="author"
+              onChange={(event) => {
+                authorId = event.currentTarget.value;
+              }}
+            >
+              <option value="">
+                Choisissez l'auteur de votre choix
+              </option>
+              {authors.map((author) => (
+                <option key={author.id} value={author.id}>
+                  {author.name}
+                </option>
+              ))}
+            </select>
+            <button type="submit" className="submit-filters">
+              Filtrer ma recherche
+            </button>
+          </form>
+        </div>
       </div>
       <div className="result-container">
         <h2 className="results">

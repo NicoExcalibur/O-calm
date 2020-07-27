@@ -4,7 +4,6 @@
 
 .account {
   text-align: center;
-  z-index: 20;
 
   .account-name {
     margin: 2rem auto;
@@ -21,15 +20,30 @@
 
   .back {
     color: $darkBlue;
-    margin-top: 2rem;
     size: 1.5rem;
+    border-bottom: 2px solid $mainBlue;
+    font-weight: bold;
+
+    &:hover {
+      color: $backMedia;
+      border-bottom: 2px solid $backMedia;
+
+    }
+
+    &:active {
+      color: $backMedia;
+      border-bottom: 2px solid $backMedia;
+      
+    }
+
   }
+
 
   .avatar-editor {
     text-align: center;
     width: 50%;
     margin: auto;
-
+    margin-bottom: 2rem;
     
     .avatar {
       width: 10.5rem;
@@ -203,19 +217,25 @@
 
     .edit-info {
 
-  }
-}
+      .edit-title {
+        font-size: 2rem;
 
+      }
+
+    }
+  }
 }
 
 @media screen and (min-width: 1400px) {
   .account {
 
     .desktop {
+
       .avatar-editor {
 
         .avatar {
           margin-top: -6%;
+
         }
       }
     }

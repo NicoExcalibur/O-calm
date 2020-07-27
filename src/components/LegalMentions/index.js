@@ -4,7 +4,7 @@ import './legalMentions.scss';
 
 const LegalMentions = () => (
   <div className="legal">
-    <h1>Mentions de la légalité</h1>
+    <h1>Mentions légales</h1>
     <p>
       On sait que normalement sur un site on devrait citer nos mentions
       légales mais on fait ce travail pro bono les frères, on va pas les sortir
