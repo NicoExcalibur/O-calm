@@ -1,6 +1,4 @@
-
-import React, { useEffect } from 'react';
-import PropTypes from 'prop-types';
+import React from 'react';
 import { Power } from 'react-feather';
 import { NavLink } from 'react-router-dom';
 
@@ -39,8 +37,7 @@ const Menu = () => (
       Profil
     </NavLink>
     <a href="/" className="logout">
-      Déconnexion
-      <Power />
+      Déconnexion <Power size={12} />
     </a>
   </nav>
 );

@@ -37,8 +37,7 @@
     }
 
     .menu { 
-      display: none;  
-
+      display: none;
     }
 
 
@@ -53,7 +52,7 @@
         color: $darkBlue;
       }
 
-      .menu-burger{
+      .menu-burger {
         display: flex;
         flex-direction: column;
         font-size: 50px;
@@ -74,7 +73,7 @@
           margin-top: 20%;
         }
 
-        a{
+        a {
           margin-top: 1.5em;
 
           &.nav-active {
@@ -93,9 +92,10 @@
 
 
 @media screen and (min-width: 600px) {
-  .header {   
+  .header {
     .header-top {
       background-color: $backHeader;
+
       .input {
         width: 20%;
         background-color: white;
@@ -105,12 +105,13 @@
       .menu { 
         display: block;
         margin: auto;
-        
+        width: 80%;
+
         .nav {
-          margin-right: 10%;
+          margin-right: 5%;
           font-size: 1.2rem;
-          width: 80%;
-          
+
+
           &:hover {
             color: $darkBlue;
           }
@@ -122,11 +123,10 @@
 
         .logout {
           font-size: 0.8rem;
-          display: flex;   
+          display: inline-block;
 
           &:hover {
             color: $darkBlue;
-
           }
         }
       }
