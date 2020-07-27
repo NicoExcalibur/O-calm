@@ -199,14 +199,14 @@ const usersMiddleware = (store) => (next) => (action) => {
       const token = localStorage.getItem('token');
       const { updateValue } = store.getState().users;
       const verifySession = new Promise((resolve, reject) => {
-          axios({
-            method: 'post',
-            url: 'http://ec2-100-25-192-123.compute-1.amazonaws.com/o-calm/wp-json/wp/v2/users/me',
-            headers: { Authorization: `Bearer ${token}` },
-            data: { updateValue },
-          })
-            .then(resolve)
-            .catch(reject);
+        axios({
+          method: 'post',
+          url: 'http://ec2-100-25-192-123.compute-1.amazonaws.com/o-calm/wp-json/wp/v2/users/me',
+          headers: { Authorization: `Bearer ${token}` },
+          data: { updateValue },
+        })
+          .then(resolve)
+          .catch(reject);
       });
       verifySession
         .then((response) => {

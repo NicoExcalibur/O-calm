@@ -1,8 +1,6 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 
-import { getRandomValue } from 'src/utils';
-
 import SlideMedia from 'src/containers/SlideMedia';
 import './home.scss';
 
@@ -23,42 +21,21 @@ const Home = ({
     });
   };
   arrayCompare();
-  const firstSlide = getRandomValue(categories);
-  let secondSlide = getRandomValue(categories);
-  let thirdSlide = getRandomValue(categories);
-  const slideFunc = () => {
-    if (firstSlide.id === secondSlide.id) {
-      secondSlide = getRandomValue(categories);
-    } if (secondSlide.id === thirdSlide.id || thirdSlide.id === firstSlide.id) {
-      thirdSlide = getRandomValue(categories);
-    }
-  };
   useEffect(() => {
     userProfile();
     importFavorites();
   }, []);
-  slideFunc();
   return (
     <div className="home">
       <h1 className="hey">Qu'allez-vous écouter aujourd'hui <em>{token.user_nicename}</em> ?</h1>
-      <SlideMedia
-        key={firstSlide.id}
-        categoryId={firstSlide.id}
-        title={firstSlide.name}
-        {...videos}
-      />
-      <SlideMedia
-        key={secondSlide.id}
-        categoryId={secondSlide.id}
-        title={secondSlide.name}
-        {...videos}
-      />
-      <SlideMedia
-        key={thirdSlide.id}
-        categoryId={thirdSlide.id}
-        title={thirdSlide.name}
-        {...videos}
-      />
+      {categories.map((category) => (
+        <SlideMedia
+          key={category.id}
+          categoryId={category.id}
+          title={category.name}
+          {...videos}
+        />
+      ))}
     </div>
   );
 };
