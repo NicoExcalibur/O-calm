@@ -6,7 +6,7 @@ import { NavLink } from 'react-router-dom';
 import classNames from 'classnames';
 import { convertHTML, shortTitle } from 'src/utils';
 
-import thumbnail from "src/assets/images/thumbnail.png";
+import thumbnail from 'src/assets/images/thumbnail.png';
 
 import './media.scss';
 
@@ -58,7 +58,7 @@ const Media = ({
         height={120}
         {...video}
       />
-       <h3>{shortTitle(title)}</h3>
+      <h3>{shortTitle(title)}</h3>
       <NavLink
         className="play"
         to={`/player/${video.slug}`}

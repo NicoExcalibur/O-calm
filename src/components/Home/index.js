@@ -15,7 +15,7 @@ const Home = ({
 }) => {
   const arrayCompare = () => {
     users.forEach((user) => {
-      if (user.name == token.user_nicename) {
+      if (user.name === token.user_nicename) {
         setUser(user);
       }
     });
@@ -45,11 +45,7 @@ Home.propTypes = {
   userProfile: PropTypes.func.isRequired,
   videos: PropTypes.array.isRequired,
   users: PropTypes.array.isRequired,
-  token: PropTypes.objectOf(
-    PropTypes.shape({
-      user_nicename: PropTypes.string.isRequired,
-    }).isRequired,
-  ).isRequired,
+  token: PropTypes.object.isRequired,
   setUser: PropTypes.func.isRequired,
   categories: PropTypes.arrayOf(
     PropTypes.shape({

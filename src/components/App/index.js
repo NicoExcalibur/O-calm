@@ -3,9 +3,6 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Route, Redirect, Switch } from 'react-router-dom';
 
-import { compareUserArray, displayError } from 'src/utils';
-import { setErrors } from 'src/actions/errors';
-
 import Login from 'src/containers/Login';
 import Subscribe from 'src/containers/Subscribe';
 import Header from '../Header';

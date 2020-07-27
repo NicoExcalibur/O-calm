@@ -16,8 +16,6 @@ const Research = ({
   saveSearch,
   videos,
   saveCompare,
-  saveSelect,
-  select,
   favorites,
   sendFavorites,
   addFavorite,
@@ -31,28 +29,12 @@ const Research = ({
   research.category = '';
   research.author = '';
   research.duration = '';
-  // const videoDisplay = researchVideoDisplay(compare, researchResult);
-  // const provArray = [];
-  // const startResearch = () => {
-  //   videos.map((video) => {
-  //     video.video_categorie.forEach((element) => {
-  //       if (categoryId == element) {
-  //         provArray.push(video);
-  //       }
-  //     });
-  //     video.video_auteur.forEach((element) => {
-  //       if (authorId == element) {
-  //         provArray.push(video);
-  //       }
-  //     });
-  //     video.video_duree.forEach((element) => {
-  //       if (durationId == element) {
-  //         provArray.push(video);
-  //       }
-  //     });
-  //   });
-  //  saveSelect(provArray);
-  // };
+
+  const reset = () => {
+    document.getElementById('categories').value = '';
+    document.getElementById('duration').value = '';
+    document.getElementById('author').value = '';
+  };
 
   return (
     <div className="research">
@@ -63,10 +45,12 @@ const Research = ({
           onSubmit={(event) => {
             event.preventDefault();
             saveCompare(setSearch(searchValue, videos));
+            saveSearch('');
           }}
         >
           <input
             type="search"
+            id="search"
             className="search-home"
             placeholder="Rechercher un media"
             value={searchValue}
@@ -86,10 +70,12 @@ const Research = ({
             saveCompare('');
             saveResearch(research);
             sendResearch();
+            reset();
           }}
         >
           <select
             className="categories"
+            id="categories"
             onChange={(event) => {
               research.category = event.currentTarget.value;
             }}
@@ -105,6 +91,7 @@ const Research = ({
           </select>
           <select
             className="duration"
+            id="duration"
             onChange={(event) => {
               research.duration = event.currentTarget.value;
             }}
@@ -120,6 +107,7 @@ const Research = ({
           </select>
           <select
             className="author"
+            id="author"
             onChange={(event) => {
               research.author = event.currentTarget.value;
             }}
