@@ -6,6 +6,8 @@ import {
   SAVE_DURATIONS,
   SAVE_COMPARE,
   SAVE_SELECT,
+  SAVE_RESEARCH,
+  RESULT_RESEARCH,
 } from 'src/actions/videos';
 
 const initialState = {
@@ -16,6 +18,8 @@ const initialState = {
   searchValue: '',
   compare: [],
   select: [],
+  research: [],
+  researchResult: [],
 };
 
 const videos = (state = initialState, action = {}) => {
@@ -55,12 +59,24 @@ const videos = (state = initialState, action = {}) => {
         ...state,
         compare: action.compare,
       };
-    
+
     case SAVE_SELECT:
       return {
         ...state,
         select: action.value,
-      }
+      };
+
+    case SAVE_RESEARCH:
+      return {
+        ...state,
+        research: action.research,
+      };
+
+    case RESULT_RESEARCH:
+      return {
+        ...state,
+        researchResult: action.researchResult,
+      };
 
     default: return state;
   }

@@ -1,18 +1,14 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Edit } from 'react-feather';
-import { useMediaQuery } from '@material-ui/core';
 
 import EditUser from 'src/containers/Account/EditUser';
 import UserAvatar from 'react-user-avatar';
 import './account.scss';
-import { Route, NavLink, Switch } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
-const Account = ({ token, currentUser, updateValue }) => {
+const Account = ({ token, currentUser }) => {
   const [editBool, setEditBool] = useState(false);
-  const editMobile = useMediaQuery('(max-width:600px)');
-
-  console.log(currentUser);
 
   const openEdit = () => {
     setEditBool(true);
@@ -24,21 +20,12 @@ const Account = ({ token, currentUser, updateValue }) => {
   let admin = false;
   const adminBool = () => {
     currentUser.roles.forEach((role) => {
-      if (role == 'administrator') {
+      if (role === 'administrator') {
         admin = true;
       }
-    })
+    });
   };
   adminBool();
-
-  let boolEdit = false;
-
-  const editResp = () => {
-    if (editMobile === true) {
-      boolEdit = true;
-    }
-  };
-  editResp();
 
   return (
     <div className="account">
@@ -78,32 +65,6 @@ const Account = ({ token, currentUser, updateValue }) => {
             {editBool && (
               <EditUser closeEdit={closeEdit} />
             )}
-            {/* {boolEdit && (
-              <Route
-                path="/edit"
-                exact
-              >
-                <EditUser />
-              </Route>
-              <NavLink
-                to="/edit"
-              >
-                <Edit
-                  className="edit"
-                  size={30}
-                />
-              </NavLink>
-            );
-            {!boolEdit && (
-              <Edit
-                className="edit"
-                size={30}
-                onClick={openEdit}
-              />
-              {editBool && (
-                <EditUser closeEdit={closeEdit} />
-              )}
-            )} */}
           </a>
           <p className="edit-legend">
             modifier mon compte
@@ -115,14 +76,8 @@ const Account = ({ token, currentUser, updateValue }) => {
 };
 
 Account.propTypes = {
-  token: PropTypes.objectOf(
-    PropTypes.shape({
-      user_email: PropTypes.string.isRequired,
-      user_nicename: PropTypes.string.isRequired,
-    }).isRequired,
-  ).isRequired,
+  token: PropTypes.object.isRequired,
   currentUser: PropTypes.object.isRequired,
-  updateValue: PropTypes.object.isRequired,
 };
 
 export default Account;

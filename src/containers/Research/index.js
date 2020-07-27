@@ -1,8 +1,19 @@
 import { connect } from 'react-redux';
 
 import Research from 'src/components/Research';
-import { saveSearch, saveCompare, saveSelect } from 'src/actions/videos';
-import { addFavorite, sendFavorites, importFavorites, deleteFavorite } from 'src/actions/users';
+import {
+  saveSearch,
+  saveCompare,
+  saveSelect,
+  saveResearch,
+  sendResearch,
+} from 'src/actions/videos';
+import {
+  addFavorite,
+  sendFavorites,
+  importFavorites,
+  deleteFavorite,
+} from 'src/actions/users';
 
 const mapStateToProps = (state) => ({
   videos: state.videos.videos,
@@ -13,6 +24,7 @@ const mapStateToProps = (state) => ({
   searchValue: state.videos.searchValue,
   select: state.videos.select,
   favorites: state.users.favorites,
+  researchResult: state.videos.researchResult,
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -36,6 +48,12 @@ const mapDispatchToProps = (dispatch) => ({
   },
   deleteFavorite: () => {
     dispatch(deleteFavorite());
+  },
+  saveResearch: (research) => {
+    dispatch(saveResearch(research));
+  },
+  sendResearch: () => {
+    dispatch(sendResearch());
   },
 });
 

@@ -16,43 +16,30 @@ const Research = ({
   saveSearch,
   videos,
   saveCompare,
-  saveSelect,
-  select,
   favorites,
   sendFavorites,
   addFavorite,
   deleteFavorite,
   importFavorites,
+  sendResearch,
+  saveResearch,
+  researchResult,
 }) => {
-  let categoryId = '';
-  let authorId = '';
-  let durationId = '';
-  let videoDisplay = researchVideoDisplay(compare, select);
-  const provArray = [];
-  const startResearch = () => {
-    videos.map((video) => {
-      video.video_categorie.forEach((element) => {
-        if (categoryId == element) {
-          provArray.push(video);
-        } 
-      });
-      video.video_auteur.forEach((element) => {
-        if (authorId == element) {
-          provArray.push(video);
-        }
-      });
-      video.video_duree.forEach((element) => {
-        if (durationId == element) {
-          provArray.push(video);
-        }
-      });
-    });
-    saveSelect(provArray);
+  const research = {};
+  research.category = '';
+  research.author = '';
+  research.duration = '';
+
+  const reset = () => {
+    document.getElementById('categories').value = '';
+    document.getElementById('duration').value = '';
+    document.getElementById('author').value = '';
   };
 
   return (
     <div className="research">
       <div className="input-research">
+
         <div className="bubble">
           <h2 className="research-title">Vous voulez rechercher par nom?</h2>
           <form
@@ -84,6 +71,63 @@ const Research = ({
               startResearch();
               let videoDisplay = select;
               console.log(select);
+
+        <h2 className="research-title">Vous voulez rechercher par nom?</h2>
+        <form
+          className="input"
+          onSubmit={(event) => {
+            event.preventDefault();
+            saveCompare(setSearch(searchValue, videos));
+            saveSearch('');
+          }}
+        >
+          <input
+            type="search"
+            id="search"
+            className="search-home"
+            placeholder="Rechercher un media"
+            value={searchValue}
+            onChange={(event) => {
+              saveSearch(event.currentTarget.value);
+            }}
+          />
+          <button type="submit" className="submit-search">
+            <Search />
+          </button>
+        </form>
+        <h2 className="research-title">Ou par catégorie, durée ou auteur?</h2>
+        <form
+          className="filters"
+          onSubmit={(event) => {
+            event.preventDefault();
+            saveCompare('');
+            saveResearch(research);
+            sendResearch();
+            reset();
+          }}
+        >
+          <select
+            className="categories"
+            id="categories"
+            onChange={(event) => {
+              research.category = event.currentTarget.value;
+            }}
+          >
+            <option value="">
+              Choisissez une catégorie
+            </option>
+            {categories.map((category) => (
+              <option key={category.id} value={category.id}>
+                {category.name}
+              </option>
+            ))}
+          </select>
+          <select
+            className="duration"
+            id="duration"
+            onChange={(event) => {
+              research.duration = event.currentTarget.value;
+
             }}
           >
             <select
@@ -95,6 +139,7 @@ const Research = ({
               <option value="">
                 Choisissez une catégorie
               </option>
+
               {categories.map((category) => (
                 <option key={category.id} value={category.id}>
                   {category.name}
@@ -124,6 +169,23 @@ const Research = ({
             >
               <option value="">
                 Choisissez l'auteur de votre choix
+
+            ))}
+          </select>
+          <select
+            className="author"
+            id="author"
+            onChange={(event) => {
+              research.author = event.currentTarget.value;
+            }}
+          >
+            <option value="">
+              Choisissez l'auteur de votre choix
+            </option>
+            {authors.map((author) => (
+              <option key={author.id} value={author.id}>
+                {author.name}
+
               </option>
               {authors.map((author) => (
                 <option key={author.id} value={author.id}>
@@ -140,13 +202,13 @@ const Research = ({
       <div className="result-container">
         <h2 className="results">
           <em className="number">
-            {returnResults(videoDisplay)}
+            {returnResults(researchVideoDisplay(compare, researchResult))}
           </em>
           <br />
           résultats trouvés
         </h2>
         <div className="medias-results">
-          {videoDisplay.map((video) => (
+          {researchVideoDisplay(compare, researchResult).map((video) => (
             <Media
               key={video.id}
               importFavorites={importFavorites}
@@ -164,6 +226,9 @@ const Research = ({
 };
 
 Research.propTypes = {
+  researchResult: PropTypes.array.isRequired,
+  saveResearch: PropTypes.func.isRequired,
+  sendResearch: PropTypes.func.isRequired,
   importFavorites: PropTypes.func.isRequired,
   deleteFavorite: PropTypes.func.isRequired,
   sendFavorites: PropTypes.func.isRequired,
