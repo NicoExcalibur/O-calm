@@ -62,25 +62,39 @@ class Add_favorite {
   public function add_favorite($request = null) {
     // faire un if pour dire si on est connecté
     if (is_user_logged_in()) {
-        
+      global $wpdb;
+    
+      $this->wpdb = $wpdb;
+      $this->table = $wpdb->prefix . 'favorites';
       $response = [];
       $parameters = $request->get_json_params();
       $user_id = get_current_user_id();
       $post_id = intval($parameters['post_id']);
       $data = array( $user_id, $post_id);
+     
+      $verifyFav = $wpdb->get_results("SELECT * FROM {$this->table} WHERE user_id={$user_id} AND post_id={$post_id}");
 
-      if ($post_id !== 0) {
-        $response = new WP_REST_Response($data, 200);
-        $this->insert($user_id, $post_id, $response);
-      }
-      else{
+     //print_r($verifyFav); die(); // ici 
       
-        $response = new WP_REST_Response('pas de post',400); // pour que ça marche pour eux faux pull sur le serveur là on peut testé en local insomnia 
+
+
+
+      if(empty($verifyFav)) {
+          if ($post_id !== 0) {
+             $response = new WP_REST_Response($data, 200);
+              $this->insert($user_id, $post_id, $response);
+          } else {
+              $response = new WP_REST_Response('Le favori ne s\'est pas enregisté', 400);
+          }
+      } else {
+        $response = new WP_REST_Response('Vous avez déjà ce favori', 400);
       }
-    
+
       return $response;
     } 
   }
+
+
   // https://developer.wordpress.org/reference/classes/wpdb/
   public function insert($user_id, $post_id, $response) { 
 
