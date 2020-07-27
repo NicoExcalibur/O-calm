@@ -109,6 +109,7 @@
         .nav {
           margin-right: 10%;
           font-size: 1.2rem;
+          width: 80%;
           
           &:hover {
             color: $darkBlue;
@@ -121,9 +122,11 @@
 
         .logout {
           font-size: 0.8rem;
+          display: flex;   
 
           &:hover {
             color: $darkBlue;
+
           }
         }
       }
