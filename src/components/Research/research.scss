@@ -119,13 +119,13 @@
       .medias-results {
         width: 100%;
         padding-top: 1rem;
-        padding-right: 0.5rem;
-        padding-left: 0.5rem;
-
+        display: flex;
+        justify-content: space-evenly;
+        
         .media {
           text-align: center;
           width: 200px;
-          margin: auto;
+          margin: 1%;
         
         .react-player {
 
