@@ -79,7 +79,7 @@ $table_prefix = 'wp_';
  */
 
 // https://www.php.net/manual/fr/function.rtrim.php
-define( 'WP_HOME', rtrim('http://localhost/site/o-calm/', '/'));
+define( 'WP_HOME', rtrim('http://localhost/project-ocalm/o-calm/', '/'));
 define( 'WP_SITEURL', WP_HOME . '/wp');
 define( 'WP_CONTENT_URL', WP_HOME . '/content');
 define( 'WP_CONTENT_DIR', dirname( ABSPATH ) . '/content');
@@ -132,7 +132,7 @@ define('DISALLOW_FILE_EDIT', true); // Désactivation de l'éditeur embarqué de
 define('AUTOMATIC_UPDATER_DISABLED', true); // Désactivation des mises à jour automatiques de WordPress
 define('WP_AUTO_UPDATE_CORE', false); // Désactivation des mises à jour du cœur de WordPress
 
-// JWT Res API
+// JWT Rest API
 define('JWT_AUTH_SECRET_KEY', 'L8u_0cE*Gi XgfJ&$*e}|%Gb&)a+omFG{/+>6g_v)6s{- }L^|qlL9M)_H<,#=Tg');
 define('JWT_AUTH_CORS_ENABLE', true);
 /* That's all, stop editing! Happy publishing. */

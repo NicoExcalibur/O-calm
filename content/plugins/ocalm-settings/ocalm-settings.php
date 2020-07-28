@@ -42,12 +42,24 @@ register_deactivation_hook( __FILE__,[$add_favorite, 'deactivation']);
 $delete_account = new Delete_account();
 
 // Redirecting to the application from the back office
-add_action ('template_redirect', 'my_custom_redirect');
-function my_custom_redirect() {
+ add_action ('template_redirect', 'my_custom_redirect');
+ function my_custom_redirect() {
 
     $redirect = 'http://34.239.127.180/';
-    
+
     wp_redirect($redirect);
     exit;
 
-}      
+}
+
+// Remove useless default menus
+function remove_menus(){
+    
+    remove_menu_page( 'edit.php' );                 // Posts
+    remove_menu_page( 'edit.php?post_type=page' );  // Pages
+    remove_menu_page( 'edit-comments.php' );        // Comments
+    remove_menu_page( 'upload.php' );               // Media 
+}
+
+add_action( 'admin_menu', 'remove_menus' );
+
