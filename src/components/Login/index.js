@@ -1,13 +1,13 @@
 import React from 'react';
-import { NavLink, Route } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { ArrowRightCircle } from 'react-feather';
 
 import './login.scss';
-import Ocalm from '../Ocalm';
 import logo from 'src/assets/images/logo.png';
+// import Ocalm from '../Ocalm';
 
-const Login = ({ saveLogin, verifLogin, token }) => {
+const Login = ({ saveLogin, verifLogin }) => {
   const loginFormValue = [];
   const handleLogin = (event) => {
     const loginFormData = new FormData(event.currentTarget);
@@ -61,7 +61,6 @@ const Login = ({ saveLogin, verifLogin, token }) => {
 Login.propTypes = {
   saveLogin: PropTypes.func.isRequired,
   verifLogin: PropTypes.func.isRequired,
-  token: PropTypes.object.isRequired,
 };
 
 export default Login;

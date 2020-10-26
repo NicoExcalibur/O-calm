@@ -19,8 +19,7 @@ const Error404 = () => (
       <h1>404</h1>
       <h2>Page inexistante</h2>
       <p>
-        Vous avez tenté d'accéder à une page qui n'existe pas ou n'existe plus,
-        et nous sommes vraiment désolée pour cet incident.
+        Oups ! Vous avez tenté d'accéder à une page qui n'existe pas ou n'existe plus...
       </p>
       <NavLink
         to="/"

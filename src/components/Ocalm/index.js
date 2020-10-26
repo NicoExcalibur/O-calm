@@ -14,6 +14,7 @@ const Ocalm = () => (
         url={anim}
         width="100%"
         height="100%"
+        // eslint-disable-next-line react/jsx-boolean-value
         playing={true}
       />
     </div>
@@ -32,7 +33,7 @@ const Ocalm = () => (
         O'Calm, c'est une plateforme de streaming où vous trouverez un large éventail de vidéos 
         en rapport avec différents types de méditation, de yoga, ou encore des sons et musiques 
         relaxants. Pour l'instant nous utilisons des vidéos postées sur Youtube, avant de pouvoir proposer 
-        du contenu original. 
+        du contenu original.
       </p>
       <h3>O'Calm est entièrement gratuit</h3>
       <p className="why">
