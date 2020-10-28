@@ -14,12 +14,13 @@ import {
   resultResearch,
 } from 'src/actions/videos';
 import { getErrors } from 'src/actions/errors';
-// http://ec2-100-25-192-123.compute-1.amazonaws.com/o-calm/wp-json/wp/v2/video?video_categorie=3
+
+const apiUrl = 'http://ec2-100-26-220-146.compute-1.amazonaws.com';
 
 const videosMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
     case FETCH_VIDEOS: {
-      axios.get('http://ec2-100-25-192-123.compute-1.amazonaws.com/o-calm/wp-json/wp/v2/video?per_page=100')
+      axios.get(`${apiUrl}/o-calm/wp-json/wp/v2/video?per_page=100`)
         .then((response) => {
           store.dispatch(saveVideos(response.data));
         })
@@ -33,7 +34,7 @@ const videosMiddleware = (store) => (next) => (action) => {
     }
 
     case FETCH_CATEGORIES: {
-      axios.get('http://ec2-100-25-192-123.compute-1.amazonaws.com/o-calm/wp-json/wp/v2/video_categorie')
+      axios.get(`${apiUrl}/o-calm/wp-json/wp/v2/video_categorie`)
         .then((response) => {
           store.dispatch(saveCategories(response.data));
         })
@@ -47,7 +48,7 @@ const videosMiddleware = (store) => (next) => (action) => {
     }
 
     case FETCH_AUTHORS: {
-      axios.get('http://ec2-100-25-192-123.compute-1.amazonaws.com/o-calm/wp-json/wp/v2/video_auteur')
+      axios.get(`${apiUrl}/o-calm/wp-json/wp/v2/video_auteur`)
         .then((response) => {
           store.dispatch(saveAuthors(response.data));
         })
@@ -61,7 +62,7 @@ const videosMiddleware = (store) => (next) => (action) => {
     }
 
     case FETCH_DURATIONS: {
-      axios.get('http://ec2-100-25-192-123.compute-1.amazonaws.com/o-calm/wp-json/wp/v2/video_duree?orderby=id')
+      axios.get(`${apiUrl}/o-calm/wp-json/wp/v2/video_duree?orderby=id`)
         .then((response) => {
           store.dispatch(saveDurations(response.data));
         })
@@ -79,7 +80,7 @@ const videosMiddleware = (store) => (next) => (action) => {
       const category = research.category;
       const author = research.author;
       const duration = research.duration;
-      axios.get(`http://ec2-100-25-192-123.compute-1.amazonaws.com/o-calm/wp-json/wp/v2/video?video_categorie=${category}&video_auteur=${author}&video_duree=${duration}`)
+      axios.get(`${apiUrl}/o-calm/wp-json/wp/v2/video?video_categorie=${category}&video_auteur=${author}&video_duree=${duration}`)
         .then((response) => {
           store.dispatch(resultResearch(response.data));
         })
