@@ -2,6 +2,7 @@
 
 ## Présentation du projet : 
 O’Calm est une plateforme de streaming audio et vidéo orientée vers la relaxation, s’adressant à tout type de public. 
+- Présentation vidéo du projet : https://youtu.be/sSp3eACAeU0?t=3371
 
 ## Définir les besoins et objectifs : 
 
@@ -71,6 +72,4 @@ O’Calm est une plateforme de streaming audio et vidéo orientée vers la relax
 * lead dev back => *Vincent*
 * lead dev front => *Axel*
 * git master => *Nicolas*
-
-Lien du Trello : 
-https://trello.com/invite/b/Wrl0LSUB/86fb800c046a4442d53062a495a860bb/ocalm   
+ 
