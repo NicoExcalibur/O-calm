@@ -1,14 +1,7 @@
 # o-calm
 
-Cahier des charges
-
 ## Présentation du projet : 
 O’Calm est une plateforme de streaming audio et vidéo orientée vers la relaxation, s’adressant à tout type de public. 
-
-### Références : 
-Christophe André,
-Eckhart Tolle, ...
-Youtube 
 
 ## Définir les besoins et objectifs : 
 
@@ -19,24 +12,6 @@ Youtube
 * inscription -> rôles / admin / qui peut poster un son ou pas 
 * pistes à télécharger / hors ligne ? 
 * interface utilisateur -> profil (modifier/supprimer) / playlists / favoris
-
-## MVP (minimum viable product) : 
-L’utilisateur peut rechercher un média sur la page d’accueil et dans un onglet “Parcourir” 
-L’utilisateur peut parcourir les différentes catégories dans l’onglet “Parcourir”
-L’utilisateur peut cliquer puis accéder à des sons et vidéos via des liens
-L’utilisateur peut ajouter des médias à ses favoris via un petit “coeur”, puis les consulter dans l’onglet “Favoris”
-L’utilisateur peut se créer un compte, se connecter / déconnecter et supprimer son compte
-
-## CATÉGORIES DU SITE : 
-* Méditation
- * méditation guidée
- * méditation active
- * méditation passive
-* Yoga
- * thérapeutique
-* Musique & Sons  Relaxants
- * Nature
- * Zen
 
 ## Fonctionnalités : 
 
@@ -52,13 +27,6 @@ L’utilisateur peut se créer un compte, se connecter / déconnecter et supprim
 * voir les derniers morceaux et dernières vidéos écoutées/visionnées
 * ajouter des vidéos en favoris
 
-### ADMINISTRATEUR : 
-
-* tout ce que les users peuvent faire
-* gérer les users (modifier/créer/supprimer)
-* gérer les contenus (ajouter/modifier/supprimer)
-* gérer les rôles
-
 ## Technos :
 
  | WORDPRESS:| REACT:|
@@ -70,10 +38,6 @@ L’utilisateur peut se créer un compte, se connecter / déconnecter et supprim
 |acf||
 |REST API||
 |custom table||
-
-## Cible du projet (qui que ça concerne) :
-
-TOUT LE MONDE en recherche de relaxation et de bien-être intérieur. RENTRER DANS LE ZEN
 
 ### Possibles évolutions : 
 
